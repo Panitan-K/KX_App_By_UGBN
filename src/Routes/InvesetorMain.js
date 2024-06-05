@@ -14,13 +14,13 @@ function InvestorMain() {
       <div className='InvestorProfile'>
         <img src={PersonIcon} alt="Welcome" className='InvestorIcon' />
         <div className='InvestorNameBox'>
-          <h2 style={{ lineHeight: "2vh" }}>Investor FirstName</h2>
-          <h2>Investor Surname</h2>
+          <h2 style={{ lineHeight: "0.5vh" }}>Kriangkai</h2>
+          <h2>Limthong</h2>
         </div>
       </div>
 
       <div className='BalanceBox'>
-        <p style={{ lineHeight: "1vh", fontSize: "10vw", marginBlockStart: "5vh",marginBlockEnd: "3vh" }}>Account Balance</p>
+        <p style={{ lineHeight: "1vh", fontSize: "10vw", marginBlockStart: "8vh",marginBlockEnd: "3vh" }}>Account Balance</p>
         <p className='Cash' style={{  marginBlockStart: "0vh", marginBlockEnd: "2vh" }}>250 K</p>
         <span style={{ lineHeight: "0vh", marginBlockStart: "1vh", fontSize: "5vw" }}>
           <span>Total </span>

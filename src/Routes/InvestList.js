@@ -21,7 +21,7 @@ function InvestList() {
         <div className='AppWithHeaderContent'>
 
             <div className='StartupsInfoBlocks' onClick={() => navigate('/StartupInfo')} >
-                <img src={U16_9} alt="Welcome" className='InvestorIcon' />
+                <img src={U16_9} alt="Welcome"/>
                 <table className='StartupTable'>
                     <tr>
                         <td>Startup</td>
@@ -38,7 +38,7 @@ function InvestList() {
                 </table>
             </div>
             <div className='StartupsInfoBlocks'>
-                <img src={Scam} alt="Welcome" className='InvestorIcon' />
+                <img src={Scam} alt="Welcome"/>
                 <table className='StartupTable'>
                     <tr>
                         <td>Startup</td>
@@ -55,7 +55,7 @@ function InvestList() {
                 </table>
             </div>
             <div className='StartupsInfoBlocks'>
-                <img src={IMG_16_9} alt="Welcome" className='InvestorIcon' />
+                <img src={IMG_16_9} alt="Welcome"/>
                 <table className='StartupTable'>
                     <tr>
                         <td>Startup</td>

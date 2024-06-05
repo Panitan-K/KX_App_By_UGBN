@@ -448,7 +448,7 @@ input::placeholder {
   height: 11.7vh;
  
   justify-content: center;
-  padding: 0vw;
+
   
 }
 
@@ -456,13 +456,14 @@ input::placeholder {
   height: 11.7vh;
   /*border: 1px solid #9f0707;  */
   margin-top: 0vh;
-  margin-left: 6vw;
+  margin-left: 10vw;
   text-align: left;
   justify-content:first baseline;
+  font-size: 6vw;
 }
 
 .InvestorIcon {
-  height:11.7vh;
+  height:14vh;
 }
 
 .StartupsBlocks{
@@ -495,6 +496,7 @@ input::placeholder {
   margin-bottom: 1vh;
   padding: 5vw;
   padding-top: 10vw;
+  
 }
 
 .StartupsInfoBlocks img {
@@ -504,10 +506,72 @@ input::placeholder {
 }
 
 .StartupTable {
+  width: 80vw;
   margin-top: 2vh;
   padding-left: 5vw;
   color: white;
   text-align: left; 
   font-size: 5vw;
   font-weight: bold;
+
 }
+
+/*         ****************************                    */
+
+.StartupsInfoBlocks2{
+   
+  align-items: center;
+  border-radius: 10vw;
+ 
+  padding-bottom: 30vh;
+
+
+  
+}
+
+.StartupsInfoBlocks2 img {
+  width: 90vw;
+ 
+  
+}
+
+.StartupTable2 {
+  width: 80vw;
+  margin-top: 2vh;
+  padding-left: 5vw;
+  color: var(--KXB);
+  text-align: left; 
+  font-size: 5vw;
+  font-weight: bold;
+ 
+}
+
+.appleInputContainer {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.appleInputLabel {
+ 
+  color: #000000;
+  margin-bottom: 5px;
+}
+
+.appleInput {
+  padding: 3vw;
+  padding-top: 2vh;
+  width: 100%;
+  height: 45vh;
+  color : white;
+  font-weight: bold;
+  border: 1px solid #d1d1d6;
+  border-radius: 10px;
+  background-color: var(--KXB);
+  outline: none;
+  transition: border-color 0.3s ease;
+  padding-bottom: 10vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubu;
+  overflow: hidden;
+}
+
