@@ -14,7 +14,7 @@ import Register from './Routes/Register';
 import Login from './Routes/Login';
 import InvestList from './Routes/InvestList';
 import StartupInfo from './Routes/StartupInfo';
-
+import Invest from './Routes/Invest';
 const router = createBrowserRouter([
 
   {
@@ -31,6 +31,11 @@ const router = createBrowserRouter([
     path: "/InvestList",
     errorElement:<Err/>,
     element:<InvestList/>
+  },
+  {
+    path: "/Invest",
+    errorElement:<Err/>,
+    element:<Invest/>
   },
   {
     path: "/StartupInfo",

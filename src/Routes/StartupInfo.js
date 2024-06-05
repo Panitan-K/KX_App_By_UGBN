@@ -54,7 +54,7 @@ function StartupInfo() {
                     </tr>
                 </table>
                 
-                <button className='InvestButton' onClick={() => navigate('/InvestList')} >INVEST NOW</button>
+                <button className='InvestButton' onClick={() => navigate('/Invest')} >INVEST IN Uphasia</button>
             </div>
             
          

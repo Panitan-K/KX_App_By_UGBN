@@ -1,7 +1,7 @@
 :root {
   --KXB : #545658;
   --MahidolBlue: #0080ff;
-  --BGC : #F5F5F5;
+  --BGC :   #F5F5F5;
   --UphasiaGreen : #17AA7C;
 }
 .App {
@@ -88,7 +88,7 @@ text-align: center;
 }
 
 .static-bar img {
-  margin-right: 20vw;
+  margin-right: 10vw;
 }
 
 
@@ -424,7 +424,7 @@ input::placeholder {
 .InvestButton{
   margin-top: 5vh;
   width: 63.5vw; 
-  height: 7.6vh; 
+  
   font-size: 7vw;
   font-weight: bold;
   color: #079F16;
@@ -575,3 +575,72 @@ input::placeholder {
   overflow: hidden;
 }
 
+.ValueSpan {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80vw; /* Adjust the width as needed */
+}
+
+.ValueSpan img {
+  width: 12vw; /* Adjust the size of the images as needed */
+  height: 12vw; /* Adjust the size of the images as needed */
+}
+
+.ValueSpan h1 {
+  color:#079F16;
+  margin: 0;
+  font-size: 15vw; /* Adjust the font size as needed */
+  text-align: center;
+  flex-grow: 1;
+}
+.ValueSpanContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.volume-slider {
+  position: relative;
+}
+
+.A-Slider {
+  position: absolute;
+
+  top: 105vh;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1; /* Ensures the Slider is above the volume-slider */
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 80vw;
+  height: 13.5vh;
+
+
+  outline: none;
+
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #26652800;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  cursor: pointer;
+}
