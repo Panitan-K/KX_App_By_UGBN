@@ -7,11 +7,12 @@ import {
 
 import './index.css';
 import InvestorMain from './Routes/InvesetorMain';
-import Home from './Routes/Home';
+
 import Err from './Routes/Err';
 import Welcome from './Routes/Welcome';
 import Register from './Routes/Register';
 import Login from './Routes/Login';
+import InvestList from './Routes/InvestList';
 
 const router = createBrowserRouter([
 
@@ -26,14 +27,14 @@ const router = createBrowserRouter([
     element:<Register/>
   },
   {
+    path: "/InvestList",
+    errorElement:<Err/>,
+    element:<InvestList/>
+  },
+  {
     path: "/Login",
     errorElement:<Err />,
     element:<Login/>
-  },
-  {
-    path: "/Home",
-    errorElement: <Err />,
-    element:  <Home/>,
   },
   {
     path: "/InvestorMain",

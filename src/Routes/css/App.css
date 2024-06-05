@@ -1,6 +1,6 @@
 :root {
   --KXB : #545658;
-  --MahidolBlue: #007af4;
+  --MahidolBlue: #0080ff;
   --BGC : #F5F5F5;
   --UphasiaGreen : #17AA7C;
 }
@@ -47,55 +47,48 @@
   margin: 0 auto; /* Center content horizontally */
 }
 
+.AppWithHeaderContent{
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 5vh;
+  margin-top: 10vh;
+}
 /* App.css */
 
 .static-bar {
 position: fixed;
 width: 100vw;
-
-
-color: #fff;
+height: 10vh;
+background-color: var(--KXB);
 display: flex;
 align-items: center;
 z-index: 2;
-padding-top: 5vh;
-padding-left: 2vw;
-padding-right: 2vw;
+padding-left: 5vw;
 display: flex;
-justify-content: space-between;
+text-align: center;
 
 
 
+/*
 @media screen and (min-width: 1024px) {
-  /*eight: 10vw; */ /*  iPads  */
+
 }
 
 @media screen and (max-height: 600px) {
-  height: 5vw; /* laptops */
-}
+  height: 5vw; 
+}*/
 
 }
 
-.title-image {
-
-
-width: 15vw;
-
+.static-bar p {
+  color: #FFFFFF;
+  font-size: 4vh;
+  font-weight: bold;
 
 }
 
-.left-content {
-
-align-items: center;
-
-margin-left: 5vw;
-}
-
-.Middle-content{
-
-  color: var(--MahidolBlue);
-   -size: 1.5vw;
-
+.static-bar img {
+  margin-right: 20vw;
 }
 
 
@@ -119,9 +112,6 @@ margin-right: 5vw;
 
 }
 
-
-
-
 .ProfileText{
 margin-left: 10%; /* Adjust the space between the SVG and the text */
 color: white;
@@ -132,6 +122,7 @@ padding-right: 5%;
 font-size: 1.5vw;
 
 }
+
 .UserIcon{
 width: 20%;
 margin-left: 10%;
@@ -149,9 +140,6 @@ margin-left: 10%;
   border-radius: 5%;
   box-shadow: 0 0 1vw rgba(0, 0, 0, 0.5); 
 }
-
-
-
 
 .modetab {
 
@@ -183,40 +171,6 @@ font-weight: bold;
 
 }
 
-}
-
-.sidebar-option {
-
-height: 4.5vw;
-
-margin-bottom: 0.5vw;
-padding: 0.1vw;
-color: var(--MahidolBlue);
-cursor: pointer;
-justify-content: center;
-display: flex;
-align-items: center;
-border: 0.5vw solid var(--MahidolBlue); /* Add a blue border */
-border-radius: 5%;
-font-size: 1.2vw;
-}
-
-.sidebar-option.active {
-background-color: #5e99f808;
-}
-
-.sidebar-option:hover {
-
-color: white;
-background-color: var(--MahidolBlue);
-}
-
-.Dashboard {
-margin-top: 22vh;
-background-color: var(--BGC);
-display: flex;
-overflow-x: hidden;
-justify-content: center;
 }
 
 
@@ -302,11 +256,11 @@ background-color: #ffffff;
   margin-top: 5vh;
 }
 
-.LogRegbox1, .LogRegbox2 {
+.LogRegbox1{
   margin-top: 3.2vh;
   width: 76vw;
   height: 11.5vh;
-  
+  background-color: var(--KXB);
   border: none;
   cursor: pointer;
   font-size: 8vw;
@@ -315,7 +269,7 @@ background-color: #ffffff;
 }
 
 .LogRegbox1 {
-  background-color: var(--MahidolBlue);
+  background-color: var(--KXB);
   color: white;
   transition: color 1s ease;
   transition: background-color 0.3s ease, color 0.0s ease; 
@@ -462,7 +416,7 @@ input::placeholder {
   margin-block-end: 1vh;
 }*/
 .Cash{
-  font-size: 90px;
+  font-size: 20vw;
   font-weight:bolder;
   color: #079F16;
 }
@@ -471,7 +425,7 @@ input::placeholder {
   margin-top: 5vh;
   width: 63.5vw; 
   height: 7.6vh; 
-  font-size: 32px;
+  font-size: 7vw;
   font-weight: bold;
   color: #079F16;
   border: 10px solid #079F16;    
@@ -530,4 +484,30 @@ input::placeholder {
   font-size: 6vw;
   font-weight: bold;
   margin-left: 2vw;
+}
+
+.StartupsInfoBlocks{
+  background-color: var(--KXB);
+  
+   
+  align-items: center;
+  border-radius: 10vw;
+  margin-bottom: 1vh;
+  padding: 5vw;
+  padding-top: 10vw;
+}
+
+.StartupsInfoBlocks img {
+  width: 75vw;
+  height: 42.1875vw;
+  border-radius: 10vw;
+}
+
+.StartupTable {
+  margin-top: 2vh;
+  padding-left: 5vw;
+  color: white;
+  text-align: left; 
+  font-size: 5vw;
+  font-weight: bold;
 }

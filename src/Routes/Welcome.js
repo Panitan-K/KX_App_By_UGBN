@@ -7,27 +7,17 @@ import { useNavigate} from "react-router-dom";
 function Welcome() {
   const navigate = useNavigate();
 
-
-
-
-
-  
-
     return (
        /* STATIC BAR */
        <div className="AppMain">
-       <div className="welcome-container">
-     
-      <img src={Title} alt="Welcome" className='UphasiaMiddleLogo'/>
+        <div className="welcome-container">
+        <img src={Title} alt="Welcome" className='UphasiaMiddleLogo'/>
+          <div className="LogRegContainer">
+            <button className='LogRegbox1' onClick={() => navigate('/InvestorMain')}>INVESTORS</button>
+            <button className='LogRegbox1' onClick={() => navigate('/Register')}>STARTUPS</button>
+          </div>
 
-      <div className="LogRegContainer">
-        <button className='LogRegbox1' onClick={() => navigate('/InvestorMain')}>INVESTORS</button>
-        <button className='LogRegbox1' onClick={() => navigate('/Register')}>STARTUPS</button>
-      </div>
-     </div>
-
-        
-
+        </div>
       </div>
     );
   }

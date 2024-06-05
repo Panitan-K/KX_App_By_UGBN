@@ -31,16 +31,23 @@ function InvestorMain() {
         </span>
       </div>
 
-      <button className='InvestButton' onClick={() => navigate('/Home')} >INVEST NOW</button>
+      <button className='InvestButton' onClick={() => navigate('/InvestList')} >INVEST NOW</button>
       <div className="PortfolioBox" >
         <h1>Portfolio</h1>
+
         <div className='StartupsBlocks'>
-      <img src={StartupIcon} alt="Welcome" className='InvestorIcon' />
-      <p>Startup_Name</p>
+          <img src={StartupIcon} alt="Welcome" className='InvestorIcon' />
+          <p>Startup_Name</p>
         </div>
+
         <div className='StartupsBlocks'>
-      <img src={StartupIcon} alt="Welcome" className='InvestorIcon' />
-      <p>Startup_Name</p>
+          <img src={StartupIcon} alt="Welcome" className='InvestorIcon' />
+          <p>Startup_Name</p>
+        </div>
+        
+        <div className='StartupsBlocks'>
+          <img src={StartupIcon} alt="Welcome" className='InvestorIcon' />
+          <p>Startup_Name</p>
         </div>
       </div>
 
