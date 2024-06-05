@@ -15,7 +15,7 @@ function Invest() {
     const navigate = useNavigate();
     const [capital, setCapital] = useState(100);
     const [ROI, setROI] = useState(15.0);
-
+    const [content,setContent] = useState("");
     const handleChange = (e) => {
         setRisk(e.target.value);
     };
@@ -44,6 +44,10 @@ function Invest() {
         console.log("Capital :",  capital)
         console.log("ROI :" ,ROI)
         console.log("risk :" ,risk)
+        console.log("Content :",content)
+    }
+    const handleContent = (e) =>{ 
+        setContent(e.target.value)
     }
     return (
 
@@ -95,7 +99,18 @@ function Invest() {
                         />
                         
                         </div>
-                        <button className='InvestButton' onClick={() => HandleInvest()} >INVEST ME</button>
+                        <h2>Why would you invest in this company</h2>
+                        <div className="appleInputContainer2">
+                          
+                            <textarea
+                            type="text"
+                            className="appleInput2"
+                            value={content}
+                            onChange={handleContent}
+                        
+                            />
+                        </div>
+                        <button className='InvestButton' onClick={() => HandleInvest()} >INVEST</button>
                     </div>
                 
             </div>

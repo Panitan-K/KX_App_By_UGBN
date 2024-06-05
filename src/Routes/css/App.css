@@ -551,6 +551,11 @@ input::placeholder {
   flex-direction: column;
 
 }
+.appleInputContainer2 {
+  display: flex;
+  flex-direction: column;
+
+}
 
 .appleInputLabel {
  
@@ -568,6 +573,23 @@ input::placeholder {
   border: 1px solid #d1d1d6;
   border-radius: 10px;
   background-color: var(--KXB);
+  outline: none;
+  transition: border-color 0.3s ease;
+  padding-bottom: 10vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubu;
+  overflow: hidden;
+}
+.appleInput2 {
+  padding: 3vw;
+  padding-top: 2vh;
+  width: 80vw;
+  font-size: 4vw;
+  height: 15vh;
+  color : rgb(0, 0, 0);
+  font-weight: bold;
+  border: 1vw solid #d1d1d6;
+  border-radius: 10px;
+  background-color: white;
   outline: none;
   transition: border-color 0.3s ease;
   padding-bottom: 10vh;
@@ -607,10 +629,10 @@ input::placeholder {
 .A-Slider {
   position: absolute;
 
-  top: 105vh;
+  top: 208vw;
   left: 0;
   width: 100%;
-  height: 100%;
+
   z-index: 1; /* Ensures the Slider is above the volume-slider */
 }
 
@@ -618,7 +640,7 @@ input::placeholder {
   -webkit-appearance: none;
   appearance: none;
   width: 80vw;
-  height: 13.5vh;
+  height: 30vw;
 
 
   outline: none;
