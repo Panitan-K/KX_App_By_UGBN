@@ -8,6 +8,7 @@ import {
 import './index.css';
 import InvestorMain from './Routes/InvesetorMain';
 
+
 import Err from './Routes/Err';
 import Welcome from './Routes/Welcome';
 import Register from './Routes/Register';
@@ -15,6 +16,7 @@ import Login from './Routes/Login';
 import InvestList from './Routes/InvestList';
 import StartupInfo from './Routes/StartupInfo';
 import Invest from './Routes/Invest';
+import Startup from './Routes/Startup';
 const router = createBrowserRouter([
 
   {
@@ -36,6 +38,11 @@ const router = createBrowserRouter([
     path: "/Invest",
     errorElement:<Err/>,
     element:<Invest/>
+  },
+  {
+    path: "/Startup",
+    errorElement:<Err/>,
+    element:<Startup/>
   },
   {
     path: "/StartupInfo",

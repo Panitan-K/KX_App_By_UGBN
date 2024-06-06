@@ -6,7 +6,7 @@ import plus from "./image/svg/plusicon.png"
 import minus from "./image/svg/minusicon.png"
 import Revert from "./image/svg/Revert.png"
 import riskslider from "./image/svg/RiskSlider.png"
-
+import RiskChart from "./RiskChart.js"
 
 
 function Invest() {
@@ -60,7 +60,7 @@ function Invest() {
         
         <div className='AppWithHeaderContent'>
 
-            <div className='StartupsInfoBlocks2'>
+            <div className='StartupsInfoBlocks3'>
                 <img src={U16_9} alt="Welcome"/>
                 <h1>You are investing in Uphasia</h1>
                 
@@ -82,7 +82,7 @@ function Invest() {
                     </div>
                     </div>
                     <h1>Investor's Evaluated Risk</h1>
-                    <div >
+                    <div>
                         <div className="volume-slider">
                             <img src={riskslider} alt="Welcome" /></div>
                         </div>

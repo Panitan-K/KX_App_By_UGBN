@@ -487,6 +487,28 @@ input::placeholder {
   margin-left: 2vw;
 }
 
+.InvestorBlocks{
+  background-color: #c0c0c0;
+  display: flex;
+
+  align-items: center;
+  border-radius: 10vw;
+  margin-bottom: 1vh;
+}
+.InvestorBlocks img{
+  width: 4vh;
+  height: 4vh;
+  padding: 3vw;
+  padding-left: 8vw;
+}
+
+.InvestorBlocks p {
+  color: rgb(0, 0, 0);
+  font-size: 6vw;
+  font-weight: bold;
+  margin-left: 2vw;
+}
+
 .StartupsInfoBlocks{
   background-color: var(--KXB);
   
@@ -525,8 +547,6 @@ input::placeholder {
  
   padding-bottom: 30vh;
 
-
-  
 }
 
 .StartupsInfoBlocks2 img {
@@ -535,6 +555,19 @@ input::placeholder {
   
 }
 
+.StartupsInfoBlocks3{
+   
+  align-items: center;
+  border-radius: 10vw;
+ 
+ 
+
+}
+
+.StartupsInfoBlocks3 img {
+  width: 90vw;
+
+}
 .StartupTable2 {
   width: 80vw;
   margin-top: 2vh;

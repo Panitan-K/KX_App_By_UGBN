@@ -14,7 +14,7 @@ function Welcome() {
         <img src={Title} alt="Welcome" className='UphasiaMiddleLogo'/>
           <div className="LogRegContainer">
             <button className='LogRegbox1' onClick={() => navigate('/InvestorMain')}>INVESTORS</button>
-            <button className='LogRegbox1' onClick={() => navigate('/Register')}>STARTUPS</button>
+            <button className='LogRegbox1' onClick={() => navigate('/Startup')}>STARTUPS</button>
           </div>
 
         </div>
