@@ -1,0 +1,62 @@
+.donut-chart-container {
+    position: relative;
+    width: 400px; /* Adjust as needed */
+    height: 400px; /* Adjust as needed */
+    margin: auto; /* Center the container */
+}
+
+.DonutIndicator {
+    position: absolute;
+    top: 130vw; /* Adjust as needed */
+    left: 50%; /* Adjust as needed */
+    transform: translate(-50%, -50%); /* Center the element */
+    background: rgba(255, 255, 255, 0); /* Semi-transparent background */
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.volume-slider {
+    position: relative;
+  }
+  
+  .A-Slider {
+    position: absolute;
+    background-color: rgba(255, 0, 0, 0);
+    top: 111.5%;
+    left: 0;
+    width: 100%;
+  
+    z-index: 1; /* Ensures the Slider is above the volume-slider */
+  }
+  
+  .slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 80vw;
+    height: 30vw;
+  
+  
+    outline: none;
+  
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #26652800;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #4CAF50;
+    cursor: pointer;
+  }

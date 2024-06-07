@@ -1,4 +1,4 @@
-import './css/App.css';
+import './css/Chart.css';
 import React, { useState } from 'react';
 
 import riskslider from "./image/svg/RiskSlider.png";
@@ -22,6 +22,7 @@ function RiskChart() {
     return (
         <div>
             <h1>Investor's Evaluated Risk</h1>
+            <div className="risk-chart-container">
             <div>
                 <div className="volume-slider">
                     <img src={riskslider} alt="Risk Slider" />
@@ -39,7 +40,7 @@ function RiskChart() {
                     style={{ background: getTrackColor() }}
                 />
             </div>
-           
+        </div>
             
         </div>
     );

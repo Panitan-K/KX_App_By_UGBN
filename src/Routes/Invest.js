@@ -97,7 +97,7 @@ function Invest() {
                             onChange={handleChange}
                             style={{ background: getTrackColor() }}
                         />
-                        
+                  
                         </div>
                         <h2>Why would you invest in this company</h2>
                         <div className="appleInputContainer2">
@@ -111,6 +111,8 @@ function Invest() {
                             />
                         </div>
                         <button className='InvestButton' onClick={() => HandleInvest()} >INVEST</button>
+
+                   
                     </div>
                 
             </div>
