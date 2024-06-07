@@ -1,0 +1,26 @@
+[
+    {
+        "Company Name": "A",
+        "Total Invest": "5",
+        "EstRisk": "80",
+        "EstROI": "20"
+    },
+    {
+        "Company Name": "B",
+        "Total Invest": "7.5",
+        "EstRisk": "77",
+        "EstROI": "30"
+    },
+    {
+        "Company Name": "C",
+        "Total Invest": "4.5",
+        "EstRisk": "50",
+        "EstROI": "15"
+    },
+    {
+        "Company Name": "D",
+        "Total Invest": "15",
+        "EstRisk": "100",
+        "EstROI": "30"
+    }
+]
