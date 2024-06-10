@@ -15,7 +15,8 @@ function Welcome() {
           <div className="LogRegContainer">
             <button className='LogRegbox1' onClick={() => navigate('/InvestorMain')}>INVESTORS</button>
             <button className='LogRegbox1' onClick={() => navigate('/Startup')}>STARTUPS</button>
-          </div>
+              <button className='LogRegbox1' onClick={() => navigate('/Startup')}>GUEST</button>
+            </div>
 
         </div>
       </div>

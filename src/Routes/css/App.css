@@ -4,6 +4,24 @@
   --BGC :   #F5F5F5;
   --UphasiaGreen : #17AA7C;
 }
+
+/* Importing Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');
+
+/* Apply the font to the entire website */
+body {
+    font-family: 'Kanit', sans-serif;
+}
+
+/* Ensure consistency across common elements */
+h1, h2, h3, h4, h5, h6 {
+    font-family: inherit; /* Ensures heading tags also use the body font */
+}
+
+p, a, span, div, li, ul, ol, input, textarea, button {
+    font-family: inherit; /* Ensures other common elements also use the body font */
+}
+
 .App {
   text-align: center;
   background-color: var(--BGC);
