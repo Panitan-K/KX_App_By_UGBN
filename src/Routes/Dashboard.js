@@ -1,38 +1,64 @@
-// src/LineChart.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
-
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+import axios from 'axios';
 
 const Dashboard = () => {
-  const data = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-    datasets: [
-      {
-        label: 'Dataset 1',
-        data: [65, 59, 80, 81, 56, 55, 40],
-        fill: false,
-        backgroundColor: 'rgba(75,192,192,0.2)',
-        borderColor: 'rgba(75,192,192,1)',
-      },
-    ],
-  };
+    const [chartData, setChartData] = useState(null);
 
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'Line Chart Example',
-      },
-    },
-  };
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://127.0.0.1:5000/api/investment-data');
+                const data = response.data;
+                console.log(data)
+                if (data.length === 0) {
+                    setChartData(null);
+                    return;
+                }
 
-  return <Line data={data} options={options} />;
+                const labels = Array.from({ length: 36 }, (_, i) => `Q${i + 1}`);
+                const datasets = data.map(company => ({
+                    label: company["Company Name"],
+                    data: company["Investments"],
+                    fill: false,
+                    borderColor: `rgba(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, 1)`,
+                }));
+
+                setChartData({
+                    labels,
+                    datasets
+                });
+            } catch (error) {
+                console.error("Error fetching the investment data", error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const options = {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Investment Over Time',
+            },
+        },
+    };
+
+    return (
+        <div>
+            <h1>Investment Dashboard</h1>
+            {chartData ? (
+                <Line data={chartData} options={options} />
+            ) : (
+                <p>No investment data available.</p>
+            )}
+        </div>
+    );
 };
 
 export default Dashboard;

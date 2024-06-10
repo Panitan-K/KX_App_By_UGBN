@@ -2,7 +2,7 @@
     {
         "Company Name": "A",
         "Total Invest": "5",
-        "EstRisk": "80",
+        "EstRisk": "100",
         "EstROI": "20"
     },
     {
@@ -22,5 +22,11 @@
         "Total Invest": "15",
         "EstRisk": "100",
         "EstROI": "30"
+    },
+    {
+        "Company Name": "F",
+        "Total Invest": "30",
+        "EstRisk": "2",
+        "EstROI": "1"
     }
 ]

@@ -1,0 +1,354 @@
+{
+    "Q1": [
+        {
+            "Company": "A",
+            "Evaluation": 5.0
+        },
+        {
+            "Company": "B",
+            "Evaluation": 7.5
+        },
+        {
+            "Company": "C",
+            "Evaluation": 4.5
+        },
+        {
+            "Company": "D",
+            "Evaluation": 15.0
+        },
+        {
+            "Company": "F",
+            "Evaluation": 30.0
+        }
+    ],
+    "Q2": [
+        {
+            "Company": "A",
+            "Evaluation": 6.35
+        },
+        {
+            "Company": "B",
+            "Evaluation": 6.65
+        },
+        {
+            "Company": "C",
+            "Evaluation": 4.98
+        },
+        {
+            "Company": "D",
+            "Evaluation": 5.43
+        },
+        {
+            "Company": "F",
+            "Evaluation": 30.17
+        }
+    ],
+    "Q3": [
+        {
+            "Company": "A",
+            "Evaluation": 1.45
+        },
+        {
+            "Company": "B",
+            "Evaluation": 3.06
+        },
+        {
+            "Company": "C",
+            "Evaluation": 3.17
+        },
+        {
+            "Company": "D",
+            "Evaluation": 9.64
+        },
+        {
+            "Company": "F",
+            "Evaluation": 30.35
+        }
+    ],
+    "Q4": [
+        {
+            "Company": "A",
+            "Evaluation": 0.08
+        },
+        {
+            "Company": "B",
+            "Evaluation": 1.94
+        },
+        {
+            "Company": "C",
+            "Evaluation": 1.5
+        },
+        {
+            "Company": "D",
+            "Evaluation": 10.94
+        },
+        {
+            "Company": "F",
+            "Evaluation": 30.68
+        }
+    ],
+    "Q5": [
+        {
+            "Company": "A",
+            "Evaluation": -0.99
+        },
+        {
+            "Company": "B",
+            "Evaluation": 1.27
+        },
+        {
+            "Company": "C",
+            "Evaluation": 0.93
+        },
+        {
+            "Company": "D",
+            "Evaluation": 16.75
+        },
+        {
+            "Company": "F",
+            "Evaluation": 29.47
+        }
+    ],
+    "Q6": [
+        {
+            "Company": "A",
+            "Evaluation": 2.91
+        },
+        {
+            "Company": "B",
+            "Evaluation": 1.52
+        },
+        {
+            "Company": "C",
+            "Evaluation": 4.92
+        },
+        {
+            "Company": "D",
+            "Evaluation": 18.15
+        },
+        {
+            "Company": "F",
+            "Evaluation": 30.82
+        }
+    ],
+    "Q7": [
+        {
+            "Company": "A",
+            "Evaluation": -0.03
+        },
+        {
+            "Company": "B",
+            "Evaluation": 2.45
+        },
+        {
+            "Company": "C",
+            "Evaluation": 5.38
+        },
+        {
+            "Company": "D",
+            "Evaluation": 66.99
+        },
+        {
+            "Company": "F",
+            "Evaluation": 31.0
+        }
+    ],
+    "Q8": [
+        {
+            "Company": "A",
+            "Evaluation": 0.0
+        },
+        {
+            "Company": "B",
+            "Evaluation": 5.2
+        },
+        {
+            "Company": "C",
+            "Evaluation": 5.55
+        },
+        {
+            "Company": "D",
+            "Evaluation": -0.06
+        },
+        {
+            "Company": "F",
+            "Evaluation": 31.19
+        }
+    ],
+    "Q9": [
+        {
+            "Company": "A",
+            "Evaluation": -0.01
+        },
+        {
+            "Company": "B",
+            "Evaluation": 1.37
+        },
+        {
+            "Company": "C",
+            "Evaluation": 0.36
+        },
+        {
+            "Company": "D",
+            "Evaluation": 12.82
+        },
+        {
+            "Company": "F",
+            "Evaluation": 30.26
+        }
+    ],
+    "Q10": [
+        {
+            "Company": "A",
+            "Evaluation": -0.12
+        },
+        {
+            "Company": "B",
+            "Evaluation": 35.91
+        },
+        {
+            "Company": "C",
+            "Evaluation": 4.11
+        },
+        {
+            "Company": "D",
+            "Evaluation": -0.0
+        },
+        {
+            "Company": "F",
+            "Evaluation": 32.55
+        }
+    ],
+    "Q11": [
+        {
+            "Company": "A",
+            "Evaluation": -0.01
+        },
+        {
+            "Company": "B",
+            "Evaluation": 36.34
+        },
+        {
+            "Company": "C",
+            "Evaluation": 0.9
+        },
+        {
+            "Company": "D",
+            "Evaluation": 28.14
+        },
+        {
+            "Company": "F",
+            "Evaluation": 32.84
+        }
+    ],
+    "Q12": [
+        {
+            "Company": "A",
+            "Evaluation": -0.0
+        },
+        {
+            "Company": "B",
+            "Evaluation": 53.55
+        },
+        {
+            "Company": "C",
+            "Evaluation": 0.63
+        },
+        {
+            "Company": "D",
+            "Evaluation": 0.0
+        },
+        {
+            "Company": "F",
+            "Evaluation": 30.65
+        }
+    ],
+    "Q13": [
+        {
+            "Company": "A",
+            "Evaluation": -0.02
+        },
+        {
+            "Company": "B",
+            "Evaluation": 14.35
+        },
+        {
+            "Company": "C",
+            "Evaluation": 1.52
+        },
+        {
+            "Company": "D",
+            "Evaluation": 0.07
+        },
+        {
+            "Company": "F",
+            "Evaluation": 33.26
+        }
+    ],
+    "Q14": [
+        {
+            "Company": "A",
+            "Evaluation": 0.0
+        },
+        {
+            "Company": "B",
+            "Evaluation": 8.35
+        },
+        {
+            "Company": "C",
+            "Evaluation": 0.58
+        },
+        {
+            "Company": "D",
+            "Evaluation": -0.0
+        },
+        {
+            "Company": "F",
+            "Evaluation": 31.43
+        }
+    ],
+    "Q15": [
+        {
+            "Company": "A",
+            "Evaluation": 0.19
+        },
+        {
+            "Company": "B",
+            "Evaluation": 36.55
+        },
+        {
+            "Company": "C",
+            "Evaluation": 10.29
+        },
+        {
+            "Company": "D",
+            "Evaluation": -0.37
+        },
+        {
+            "Company": "F",
+            "Evaluation": 32.18
+        }
+    ],
+    "Q16": [
+        {
+            "Company": "A",
+            "Evaluation": 0.09
+        },
+        {
+            "Company": "B",
+            "Evaluation": 9.35
+        },
+        {
+            "Company": "C",
+            "Evaluation": 3.93
+        },
+        {
+            "Company": "D",
+            "Evaluation": 0.0
+        },
+        {
+            "Company": "F",
+            "Evaluation": 31.21
+        }
+    ]
+}

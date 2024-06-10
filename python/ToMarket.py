@@ -1,56 +1,79 @@
+from flask import Flask, jsonify
+from flask_cors import CORS
 import json
-import matplotlib.pyplot as plt
 import numpy as np
 
-def read_company_data(filename="company_data.json"):
-    with open(filename, 'r') as file:
-        return json.load(file)
+app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
 
-def simulate_investment_changes(companies, quarters=36):
+def read_company_data(filename="./python/company_data.json"):
+    try:
+        with open(filename, 'r') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return []
+
+def simulate_investment_changes(companies, quarters=2):
     company_simulations = []
 
     for company in companies:
-        name = company["Company Name"]
+        name = company["Company Name"]  # Remove newline
         total_invest = float(company["Total Invest"])
         est_risk = float(company["EstRisk"])
         est_roi = float(company["EstROI"])
 
         investments = [total_invest]
-        for _ in range(quarters - 1):
-            change = np.random.uniform(est_roi - est_risk*1.2, est_roi*0.8 + est_risk)
-            total_invest += change
-            investments.append(total_invest)
+        for q in range(quarters - 1):  # Simulate up to the specified quarter
+            change = np.random.uniform(est_roi - (est_risk * 1.5), est_roi * 0.8 + est_risk)
+            total_invest = total_invest+(total_invest * change /100)
+            investments.append(round(total_invest, 2))  # Round to two decimal places
 
         company_simulations.append({
-            "Company Name": name,
-            "Investments": investments
+            "Company": name,
+            "Evaluation": round(investments[-1], 2)  # Round to two decimal places
         })
 
     return company_simulations
 
-def plot_investments_over_time(company_data, quarters=36):
-    fig, axs = plt.subplots(2, 2, figsize=(12, 8))
-    x_values = range(1, quarters + 1)
+def simulate_multiple_quarters(companies, num_quarters):
+    simulations = {}
+    prev_simulations = simulate_investment_changes(companies, quarters=1)
+    simulations["Q1"] = prev_simulations
 
-    for i in range(4):
-        company_simulations = simulate_investment_changes(company_data, quarters)
-        ax = axs[i // 2, i % 2]
-        for company_simulation in company_simulations:
-            name = company_simulation["Company Name"]
-            investments = company_simulation["Investments"]
-            ax.plot(x_values, investments, label=name)
-        ax.set_xlabel('')
-        ax.set_ylabel('Total Invest')
-        ax.set_title(f'Total Invest Over Time by Company (Simulation {i + 1})')
-        ax.legend()
-        ax.grid(True)
+    for q in range(2, num_quarters + 1):
+        current_simulations = simulate_investment_changes(companies, quarters=q)
+        simulations[f"Q{q}"] = current_simulations
 
-    plt.tight_layout()
-    plt.show()
+    return simulations
 
-def main():
-    company_data = read_company_data()
-    plot_investments_over_time(company_data)
+def save_simulated_data_to_file(simulated_data, filename="./python/TESTRUN.json"):
+    with open(filename, 'w') as file:
+        json.dump(simulated_data, file, indent=4)
+
+@app.route('/api/investment-data', methods=['GET'])
+def get_investment_data():
+    try:
+        with open("TESTRUN.json", 'r') as file:
+            simulated_data = file.read()
+        return jsonify(simulated_data)
+    except FileNotFoundError:
+        return jsonify({"error": "Simulated data not found"}), 404
 
 if __name__ == "__main__":
-    main()
+    # Precompute the simulation data upon server start
+    company_data = read_company_data()
+    
+    # Specify the number of quarters
+    num_quarters = 16
+    
+    # Simulate data for all quarters
+    simulated_data = simulate_multiple_quarters(company_data, num_quarters)
+    
+    # Convert to desired data structure and round evaluation values
+    formatted_data = {}
+    for key, value in simulated_data.items():
+        formatted_data[key] = [{"Company": company["Company"], "Evaluation": round(company["Evaluation"], 2)} for company in value]
+    
+    save_simulated_data_to_file(formatted_data)
+    
+    app.run(debug=True)
