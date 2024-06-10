@@ -2,31 +2,31 @@
     {
         "Company Name": "A",
         "Total Invest": "5",
-        "EstRisk": "100",
+        "EstRisk": "50",
         "EstROI": "20"
     },
     {
         "Company Name": "B",
         "Total Invest": "7.5",
-        "EstRisk": "77",
+        "EstRisk": "57",
         "EstROI": "30"
     },
     {
         "Company Name": "C",
         "Total Invest": "4.5",
         "EstRisk": "50",
-        "EstROI": "15"
+        "EstROI": "25"
     },
     {
         "Company Name": "D",
         "Total Invest": "15",
-        "EstRisk": "100",
+        "EstRisk": "30",
         "EstROI": "30"
     },
     {
         "Company Name": "F",
         "Total Invest": "30",
-        "EstRisk": "2",
-        "EstROI": "1"
+        "EstRisk": "20",
+        "EstROI": "5"
     }
 ]

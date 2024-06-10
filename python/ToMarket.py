@@ -52,12 +52,14 @@ def save_simulated_data_to_file(simulated_data, filename="./python/TESTRUN.json"
 
 @app.route('/api/investment-data', methods=['GET'])
 def get_investment_data():
-    try:
-        with open("TESTRUN.json", 'r') as file:
-            simulated_data = file.read()
-        return jsonify(simulated_data)
+    try:    
+        print("Hello, World!")
+        with open("./python/TESTRUN.json", 'r') as file:
+            simulated_data = json.load(file)  # Load JSON data from file
+        return simulated_data  # Return JSON data directly
     except FileNotFoundError:
         return jsonify({"error": "Simulated data not found"}), 404
+
 
 if __name__ == "__main__":
     # Precompute the simulation data upon server start
