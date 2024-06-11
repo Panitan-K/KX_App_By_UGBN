@@ -25,7 +25,7 @@ def simulate_investment_changes(companies, quarters=2):
         investments = [total_invest]
         for q in range(quarters - 1):  # Simulate up to the specified quarter
             change = np.random.uniform(est_roi + (est_risk * 1.5), est_risk - est_roi * 0.8)
-            total_invest = total_invest+(total_invest * change /100)
+            total_invest = total_invest+(total_invest * change /(100*3) )
             investments.append(round(total_invest, 2))  # Round to two decimal places
 
         company_simulations.append({
@@ -66,7 +66,7 @@ if __name__ == "__main__":
     company_data = read_company_data()
     
     # Specify the number of quarters
-    num_quarters = 16
+    num_quarters = 32
     
     # Simulate data for all quarters
     simulated_data = simulate_multiple_quarters(company_data, num_quarters)

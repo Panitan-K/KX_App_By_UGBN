@@ -1,354 +1,706 @@
 {
     "Q1": [
         {
-            "Company": "A",
+            "Company": "Tinman",
             "Evaluation": 5.0
         },
         {
-            "Company": "B",
+            "Company": "Happo",
             "Evaluation": 7.5
         },
         {
-            "Company": "C",
-            "Evaluation": 4.5
+            "Company": "Uphasia",
+            "Evaluation": 10.0
         },
         {
-            "Company": "D",
+            "Company": "Moom",
             "Evaluation": 15.0
         },
         {
-            "Company": "F",
+            "Company": "Scamify",
             "Evaluation": 30.0
         }
     ],
     "Q2": [
         {
-            "Company": "A",
-            "Evaluation": 9.36
+            "Company": "Tinman",
+            "Evaluation": 6.0
         },
         {
-            "Company": "B",
-            "Evaluation": 13.03
+            "Company": "Happo",
+            "Evaluation": 8.76
         },
         {
-            "Company": "C",
-            "Evaluation": 6.62
+            "Company": "Uphasia",
+            "Evaluation": 11.71
         },
         {
-            "Company": "D",
-            "Evaluation": 22.13
+            "Company": "Moom",
+            "Evaluation": 15.99
         },
         {
-            "Company": "F",
-            "Evaluation": 36.31
+            "Company": "Scamify",
+            "Evaluation": 32.07
         }
     ],
     "Q3": [
         {
-            "Company": "A",
-            "Evaluation": 14.75
+            "Company": "Tinman",
+            "Evaluation": 7.88
         },
         {
-            "Company": "B",
-            "Evaluation": 18.02
+            "Company": "Happo",
+            "Evaluation": 8.3
         },
         {
-            "Company": "C",
-            "Evaluation": 12.12
+            "Company": "Uphasia",
+            "Evaluation": 15.38
         },
         {
-            "Company": "D",
-            "Evaluation": 39.63
+            "Company": "Moom",
+            "Evaluation": 18.3
         },
         {
-            "Company": "F",
-            "Evaluation": 51.37
+            "Company": "Scamify",
+            "Evaluation": 37.38
         }
     ],
     "Q4": [
         {
-            "Company": "A",
-            "Evaluation": 19.06
+            "Company": "Tinman",
+            "Evaluation": 9.85
         },
         {
-            "Company": "B",
-            "Evaluation": 48.54
+            "Company": "Happo",
+            "Evaluation": 10.72
         },
         {
-            "Company": "C",
-            "Evaluation": 22.19
+            "Company": "Uphasia",
+            "Evaluation": 17.08
         },
         {
-            "Company": "D",
-            "Evaluation": 38.92
+            "Company": "Moom",
+            "Evaluation": 20.42
         },
         {
-            "Company": "F",
-            "Evaluation": 62.03
+            "Company": "Scamify",
+            "Evaluation": 46.04
         }
     ],
     "Q5": [
         {
-            "Company": "A",
-            "Evaluation": 49.23
+            "Company": "Tinman",
+            "Evaluation": 9.38
         },
         {
-            "Company": "B",
-            "Evaluation": 104.13
+            "Company": "Happo",
+            "Evaluation": 12.02
         },
         {
-            "Company": "C",
-            "Evaluation": 31.41
+            "Company": "Uphasia",
+            "Evaluation": 20.44
         },
         {
-            "Company": "D",
-            "Evaluation": 109.34
+            "Company": "Moom",
+            "Evaluation": 24.54
         },
         {
-            "Company": "F",
-            "Evaluation": 64.52
+            "Company": "Scamify",
+            "Evaluation": 49.63
         }
     ],
     "Q6": [
         {
-            "Company": "A",
-            "Evaluation": 36.49
+            "Company": "Tinman",
+            "Evaluation": 12.25
         },
         {
-            "Company": "B",
-            "Evaluation": 138.11
+            "Company": "Happo",
+            "Evaluation": 10.99
         },
         {
-            "Company": "C",
-            "Evaluation": 42.5
+            "Company": "Uphasia",
+            "Evaluation": 26.73
         },
         {
-            "Company": "D",
-            "Evaluation": 61.49
+            "Company": "Moom",
+            "Evaluation": 31.84
         },
         {
-            "Company": "F",
-            "Evaluation": 91.17
+            "Company": "Scamify",
+            "Evaluation": 62.69
         }
     ],
     "Q7": [
         {
-            "Company": "A",
-            "Evaluation": 148.91
+            "Company": "Tinman",
+            "Evaluation": 14.82
         },
         {
-            "Company": "B",
-            "Evaluation": 196.35
+            "Company": "Happo",
+            "Evaluation": 10.37
         },
         {
-            "Company": "C",
-            "Evaluation": 70.28
+            "Company": "Uphasia",
+            "Evaluation": 27.77
         },
         {
-            "Company": "D",
-            "Evaluation": 119.82
+            "Company": "Moom",
+            "Evaluation": 32.23
         },
         {
-            "Company": "F",
-            "Evaluation": 97.68
+            "Company": "Scamify",
+            "Evaluation": 67.89
         }
     ],
     "Q8": [
         {
-            "Company": "A",
-            "Evaluation": 128.79
+            "Company": "Tinman",
+            "Evaluation": 24.25
         },
         {
-            "Company": "B",
-            "Evaluation": 344.52
+            "Company": "Happo",
+            "Evaluation": 14.21
         },
         {
-            "Company": "C",
-            "Evaluation": 155.54
+            "Company": "Uphasia",
+            "Evaluation": 36.6
         },
         {
-            "Company": "D",
-            "Evaluation": 121.67
+            "Company": "Moom",
+            "Evaluation": 33.56
         },
         {
-            "Company": "F",
-            "Evaluation": 134.67
+            "Company": "Scamify",
+            "Evaluation": 82.08
         }
     ],
     "Q9": [
         {
-            "Company": "A",
-            "Evaluation": 322.94
+            "Company": "Tinman",
+            "Evaluation": 31.87
         },
         {
-            "Company": "B",
-            "Evaluation": 522.31
+            "Company": "Happo",
+            "Evaluation": 15.02
         },
         {
-            "Company": "C",
-            "Evaluation": 408.02
+            "Company": "Uphasia",
+            "Evaluation": 42.19
         },
         {
-            "Company": "D",
-            "Evaluation": 181.72
+            "Company": "Moom",
+            "Evaluation": 30.66
         },
         {
-            "Company": "F",
-            "Evaluation": 218.55
+            "Company": "Scamify",
+            "Evaluation": 79.62
         }
     ],
     "Q10": [
         {
-            "Company": "A",
-            "Evaluation": 295.95
+            "Company": "Tinman",
+            "Evaluation": 30.56
         },
         {
-            "Company": "B",
-            "Evaluation": 750.4
+            "Company": "Happo",
+            "Evaluation": 16.18
         },
         {
-            "Company": "C",
-            "Evaluation": 277.99
+            "Company": "Uphasia",
+            "Evaluation": 54.99
         },
         {
-            "Company": "D",
-            "Evaluation": 246.33
+            "Company": "Moom",
+            "Evaluation": 48.65
         },
         {
-            "Company": "F",
-            "Evaluation": 213.01
+            "Company": "Scamify",
+            "Evaluation": 105.6
         }
     ],
     "Q11": [
         {
-            "Company": "A",
-            "Evaluation": 629.59
+            "Company": "Tinman",
+            "Evaluation": 35.56
         },
         {
-            "Company": "B",
-            "Evaluation": 1886.38
+            "Company": "Happo",
+            "Evaluation": 12.25
         },
         {
-            "Company": "C",
-            "Evaluation": 600.83
+            "Company": "Uphasia",
+            "Evaluation": 63.82
         },
         {
-            "Company": "D",
-            "Evaluation": 334.09
+            "Company": "Moom",
+            "Evaluation": 59.43
         },
         {
-            "Company": "F",
-            "Evaluation": 209.41
+            "Company": "Scamify",
+            "Evaluation": 108.02
         }
     ],
     "Q12": [
         {
-            "Company": "A",
-            "Evaluation": 857.44
+            "Company": "Tinman",
+            "Evaluation": 35.44
         },
         {
-            "Company": "B",
-            "Evaluation": 7210.11
+            "Company": "Happo",
+            "Evaluation": 33.38
         },
         {
-            "Company": "C",
-            "Evaluation": 826.99
+            "Company": "Uphasia",
+            "Evaluation": 112.03
         },
         {
-            "Company": "D",
-            "Evaluation": 383.32
+            "Company": "Moom",
+            "Evaluation": 38.55
         },
         {
-            "Company": "F",
-            "Evaluation": 399.84
+            "Company": "Scamify",
+            "Evaluation": 124.05
         }
     ],
     "Q13": [
         {
-            "Company": "A",
-            "Evaluation": 2029.18
+            "Company": "Tinman",
+            "Evaluation": 47.12
         },
         {
-            "Company": "B",
-            "Evaluation": 5306.23
+            "Company": "Happo",
+            "Evaluation": 27.23
         },
         {
-            "Company": "C",
-            "Evaluation": 2589.28
+            "Company": "Uphasia",
+            "Evaluation": 107.43
         },
         {
-            "Company": "D",
-            "Evaluation": 830.43
+            "Company": "Moom",
+            "Evaluation": 75.91
         },
         {
-            "Company": "F",
-            "Evaluation": 383.46
+            "Company": "Scamify",
+            "Evaluation": 106.34
         }
     ],
     "Q14": [
         {
-            "Company": "A",
-            "Evaluation": 1606.14
+            "Company": "Tinman",
+            "Evaluation": 57.88
         },
         {
-            "Company": "B",
-            "Evaluation": 5904.43
+            "Company": "Happo",
+            "Evaluation": 22.56
         },
         {
-            "Company": "C",
-            "Evaluation": 1704.54
+            "Company": "Uphasia",
+            "Evaluation": 153.45
         },
         {
-            "Company": "D",
-            "Evaluation": 1105.32
+            "Company": "Moom",
+            "Evaluation": 84.1
         },
         {
-            "Company": "F",
-            "Evaluation": 513.13
+            "Company": "Scamify",
+            "Evaluation": 167.67
         }
     ],
     "Q15": [
         {
-            "Company": "A",
-            "Evaluation": 4325.56
+            "Company": "Tinman",
+            "Evaluation": 70.56
         },
         {
-            "Company": "B",
-            "Evaluation": 24546.65
+            "Company": "Happo",
+            "Evaluation": 20.4
         },
         {
-            "Company": "C",
-            "Evaluation": 6635.91
+            "Company": "Uphasia",
+            "Evaluation": 158.77
         },
         {
-            "Company": "D",
-            "Evaluation": 4694.3
+            "Company": "Moom",
+            "Evaluation": 90.63
         },
         {
-            "Company": "F",
-            "Evaluation": 698.89
+            "Company": "Scamify",
+            "Evaluation": 144.28
         }
     ],
     "Q16": [
         {
-            "Company": "A",
-            "Evaluation": 6885.6
+            "Company": "Tinman",
+            "Evaluation": 84.07
         },
         {
-            "Company": "B",
-            "Evaluation": 12432.32
+            "Company": "Happo",
+            "Evaluation": 26.91
         },
         {
-            "Company": "C",
-            "Evaluation": 12078.9
+            "Company": "Uphasia",
+            "Evaluation": 164.42
         },
         {
-            "Company": "D",
-            "Evaluation": 844.25
+            "Company": "Moom",
+            "Evaluation": 97.67
         },
         {
-            "Company": "F",
-            "Evaluation": 914.99
+            "Company": "Scamify",
+            "Evaluation": 217.7
+        }
+    ],
+    "Q17": [
+        {
+            "Company": "Tinman",
+            "Evaluation": 99.04
+        },
+        {
+            "Company": "Happo",
+            "Evaluation": 21.53
+        },
+        {
+            "Company": "Uphasia",
+            "Evaluation": 301.13
+        },
+        {
+            "Company": "Moom",
+            "Evaluation": 144.75
+        },
+        {
+            "Company": "Scamify",
+            "Evaluation": 273.8
+        }
+    ],
+    "Q18": [
+        {
+            "Company": "Tinman",
+            "Evaluation": 158.1
+        },
+        {
+            "Company": "Happo",
+            "Evaluation": 24.47
+        },
+        {
+            "Company": "Uphasia",
+            "Evaluation": 257.81
+        },
+        {
+            "Company": "Moom",
+            "Evaluation": 80.27
+        },
+        {
+            "Company": "Scamify",
+            "Evaluation": 269.87
+        }
+    ],
+    "Q19": [
+        {
+            "Company": "Tinman",
+            "Evaluation": 135.77
+        },
+        {
+            "Company": "Happo",
+            "Evaluation": 40.2
+        },
+        {
+            "Company": "Uphasia",
+            "Evaluation": 256.07
+        },
+        {
+            "Company": "Moom",
+            "Evaluation": 167.58
+        },
+        {
+            "Company": "Scamify",
+            "Evaluation": 350.26
+        }
+    ],
+    "Q20": [
+        {
+            "Company": "Tinman",
+            "Evaluation": 234.54
+        },
+        {
+            "Company": "Happo",
+            "Evaluation": 55.59
+        },
+        {
+            "Company": "Uphasia",
+            "Evaluation": 532.93
+        },
+        {
+            "Company": "Moom",
+            "Evaluation": 91.87
+        },
+        {
+            "Company": "Scamify",
+            "Evaluation": 277.49
+        }
+    ],
+    "Q21": [
+        {
+            "Company": "Tinman",
+            "Evaluation": 221.64
+        },
+        {
+            "Company": "Happo",
+            "Evaluation": 53.97
+        },
+        {
+            "Company": "Uphasia",
+            "Evaluation": 432.02
+        },
+        {
+            "Company": "Moom",
+            "Evaluation": 225.52
+        },
+        {
+            "Company": "Scamify",
+            "Evaluation": 409.42
+        }
+    ],
+    "Q22": [
+        {
+            "Company": "Tinman",
+            "Evaluation": 424.93
+        },
+        {
+            "Company": "Happo",
+            "Evaluation": 39.35
+        },
+        {
+            "Company": "Uphasia",
+            "Evaluation": 696.97
+        },
+        {
+            "Company": "Moom",
+            "Evaluation": 151.91
+        },
+        {
+            "Company": "Scamify",
+            "Evaluation": 411.0
+        }
+    ],
+    "Q23": [
+        {
+            "Company": "Tinman",
+            "Evaluation": 420.41
+        },
+        {
+            "Company": "Happo",
+            "Evaluation": 51.94
+        },
+        {
+            "Company": "Uphasia",
+            "Evaluation": 512.89
+        },
+        {
+            "Company": "Moom",
+            "Evaluation": 142.02
+        },
+        {
+            "Company": "Scamify",
+            "Evaluation": 451.25
+        }
+    ],
+    "Q24": [
+        {
+            "Company": "Tinman",
+            "Evaluation": 447.8
+        },
+        {
+            "Company": "Happo",
+            "Evaluation": 55.96
+        },
+        {
+            "Company": "Uphasia",
+            "Evaluation": 830.1
+        },
+        {
+            "Company": "Moom",
+            "Evaluation": 347.96
+        },
+        {
+            "Company": "Scamify",
+            "Evaluation": 575.99
+        }
+    ],
+    "Q25": [
+        {
+            "Company": "Tinman",
+            "Evaluation": 473.3
+        },
+        {
+            "Company": "Happo",
+            "Evaluation": 102.11
+        },
+        {
+            "Company": "Uphasia",
+            "Evaluation": 1230.48
+        },
+        {
+            "Company": "Moom",
+            "Evaluation": 566.13
+        },
+        {
+            "Company": "Scamify",
+            "Evaluation": 637.5
+        }
+    ],
+    "Q26": [
+        {
+            "Company": "Tinman",
+            "Evaluation": 684.1
+        },
+        {
+            "Company": "Happo",
+            "Evaluation": 54.85
+        },
+        {
+            "Company": "Uphasia",
+            "Evaluation": 1108.82
+        },
+        {
+            "Company": "Moom",
+            "Evaluation": 304.82
+        },
+        {
+            "Company": "Scamify",
+            "Evaluation": 645.02
+        }
+    ],
+    "Q27": [
+        {
+            "Company": "Tinman",
+            "Evaluation": 1073.3
+        },
+        {
+            "Company": "Happo",
+            "Evaluation": 53.19
+        },
+        {
+            "Company": "Uphasia",
+            "Evaluation": 1601.52
+        },
+        {
+            "Company": "Moom",
+            "Evaluation": 358.86
+        },
+        {
+            "Company": "Scamify",
+            "Evaluation": 750.93
+        }
+    ],
+    "Q28": [
+        {
+            "Company": "Tinman",
+            "Evaluation": 722.61
+        },
+        {
+            "Company": "Happo",
+            "Evaluation": 73.88
+        },
+        {
+            "Company": "Uphasia",
+            "Evaluation": 1661.26
+        },
+        {
+            "Company": "Moom",
+            "Evaluation": 628.81
+        },
+        {
+            "Company": "Scamify",
+            "Evaluation": 1204.2
+        }
+    ],
+    "Q29": [
+        {
+            "Company": "Tinman",
+            "Evaluation": 1430.87
+        },
+        {
+            "Company": "Happo",
+            "Evaluation": 56.46
+        },
+        {
+            "Company": "Uphasia",
+            "Evaluation": 3183.55
+        },
+        {
+            "Company": "Moom",
+            "Evaluation": 335.74
+        },
+        {
+            "Company": "Scamify",
+            "Evaluation": 868.42
+        }
+    ],
+    "Q30": [
+        {
+            "Company": "Tinman",
+            "Evaluation": 745.5
+        },
+        {
+            "Company": "Happo",
+            "Evaluation": 50.39
+        },
+        {
+            "Company": "Uphasia",
+            "Evaluation": 2610.86
+        },
+        {
+            "Company": "Moom",
+            "Evaluation": 493.39
+        },
+        {
+            "Company": "Scamify",
+            "Evaluation": 1058.22
+        }
+    ],
+    "Q31": [
+        {
+            "Company": "Tinman",
+            "Evaluation": 1935.17
+        },
+        {
+            "Company": "Happo",
+            "Evaluation": 94.37
+        },
+        {
+            "Company": "Uphasia",
+            "Evaluation": 3520.76
+        },
+        {
+            "Company": "Moom",
+            "Evaluation": 532.12
+        },
+        {
+            "Company": "Scamify",
+            "Evaluation": 1440.2
+        }
+    ],
+    "Q32": [
+        {
+            "Company": "Tinman",
+            "Evaluation": 2708.15
+        },
+        {
+            "Company": "Happo",
+            "Evaluation": 83.42
+        },
+        {
+            "Company": "Uphasia",
+            "Evaluation": 7249.89
+        },
+        {
+            "Company": "Moom",
+            "Evaluation": 601.04
+        },
+        {
+            "Company": "Scamify",
+            "Evaluation": 1671.81
         }
     ]
 }

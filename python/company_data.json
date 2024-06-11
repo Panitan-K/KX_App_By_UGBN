@@ -1,32 +1,32 @@
 [
     {
-        "Company Name": "A",
+        "Company Name": "Tinman",
         "Total Invest": "5",
         "EstRisk": "50",
         "EstROI": "20"
     },
     {
-        "Company Name": "B",
+        "Company Name": "Happo",
         "Total Invest": "7.5",
-        "EstRisk": "57",
+        "EstRisk": "20",
         "EstROI": "30"
     },
     {
-        "Company Name": "C",
-        "Total Invest": "4.5",
+        "Company Name": "Uphasia",
+        "Total Invest": "10",
         "EstRisk": "50",
         "EstROI": "25"
     },
     {
-        "Company Name": "D",
+        "Company Name": "Moom",
         "Total Invest": "15",
         "EstRisk": "30",
         "EstROI": "30"
     },
     {
-        "Company Name": "F",
+        "Company Name": "Scamify",
         "Total Invest": "30",
-        "EstRisk": "20",
-        "EstROI": "5"
+        "EstRisk": "32",
+        "EstROI": "15"
     }
 ]

@@ -1,36 +1,67 @@
 import React, { useState, useEffect } from "react";
 import RacingBarChart from "./RacingBarChart";
+import "./css/Racing.css";
 
 function Testcontent({ data }) {
   const [start, setStart] = useState(false);
   const [displayedData, setDisplayedData] = useState([]);
-  const [currentQuarterIndex, setCurrentQuarterIndex] = useState(0);
+  const [currentQuarter, setCurrentQuarter] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
     if (data.length > 0) {
-      setDisplayedData(data[currentQuarterIndex]);
+      setDisplayedData(data[0].data);
     }
-  }, [data, currentQuarterIndex]);
+  }, [data]);
 
   useEffect(() => {
-    let intervalId;
-
-    if (start) {
-      intervalId = setInterval(() => {
-        setCurrentQuarterIndex(prevIndex => (prevIndex + 1) % data.length);
-      }, 2000);
+    if (start && !gameOver) {
+      const interval = setInterval(() => {
+        setCurrentQuarter(prevQuarter => {
+          if (prevQuarter + 1 < data.length) {
+            return prevQuarter + 1;
+          } else {
+            setStart(false);
+            setGameOver(true);
+            return prevQuarter;
+          }
+        });
+      }, 2500);
+      return () => clearInterval(interval);
     }
+  }, [start, data, gameOver]);
 
-    return () => clearInterval(intervalId);
-  }, [start, data]);
+  useEffect(() => {
+    if (data.length > 0 && !gameOver) {
+      setDisplayedData(data[currentQuarter].data);
+    }
+  }, [currentQuarter, data, gameOver]);
+
+  const handleStartStop = () => {
+    if (gameOver) {
+      setGameOver(false);
+      setCurrentQuarter(0);
+      setDisplayedData(data[0].data);
+    }
+    setStart(!start);
+  };
 
   return (
     <React.Fragment>
       <h1>Racing Bar Chart</h1>
       <RacingBarChart data={displayedData} />
-      <button onClick={() => setStart(!start)}>
-        {start ? "Stop the race" : "Start the race!"}
-      </button>
+      {gameOver ? (
+        <div>
+          <h2>Game is over</h2>
+          <button onClick={handleStartStop}>
+            {start ? "Stop the race" : "Start the race!"}
+          </button>
+        </div>
+      ) : (
+        <button onClick={handleStartStop}>
+          {start ? "Stop the race" : "Start the race!"}
+        </button>
+      )}
     </React.Fragment>
   );
 }
