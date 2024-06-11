@@ -6,7 +6,7 @@ import plus from "./image/svg/plusicon.png"
 import minus from "./image/svg/minusicon.png"
 import Revert from "./image/svg/Revert.png"
 import riskslider from "./image/svg/RiskSlider.png"
-import RiskChart from "./RiskChart.js"
+//import RiskChart from "./RiskChart.js"
 
 
 function Invest() {

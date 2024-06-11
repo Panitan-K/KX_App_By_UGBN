@@ -1,74 +1,38 @@
-//import RiskChart from "./RiskChart.js"
+import React, { useState, useEffect } from "react";
 import RacingBarChart from "./RacingBarChart";
-import React, { useState } from "react";
-import useInterval from "./useInterval";
 
-const getRandomIndex = array => {
-  return Math.floor(array.length * Math.random());
-};
-
-function Testcontent() {
-  const [iteration, setIteration] = useState(0);
+function Testcontent({ data }) {
   const [start, setStart] = useState(false);
-  const [data, setData] = useState([
-    {
-      name: "alpha",
-      value: 10,
-      color: "#f4efd3"
-    },
-    {
-      name: "beta",
-      value: 15,
-      color: "#cccccc"
-    },
-    {
-      name: "charlie",
-      value: 20,
-      color: "#c2b0c9"
-    },
-    {
-      name: "delta",
-      value: 25,
-      color: "#9656a1"
-    },
-    {
-      name: "echo",
-      value: 30,
-      color: "#fa697c"
-    },
-    {
-      name: "foxtrot",
-      value: 35,
-      color: "#fcc169"
-    }
-  ]);
+  const [displayedData, setDisplayedData] = useState([]);
+  const [currentQuarterIndex, setCurrentQuarterIndex] = useState(0);
 
-  useInterval(() => {
-    if (start) {
-      const randomIndex = getRandomIndex(data);
-      setData(
-        data.map((entry, index) =>
-          index === randomIndex
-            ? {
-                ...entry,
-                value: entry.value + 10
-              }
-            : entry
-        )
-      );
-      setIteration(iteration + 1);
+  useEffect(() => {
+    if (data.length > 0) {
+      setDisplayedData(data[currentQuarterIndex]);
     }
-  }, 500);
+  }, [data, currentQuarterIndex]);
+
+  useEffect(() => {
+    let intervalId;
+
+    if (start) {
+      intervalId = setInterval(() => {
+        setCurrentQuarterIndex(prevIndex => (prevIndex + 1) % data.length);
+      }, 2000);
+    }
+
+    return () => clearInterval(intervalId);
+  }, [start, data]);
 
   return (
     <React.Fragment>
       <h1>Racing Bar Chart</h1>
-      <RacingBarChart data={data} />
+      <RacingBarChart data={displayedData} />
       <button onClick={() => setStart(!start)}>
         {start ? "Stop the race" : "Start the race!"}
       </button>
-      <p>Iteration: {iteration}</p>
     </React.Fragment>
   );
 }
+
 export default Testcontent;

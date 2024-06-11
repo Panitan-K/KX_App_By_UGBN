@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { select, scaleBand, scaleLinear, max } from "d3";
-import useResizeObserver from "./useResizeObserver";
+import useResizeObserver from "./useResizeObserver.js";
 
 
 function RacingBarChart({ data }) {
@@ -52,7 +52,7 @@ function RacingBarChart({ data }) {
             (entry, index) => yScale(index) + yScale.bandwidth() / 2 + 5
           )
       )
-      .text(entry => `🐎 ... ${entry.name} (${entry.value} meters)`)
+      .text(entry => `Company :  ${entry.name} (${entry.value} M)`)
       .attr("class", "label")
       .attr("x", 10)
       .transition()

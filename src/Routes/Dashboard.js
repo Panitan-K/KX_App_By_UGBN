@@ -1,120 +1,62 @@
-import React, { useState, useEffect } from 'react';
-import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+import './css/App.css';
+import Testcontent from './Testcontent';
 import axios from 'axios';
-import './css/Chart.css';
+import React, { useState, useEffect } from "react";
 
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+function Dashboard() {
+  const [data, setData] = useState([]);
 
-const transformData = (data, currentQuarter) => {
-  const labels = Object.keys(data).slice(0, currentQuarter);
-  const companies = new Set();
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('http://127.0.0.1:5000/api/investment-data');
+      const fetchedData = response.data;
+      console.log("THIS IS FETCHED DATA ", fetchedData);
 
-  // Collect all company names
-  labels.forEach((label) => {
-    data[label].forEach((item) => {
-      companies.add(item.Company);
-    });
-  });
+      // Transform the data into an array of quarters
+      const transformedData = [];
+      let quarterIndex = 1;
+      let quarterKey = `Q${quarterIndex}`;
 
-  // Create datasets
-  const datasets = Array.from(companies).map((company) => {
-    const dataset = {
-      label: company,
-      data: labels.map((label) => {
-        const companyData = data[label].find((item) => item.Company === company);
-        return companyData ? companyData.Evaluation : null;
-      }),
-      fill: false,
-      tension: 0.4, // Add this line to make the line curvy
-      backgroundColor: `rgba(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},0.2)`,
-      borderColor: `rgba(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},1)`,
-    };
-    return dataset;
-  });
-
-  return {
-    labels,
-    datasets,
-  };
-};
-
-const Dashboard = () => {
-  const [chartData, setChartData] = useState(null);
-  const [currentQuarter, setCurrentQuarter] = useState(0);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('http://127.0.0.1:5000/api/investment-data');
-        const data = response.data;
-        console.log(data);
-
-        if (Object.keys(data).length === 0) {
-          setChartData(null);
-        } else {
-          setChartData(transformData(data, currentQuarter));
-        }
-      } catch (error) {
-        console.error("Error fetching the investment data", error);
-      }
-    };
-
-    fetchData();
-
-    const interval = setInterval(() => {
-      setCurrentQuarter((prevQuarter) => {
-        const nextQuarter = prevQuarter + 1;
-        fetchData();
-        return nextQuarter;
-      });
-    }, 5000); // Update data every 10 seconds
-
-    return () => clearInterval(interval); // Cleanup interval on component unmount
-  }, [currentQuarter]);
-
-  useEffect(() => {
-    if (chartData) {
-      const interval = setInterval(() => {
-        setCurrentQuarter((prevQuarter) => {
-          if (prevQuarter < Object.keys(chartData).length) {
-            return prevQuarter + 1;
-          } else {
-            clearInterval(interval);
-            return prevQuarter;
-          }
+      while (fetchedData.hasOwnProperty(quarterKey)) {
+        transformedData.push({
+          quarter: quarterKey,
+          data: fetchedData[quarterKey].map(item => ({
+            name: item.Company,
+            value: item.Evaluation,
+            color: getRandomColor(),
+          }))
         });
-      }, 5000); // Update data every 10 seconds
 
-      return () => clearInterval(interval); // Cleanup interval on component unmount
+        quarterIndex++;
+        quarterKey = `Q${quarterIndex}`;
+      }
+
+      setData(transformedData);
+      console.log("THIS IS Transform DATA ", transformedData);
+    } catch (error) {
+      console.error("Error fetching data", error);
     }
-  }, [chartData]);
-
-  const options = {
-    responsive: true,
-    plugins: {
-      legend: {
-        position: 'top',
-      },
-      title: {
-        display: true,
-        text: 'Startups Evaluation',
-      },
-    },
   };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div className="App">
-      <div className="Leaderboard">
-        {chartData ? (
-          <Line data={chartData} options={options} />
-        ) : (
-          <p>No data available</p>
-        )}
-      </div>
-     
+      <Testcontent data={data} />
     </div>
   );
+}
+
+// Optional: A function to generate random colors
+const getRandomColor = () => {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
 };
 
 export default Dashboard;
