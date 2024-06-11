@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import RacingBarChart from "./RacingBarChart";
-import "./css/Racing.css";
+import styles from "./css/Racing.module.css";
 
 function Testcontent({ data }) {
   const [start, setStart] = useState(false);
@@ -47,22 +47,22 @@ function Testcontent({ data }) {
   };
 
   return (
-    <React.Fragment>
+    <div className={styles.wrapper}>
       <h1>Racing Bar Chart</h1>
       <RacingBarChart data={displayedData} />
       {gameOver ? (
         <div>
           <h2>Game is over</h2>
-          <button onClick={handleStartStop}>
+          <button className={styles.button} onClick={handleStartStop}>
             {start ? "Stop the race" : "Start the race!"}
           </button>
         </div>
       ) : (
-        <button onClick={handleStartStop}>
+        <button className={styles.button} onClick={handleStartStop}>
           {start ? "Stop the race" : "Start the race!"}
         </button>
       )}
-    </React.Fragment>
+    </div>
   );
 }
 
