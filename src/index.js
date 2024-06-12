@@ -19,6 +19,7 @@ import Invest from './Routes/Invest';
 import Startup from './Routes/Startup';
 import Testcontent from './Routes/Testcontent';
 import Dashboard from './Routes/Dashboard';
+import CreateTicket from './Routes/CreateTicket';
 const router = createBrowserRouter([
 
   {
@@ -70,6 +71,11 @@ const router = createBrowserRouter([
     path: "/Dashboard",
     errorElement: <Err />,
     element:  <Dashboard/>,
+  },
+  {
+    path: "/CreateTicket",
+    errorElement: <Err />,
+    element:  <CreateTicket/>,
   },
   
   

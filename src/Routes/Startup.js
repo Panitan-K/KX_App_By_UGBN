@@ -2,12 +2,12 @@ import './css/App.css';
 import React from 'react';
 //import PersonIcon from "./image/Mock/KL_Placeholder.jpeg"
 import InvestorIcon from "./image/svg/Person_Vector.svg"
-//import { useNavigate} from "react-router-dom";
-import U16_9 from "./image/Mock/Uphasia16_9.png"
-import DonutChart from './DonutChart';
+import { useNavigate} from "react-router-dom";
+import U16_9 from "./image/logo/Uphasia.png"
+
 
 function Startup() {
-  //const navigate = useNavigate();
+  const navigate = useNavigate();
   
 return (
 
@@ -21,10 +21,21 @@ return (
         <img src={U16_9} alt="Welcome"/>
     </div>
     
-    <DonutChart />
-
+    <div className='BalanceBox'>
+        <p style={{ lineHeight: "1vh", fontSize: "10vw", marginBlockStart: "8vh",marginBlockEnd: "3vh" }}>Stake Remain</p>
+        <p className='Cash' style={{  marginBlockStart: "0vh", marginBlockEnd: "2vh" }}>20%</p>
+        <span style={{ lineHeight: "0vh", marginBlockStart: "1vh", fontSize: "5vw" }}>
+          <span>Total </span>
+          <span style={{ color: '#079F16' }}> 0% </span>
+          <span>Sold to </span>
+          <span style={{ color: '#079F16' }}>0</span>
+          <span> Investors</span>
+        </span>
+      </div>
+   
+      <button className='InvestButton' onClick={() => navigate('/CreateTicket')} >Create Ticket</button>
       <div className="PortfolioBox" >
-        <h1>Investors</h1>
+        <h1>Tickets</h1>
 
         <div className='InvestorBlocks'>
           <img src={InvestorIcon} alt="Welcome" className='InvestorIcon' />

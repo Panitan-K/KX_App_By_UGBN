@@ -67,11 +67,11 @@ function Invest() {
                 
                 <div className='Divisor'>
 
-                <h1>Investor's Offer</h1>
+                <h1>Avaliable Tickets</h1>
                 </div>
 
 
-                 <div className='OfferBox'>
+                <div className='OfferBox'>
                     
                     <div class="ValueSpanContainer">
 
@@ -88,7 +88,7 @@ function Invest() {
                         <img src={plus} alt="Welcome" onClick={increaseROI}/>
                     </div>
                     
-                    </div>
+                </div>
                     <div className='Divisor'>
                         <h1>Startup Rating</h1>
 
@@ -100,21 +100,7 @@ function Invest() {
                     <div className='OfferBox'>
                     <h1>Investor's Evaluated Risk</h1>
                
-                    <div className="volume-slider-container">
-                        <img src={riskslider} alt="Welcome" className="volume-slider-image" />
-                            <div className="A-Slider">
-                                <input
-                                    type="range"
-                                    min="0"
-                                    max="100"
-                                    value={risk}
-                                    className="slider"
-                                    id="mySlider"
-                                    onChange={handleChange}
-                                    style={{ background: getTrackColor() }}
-                                />
-                            </div>
-                        </div>
+                    
                     </div>
                     <div class="ValueSpanContainer">
                     <h1>Investor's Expected ROI</h1>

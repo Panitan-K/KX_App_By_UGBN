@@ -26,8 +26,8 @@ function Welcome() {
           <div className="welcome-container">
             <img src={Title} alt="Welcome" className="UphasiaMiddleLogo" />
             <div className="LogRegContainer">
-              <button className="LogRegbox1" onClick={() => navigate('/InvestorMain')}>INVESTORS</button>
-              <button className="LogRegbox1" onClick={() => navigate('/Startup')}>STARTUPS</button>
+              <button className="LogRegbox1" onClick={() => navigate('/Login',{state : {role:"Investor"}}) }>INVESTORS</button>
+              <button className="LogRegbox1" onClick={() => navigate('/Login',{state : {role:"Startup"}})}>STARTUPS</button>
               <button className="LogRegbox1" onClick={() => navigate('/Guest')}>GUEST</button>
             </div>
           </div>

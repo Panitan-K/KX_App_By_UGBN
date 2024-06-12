@@ -78,8 +78,8 @@ p, a, span, div, li, ul, ol, input, textarea, button {
 
 .AppWithHeaderContent2{
 
-  padding-top: 5vh;
-  margin-top: 10vh;
+  padding-top: 3vh;
+  margin-top: 3vh;
 }
 /* App.css */
 
@@ -322,7 +322,7 @@ background-color: #ffffff;
 
 
 .input-placeholder{
-  color: var(--MahidolBlue);
+  color: black;
   margin-bottom: 8px;
   font-size: 20px;
   font-weight: 600;
@@ -330,7 +330,7 @@ background-color: #ffffff;
   text-transform: uppercase;
  
   cursor: default;
-  font-family:'Courier New', Courier, monospace;
+
   font-weight: bold;
   text-align: left;
 }
@@ -351,7 +351,7 @@ input::placeholder {
   font-size: 18px; 
   border-radius: 8px; 
   cursor: pointer; 
-  font-family:'Courier New', Courier, monospace;
+
 }
 .submit-button:hover{
 
@@ -368,7 +368,7 @@ input::placeholder {
   font-size: 16px;
   line-height: 22px;
   letter-spacing: 0.5px;
-  color: var(--MahidolBlue);
+  color: black;
 
   border: 1px solid rgb(39, 39, 39);
   border-radius: 3px;
@@ -415,9 +415,7 @@ input::placeholder {
 
 /* Login and Register Section */
 
-.LoginBox{
-  border: 1px solid rgb(124, 124, 124);
-}
+
 
 .RegisterBox{
   border: 1px solid rgb(124, 124, 124);
@@ -668,7 +666,7 @@ input::placeholder {
   outline: none;
   transition: border-color 0.3s ease;
   padding-bottom: 10vh;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubu;
+
   overflow: hidden;
 }
 .appleInput2 {
@@ -685,7 +683,7 @@ input::placeholder {
   outline: none;
   transition: border-color 0.3s ease;
   padding-bottom: 10vh;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubu;
+
   overflow: hidden;
 }
 
