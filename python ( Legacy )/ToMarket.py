@@ -53,7 +53,7 @@ def save_simulated_data_to_file(simulated_data, filename="./python/TESTRUN.json"
 @app.route('/api/investment-data', methods=['GET'])
 def get_investment_data():
     try:    
-        print("Hello, World!")
+        #print("Hello, World!")
         with open("./python/TESTRUN.json", 'r') as file:
             simulated_data = json.load(file)  # Load JSON data from file
         return simulated_data  # Return JSON data directly

@@ -11,7 +11,7 @@ function Dashboard() {
     try {
       const response = await axios.get('http://127.0.0.1:5000/api/investment-data');
       const fetchedData = response.data;
-      console.log("THIS IS FETCHED DATA ", fetchedData);
+      //console.log("THIS IS FETCHED DATA ", fetchedData);
 
       // Transform the data into an array of quarters
       const transformedData = [];
@@ -38,7 +38,7 @@ function Dashboard() {
       }
 
       setData(transformedData);
-      console.log("THIS IS Transform DATA ", transformedData);
+      //console.log("THIS IS Transform DATA ", transformedData);
     } catch (error) {
       console.error("Error fetching data", error);
     }

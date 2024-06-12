@@ -48,7 +48,7 @@ function Testcontent({ data }) {
 
   return (
     <div className={styles.wrapper}>
-      <h1>Racing Bar Chart</h1>
+      <h1>Startup Evaluation</h1>
       <RacingBarChart data={displayedData} />
       {gameOver ? (
         <div>

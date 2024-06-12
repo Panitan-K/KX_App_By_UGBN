@@ -1,7 +1,7 @@
 :root {
   --KXB : #545658;
   --MahidolBlue: #0080ff;
-  --BGC :   #F5F5F5;
+  --BGC :   #F9F6EE;
   --UphasiaGreen : #17AA7C;
 }
 
@@ -35,7 +35,11 @@ p, a, span, div, li, ul, ol, input, textarea, button {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #F9F6EE; /* Optional: set a background color */
+  background-color: var(--BGC); 
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-in-out;
 }
 
 .App-logo {
@@ -68,6 +72,12 @@ p, a, span, div, li, ul, ol, input, textarea, button {
 .AppWithHeaderContent{
   padding-left: 5vw;
   padding-right: 5vw;
+  padding-top: 5vh;
+  margin-top: 10vh;
+}
+
+.AppWithHeaderContent2{
+
   padding-top: 5vh;
   margin-top: 10vh;
 }
@@ -482,6 +492,37 @@ input::placeholder {
 
 .InvestorIcon {
   height:14vh;
+
+}
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  padding-bottom: 10vh;
+  padding-left: 1vw;
+  width: 100vw;
+  background-color: #F9F6EE; /* Optional: background color to overlay during loading */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10; /* Ensure it is on top */
+}
+
+.loading-image{
+  width: 80vw;
+  animation: fadeInOut 3s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  50% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .StartupsBlocks{
@@ -673,6 +714,19 @@ input::placeholder {
   align-items: center;
 }
 
+.volume-slider-container {
+  position: relative;
+  width: 100%; /* Adjust as needed */
+
+
+}
+.volume-slider-image {
+  width: 100%;
+  height: auto;
+  z-index: 0;
+}
+
+
 .volume-slider {
   position: relative;
 }
@@ -680,11 +734,11 @@ input::placeholder {
 .A-Slider {
   position: absolute;
 
-  top: 208vw;
+  top: -50vw;
   left: 0;
   width: 100%;
 
-  z-index: 1; /* Ensures the Slider is above the volume-slider */
+
 }
 
 .slider {
@@ -706,7 +760,7 @@ input::placeholder {
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #26652800;
+  background: #1ae321c4;
   cursor: pointer;
 }
 
@@ -717,3 +771,16 @@ input::placeholder {
   background: #4CAF50;
   cursor: pointer;
 }
+
+.Divisor {
+  background-color: var(--KXB);
+  width: 100vw;
+  height: 5vh;
+  padding-top: 0.15vh;
+  padding-bottom: 1.5vh;
+  color: white;
+  font-size: 1.2vh;
+  margin-top: 2vh
+
+}
+

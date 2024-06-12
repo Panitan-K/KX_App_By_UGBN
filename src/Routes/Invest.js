@@ -20,8 +20,8 @@ function Invest() {
         setRisk(e.target.value);
     };
     const getTrackColor = () => {
-        const green = 'rgb(245, 245, 245,0)'; // Green color
-        const blue = 'rgb(245, 245, 245,1)'; // Blue color
+        const green = 'rgb(245, 0, 245,0)'; // Green color
+        const blue = 'rgb(245, 0, 245,1)'; // Blue color
 
         return `linear-gradient(to right, ${green} ${risk}%, ${blue} ${risk}%)`;
     };
@@ -58,17 +58,24 @@ function Invest() {
             <p style={{fontSize:"7vw"}}> Invest in Uphasia</p>
         </div>
         
-        <div className='AppWithHeaderContent'>
+        <div className='AppWithHeaderContent2'>
 
             <div className='StartupsInfoBlocks3'>
                 <img src={U16_9} alt="Welcome"/>
-                <h1>You are investing in Uphasia</h1>
+                <h1>You are investing in</h1>
+                <h1> Uphasia</h1>
                 
-                 <div className='InvestRatingBox'>
-                    <h1>Investor's Offer</h1>
+                <div className='Divisor'>
+
+                <h1>Investor's Offer</h1>
+                </div>
+
+
+                 <div className='OfferBox'>
+                    
                     <div class="ValueSpanContainer">
 
-                 
+                    <h1>Capital</h1>
                     <div className='ValueSpan'>
                         <img src={minus} alt="Welcome" onClick={decreaseCapital}/>
                         <h1>{capital}K</h1>
@@ -80,26 +87,51 @@ function Invest() {
                         <h1>{ROI}%</h1>
                         <img src={plus} alt="Welcome" onClick={increaseROI}/>
                     </div>
+                    
                     </div>
+                    <div className='Divisor'>
+                        <h1>Startup Rating</h1>
+
+                    </div>
+                    <div className='RatingBox'>
+                        
+                    
+
+                    <div className='OfferBox'>
                     <h1>Investor's Evaluated Risk</h1>
-                    <div>
-                        <div className="volume-slider">
-                            <img src={riskslider} alt="Welcome" /></div>
+               
+                    <div className="volume-slider-container">
+                        <img src={riskslider} alt="Welcome" className="volume-slider-image" />
+                            <div className="A-Slider">
+                                <input
+                                    type="range"
+                                    min="0"
+                                    max="100"
+                                    value={risk}
+                                    className="slider"
+                                    id="mySlider"
+                                    onChange={handleChange}
+                                    style={{ background: getTrackColor() }}
+                                />
+                            </div>
                         </div>
-                        <div className='A-Slider'>
-                        <input
-                            type="range"
-                            min="0"
-                            max="100"
-                            value={risk}
-                            className="slider"
-                            id="mySlider"
-                            onChange={handleChange}
-                            style={{ background: getTrackColor() }}
-                        />
-                  
-                        </div>
+                    </div>
+                    <div class="ValueSpanContainer">
+                    <h1>Investor's Expected ROI</h1>
+                    <div className='ValueSpan'>
+                        <img src={minus} alt="Welcome" onClick={decreaseROI}/>
+                        <h1>{ROI}%</h1>
+                        <img src={plus} alt="Welcome" onClick={increaseROI}/>
+                    </div>
+                    </div>
+                    </div>
+
+                    <div className='OfferBox'>
+
+
+                    
                         <h2>Why would you invest in this company</h2>
+                        <div class="ValueSpanContainer">
                         <div className="appleInputContainer2">
                           
                             <textarea
@@ -110,6 +142,8 @@ function Invest() {
                         
                             />
                         </div>
+                        </div>
+                    </div>
                         <button className='InvestButton' onClick={() => HandleInvest()} >INVEST</button>
 
                    
