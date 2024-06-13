@@ -1,5 +1,5 @@
 import './css/App.css';
-import React from 'react';
+import React,{useEffect}from 'react';
 import IMG_16_9 from "./image/Mock/16_9_PlaceHolder.png"
 import U16_9 from "./image/Mock/Uphasia16_9.png"
 import Scam from "./image/Mock/Scamify.png"
@@ -8,7 +8,9 @@ import { useNavigate} from "react-router-dom";
 
 function InvestList() {
   const navigate = useNavigate();
-
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
+  }, []);
   return (
 
     <div className="App">

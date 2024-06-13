@@ -1,0 +1,20 @@
+
+[
+    {
+      "id": 1,
+      "startupName": "Uphasia",
+      "investorName": "KKLT",
+      "ticketName":"Series3",
+      "stake": 5,
+      "capital": 80
+    },
+    {
+      "id": 1,
+      "startupName": "Uphasia",
+      "investorName": "KKLT",
+      "ticketName":"Series5",
+      "stake": 3,
+      "capital": 50
+    }
+]
+  

@@ -1,12 +1,14 @@
 import './css/App.css';
-import React from 'react';
+import React,{useEffect} from 'react';
 import PersonIcon from "./image/Mock/KL_Placeholder.jpeg"
 import StartupIcon from "./image/svg/person.png"
 import { useNavigate} from "react-router-dom";
 
 function InvestorMain() {
   const navigate = useNavigate();
-
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
+  }, []);
   return (
 
     <div className="App">

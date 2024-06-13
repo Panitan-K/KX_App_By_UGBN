@@ -28,6 +28,7 @@ p, a, span, div, li, ul, ol, input, textarea, button {
   min-height: 100vh;
   box-sizing: border-box; 
   overflow-x: hidden;
+ 
 }
 
 .AppMain {
@@ -73,13 +74,15 @@ p, a, span, div, li, ul, ol, input, textarea, button {
   padding-left: 5vw;
   padding-right: 5vw;
   padding-top: 5vh;
-  margin-top: 10vh;
+  margin-top: 5vh;
+  padding-bottom: 10vh;
 }
 
 .AppWithHeaderContent2{
 
   padding-top: 3vh;
   margin-top: 3vh;
+  padding-bottom: 10vh;
 }
 /* App.css */
 
@@ -566,12 +569,23 @@ input::placeholder {
   margin-left: 2vw;
 }
 
+.TicketBlocks{
+  background-color: #c0c0c000;
+  margin-top: 4vh;
+  border: 1vw solid #079F16;      
+  align-items: center;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  
+}
+
 .StartupsInfoBlocks{
   background-color: var(--KXB);
   
    
   align-items: center;
   border-radius: 10vw;
+  margin-top: 2vh;
   margin-bottom: 1vh;
   padding: 5vw;
   padding-top: 10vw;
@@ -602,7 +616,6 @@ input::placeholder {
   align-items: center;
   border-radius: 10vw;
  
-  padding-bottom: 30vh;
 
 }
 
@@ -613,7 +626,7 @@ input::placeholder {
 }
 
 .StartupsInfoBlocks3{
-   
+  padding-top: 5vh;
   align-items: center;
   border-radius: 10vw;
  
@@ -674,7 +687,7 @@ input::placeholder {
   padding-top: 2vh;
   width: 80vw;
   font-size: 4vw;
-  height: 15vh;
+  height: 5vh;
   color : rgb(0, 0, 0);
   font-weight: bold;
   border: 1vw solid #d1d1d6;

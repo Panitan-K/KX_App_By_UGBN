@@ -1,15 +1,15 @@
 import './css/App.css';
 import React, { useState } from 'react';
 import { Link,useLocation,useNavigate } from "react-router-dom";
-import { auth } from './Firebase';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+//import { auth } from './Firebase';
+//import { signInWithEmailAndPassword } from 'firebase/auth';
 
 function Login() {
   const location = useLocation();
   const { role } = location.state || { role: "Guest" }; // Default to "Guest" if role is not passed
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errMsg, setErrMsg] = useState(null);
+  //const [errMsg, setErrMsg] = useState(null);
   const navigate = useNavigate();
   //console.log("Role passed from Welcome page:", role); 
   const handleLogin = async (event) => {
@@ -82,7 +82,7 @@ function Login() {
               required
             />
           </div>
-          <p>{errMsg}</p>
+    
           <Link to="/ForgotPassword" class="link2">Forgot Password? </Link>          
         <div>
         <button type="submit"class="submit-button" >Login MEEE</button>

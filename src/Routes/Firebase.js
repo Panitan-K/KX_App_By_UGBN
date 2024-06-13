@@ -5,14 +5,15 @@ import { getStorage, ref } from "firebase/storage";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCXZoBTQewPYmsbO4RAl7lrvwdbaqNdoo8",
-  authDomain: "uphasia.firebaseapp.com",
-  projectId: "uphasia",
-  storageBucket: "uphasia.appspot.com",
-  messagingSenderId: "482459960192",
-  appId: "1:482459960192:web:9ef3ebc9c9d9c423be7765",
-  measurementId: "G-Z8GC16XP3D"
+  apiKey: "AIzaSyBrOmgOp2VFzT-hEY96N2M0yrIew7M0x0Y",
+  authDomain: "carboxylation-9d578.firebaseapp.com",
+  projectId: "carboxylation-9d578",
+  storageBucket: "carboxylation-9d578.appspot.com",
+  messagingSenderId: "84041114659",
+  appId: "1:84041114659:web:545808d16ad54334ca7d96",
+  measurementId: "G-8PH3RZYWE3"
 };
+
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);

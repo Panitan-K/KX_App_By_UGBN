@@ -1,54 +1,44 @@
 import './css/App.css';
-import React,{ useState } from 'react';
+import React,{ useState,useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import U16_9 from "./image/Mock/Uphasia16_9.png"
-import plus from "./image/svg/plusicon.png"
-import minus from "./image/svg/minusicon.png"
+//import plus from "./image/svg/plusicon.png"
+//import minus from "./image/svg/minusicon.png"
 import Revert from "./image/svg/Revert.png"
-import riskslider from "./image/svg/RiskSlider.png"
+//import riskslider from "./image/svg/RiskSlider.png"
+import ticketData from "./mockJSON/Tickets.json"
 //import RiskChart from "./RiskChart.js"
 
 
 function Invest() {
-    const [risk, setRisk] = useState(50);
+    //const [risk, setRisk] = useState(50);
 
     const navigate = useNavigate();
-    const [capital, setCapital] = useState(100);
-    const [ROI, setROI] = useState(15.0);
+    //const [capital, setCapital] = useState(100);
+    //const [ROI, setROI] = useState(15.0);
     const [content,setContent] = useState("");
-    const handleChange = (e) => {
+    /*const handleChange = (e) => {
         setRisk(e.target.value);
     };
-    const getTrackColor = () => {
+    /*const getTrackColor = () => {
         const green = 'rgb(245, 0, 245,0)'; // Green color
         const blue = 'rgb(245, 0, 245,1)'; // Blue color
 
         return `linear-gradient(to right, ${green} ${risk}%, ${blue} ${risk}%)`;
-    };
-    const increaseROI = () => {
-        setROI(prevROI => prevROI + 0.5);
-    };
+    };*/
 
-    const decreaseROI = () => {
-        setROI(prevROI => prevROI - 0.5);
-    };
 
-    const increaseCapital = () => {
-        setCapital(prevCapital => prevCapital + 10);
-    };
 
-    const decreaseCapital = () => {
-        setCapital(prevCapital => prevCapital - 10);
-    };
     const HandleInvest = () => {
-        console.log("Capital :",  capital)
-        console.log("ROI :" ,ROI)
-        console.log("risk :" ,risk)
-        console.log("Content :",content)
+
     }
     const handleContent = (e) =>{ 
         setContent(e.target.value)
     }
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
+      }, []);
+
     return (
 
     <div className="App">
@@ -69,29 +59,26 @@ function Invest() {
 
                 <h1>Avaliable Tickets</h1>
                 </div>
-
-
+                <div className="PortfolioBox" >
+                {ticketData.map(ticket => (
+            <div key={ticket.id}>
+              <div className='TicketBlocks'>
+                <h1>{ticket.ticketName}</h1>
+                <h2>
+                     {ticket.stake}% Stake for $ {ticket.capital}K 
+                </h2>
+                <h3>Investor : {ticket.investorName}</h3>
+              </div>
+              
+            </div>
+          ))}
+                </div> 
                 <div className='OfferBox'>
                     
-                    <div class="ValueSpanContainer">
-
-                    <h1>Capital</h1>
-                    <div className='ValueSpan'>
-                        <img src={minus} alt="Welcome" onClick={decreaseCapital}/>
-                        <h1>{capital}K</h1>
-                        <img src={plus} alt="Welcome" onClick={increaseCapital}/>
-                    </div>
-                    <h1>Investor's Expected ROI</h1>
-                    <div className='ValueSpan'>
-                        <img src={minus} alt="Welcome" onClick={decreaseROI}/>
-                        <h1>{ROI}%</h1>
-                        <img src={plus} alt="Welcome" onClick={increaseROI}/>
-                    </div>
                     
-                </div>
                     <div className='Divisor'>
                         <h1>Startup Rating</h1>
-
+                        
                     </div>
                     <div className='RatingBox'>
                         
@@ -102,14 +89,7 @@ function Invest() {
                
                     
                     </div>
-                    <div class="ValueSpanContainer">
-                    <h1>Investor's Expected ROI</h1>
-                    <div className='ValueSpan'>
-                        <img src={minus} alt="Welcome" onClick={decreaseROI}/>
-                        <h1>{ROI}%</h1>
-                        <img src={plus} alt="Welcome" onClick={increaseROI}/>
-                    </div>
-                    </div>
+                    
                     </div>
 
                     <div className='OfferBox'>

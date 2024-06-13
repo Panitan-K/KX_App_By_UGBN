@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './css/App.css';
 import Title from './image/logo/KX.png';
-import LoadingImg from './image/logo/Techbite1.png'; // Ensure the path is correct
+import LoadingImg from './image/logo/TechbiteNoBG.png'; // Ensure the path is correct
 import { useNavigate } from 'react-router-dom';
 
 function Welcome() {
@@ -28,7 +28,7 @@ function Welcome() {
             <div className="LogRegContainer">
               <button className="LogRegbox1" onClick={() => navigate('/Login',{state : {role:"Investor"}}) }>INVESTORS</button>
               <button className="LogRegbox1" onClick={() => navigate('/Login',{state : {role:"Startup"}})}>STARTUPS</button>
-              <button className="LogRegbox1" onClick={() => navigate('/Guest')}>GUEST</button>
+              <button className="LogRegbox1" onClick={() => navigate('/Login',{state : {role:"Guest"}})}>GUEST</button>
             </div>
           </div>
         </div>

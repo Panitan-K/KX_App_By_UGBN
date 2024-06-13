@@ -1,54 +1,72 @@
 import './css/App.css';
-import React,{ useState } from 'react';
+import React,{ useState,useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
-import U16_9 from "./image/Mock/Uphasia16_9.png"
+//import U16_9 from "./image/Mock/Uphasia16_9.png"
 import plus from "./image/svg/plusicon.png"
 import minus from "./image/svg/minusicon.png"
 import Revert from "./image/svg/Revert.png"
-import riskslider from "./image/svg/RiskSlider.png"
+//import riskslider from "./image/svg/RiskSlider.png"
 //import RiskChart from "./RiskChart.js"
-
+import ticketData from './mockJSON/Tickets.json'; // Import your existing JSON data
 
 function CreateTicket() {
-    const [risk, setRisk] = useState(50);
+    
 
     const navigate = useNavigate();
     const [capital, setCapital] = useState(25);
-    const [ROI, setROI] = useState(5);
-    const [content,setContent] = useState("");
-    const handleChange = (e) => {
-        setRisk(e.target.value);
-    };
-    const getTrackColor = () => {
-        const green = 'rgb(245, 0, 245,0)'; // Green color
-        const blue = 'rgb(245, 0, 245,1)'; // Blue color
+    const [stake, setStake] = useState(5);
+  
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
+      }, []);
 
-        return `linear-gradient(to right, ${green} ${risk}%, ${blue} ${risk}%)`;
-    };
-    const increaseROI = () => {
-        setROI(prevROI => prevROI + 1);
+
+    const increaseStake = () => {
+        
+        if (stake < 20) {
+            setStake(prevStake => prevStake + 1);
+        }
+        
     };
 
-    const decreaseROI = () => {
-        setROI(prevROI => prevROI - 1);
+    const decreaseStake = () => {
+        if (stake > 1) {
+        setStake(prevStake => prevStake - 1);
+        }
     };
 
     const increaseCapital = () => {
+        if (capital < 150) {
         setCapital(prevCapital => prevCapital + 5);
+        }
     };
 
     const decreaseCapital = () => {
+        if (capital > 5) {
         setCapital(prevCapital => prevCapital - 5);
+        }
     };
     const HandleInvest = () => {
-        console.log("Capital :",  capital)
-        console.log("ROI :" ,ROI)
-        console.log("risk :" ,risk)
-        console.log("Content :",content)
-    }
-    const handleContent = (e) =>{ 
-        setContent(e.target.value)
-    }
+        const newTicket = {
+          id: ticketData.length + 1, // Generate a unique ID (this is a simple approach)
+          startupName : "Uphasia",
+          investorName: null,
+          ticketName: `Ticket-${Date.now()}`,
+          stake: stake,
+          capital: capital,
+        };
+    
+        // Append the new ticket to the existing ticketData array
+        const updatedTickets = [...ticketData, newTicket];
+    
+        // Log the updated array (you would typically handle persistence here, such as sending the data to a server)
+        console.log('Updated Tickets:', updatedTickets);
+    
+        // Redirect to another page after creating the ticket
+        navigate('/Startup');
+      };
+    
+
     return (
 
     <div className="App">
@@ -85,9 +103,9 @@ function CreateTicket() {
                     <div class="ValueSpanContainer">
                     <h1>Stake</h1>
                     <div className='ValueSpan'>
-                        <img src={minus} alt="Welcome" onClick={decreaseROI}/>
-                        <h1>{ROI}%</h1>
-                        <img src={plus} alt="Welcome" onClick={increaseROI}/>
+                        <img src={minus} alt="Welcome" onClick={decreaseStake}/>
+                        <h1>{stake}%</h1>
+                        <img src={plus} alt="Welcome" onClick={increaseStake}/>
                     </div>
 
                     <h1>Capital</h1>
