@@ -19,12 +19,18 @@ import Startup from './Routes/Startup';
 import Testcontent from './Routes/Testcontent';
 import Dashboard from './Routes/Dashboard';
 import CreateTicket from './Routes/CreateTicket';
+import AdminLogin from './Routes/AdminLogin'
 const router = createBrowserRouter([
 
   {
     path: "/",
     errorElement: <Err />,
     element:  <Welcome/>,
+  },
+  {
+    path: "/AdminLogin",
+    errorElement: <Err />,
+    element:  <AdminLogin/>,
   },
   {
     path: "/Register",

@@ -1,32 +1,58 @@
-import './css/App.css';
+import styles from './css/Admin.module.css'; // Import CSS module
 import React, { useState } from 'react';
-import { Link,useLocation,useNavigate } from "react-router-dom";
-//import { auth } from './Firebase';
-//import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useLocation,useNavigate } from "react-router-dom";
+import { auth } from './Firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
-function Admin() {
+function AdminLogin() {
   const location = useLocation();
-  const { role } = location.state || { role: "Guest" }; // Default to "Guest" if role is not passed
+  const { role } = location.state || { role: "Admin" }; // Default to "Guest" if role is not passed
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  //const [errMsg, setErrMsg] = useState(null);
+  const [errMsg, setErrMsg] = useState(null);
   const navigate = useNavigate();
-  //console.log("Role passed from Welcome page:", role); 
+
+
+    window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
+
+    const fetchRole = async (xUID) => {
+      try {
+        const RoleCollectionRef = collection(db, 'Investor'); // Reference to 'Startup' collection
+        const RolequerySnapshot = await getDocs(InvestorCollectionRef); // Query the collection and get snapshot
+        
+        if (!RolequerySnapshot.empty) {
+          const InvestorData = InvestorquerySnapshot.docs.find(doc => doc.id === xUID); // Find the document with ID 'S01'
+          
+          if (RoleData) {
+            const Buffer = InvestorData.data();
+  
+            console.log(Buffer);
+          } else {
+            console.error("Startup document with ID 'S01' not found.");
+          }
+        } else {
+          console.log("No documents found in 'Role' collection.");
+        }
+      } catch (error) {
+        console.error('Error updating Role data:', error);
+      }
+    };
+  
+
   const handleLogin = async (event) => {
     event.preventDefault();
 
     console.log('Submitted username:', email);
     console.log('Submitted password:', password);
-    console.log(userCredential)
-    console.log(_user.uid)
+    console.log(errMsg)
+
 
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
-      const _user = userCredential.user;
-
+      console.log(userCredential.user.uid)
 
       setErrMsg(null);
-      navigate('/Protected', { state: { userUID: _user.uid } });
+
 
     } catch (error) {
       const errorCode = error.code;
@@ -38,7 +64,7 @@ function Admin() {
   
   return (
     
-    <div className="App">
+    <div className={styles['App-Admin']}>
      
       <div className='static-bar'>
      
@@ -76,9 +102,9 @@ function Admin() {
             />
           </div>
     
-          <Link to="/ForgotPassword" class="link2">Forgot Password? </Link>          
+          
         <div>
-        <button type="submit"class="submit-button" >Login MEEE</button>
+        <button type="submit"className={styles} >Admin Login</button>
         
         </div>
         </form>
@@ -93,4 +119,4 @@ function Admin() {
   );
 }
 
-export default Login;
+export default AdminLogin;

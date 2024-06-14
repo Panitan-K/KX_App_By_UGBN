@@ -1,0 +1,31 @@
+:root {
+    --KXB : #545658;
+    --MahidolBlue: #0080ff;
+    --BGC :   #F9F6EE;
+    --UphasiaGreen : #17AA7C;
+  }
+  
+ 
+  
+  /* Apply the font to the entire website */
+  body {
+      font-family: 'Kanit', sans-serif;
+  }
+  
+  /* Ensure consistency across common elements */
+  h1, h2, h3, h4, h5, h6 {
+      font-family: inherit; /* Ensures heading tags also use the body font */
+  }
+  
+  p, a, span, div, li, ul, ol, input, textarea, button {
+      font-family: inherit; /* Ensures other common elements also use the body font */
+  }
+  
+  .App {
+    text-align: center;
+    background-color: red;
+    min-height: 100vh;
+    box-sizing: border-box; 
+    overflow-x: hidden;
+   
+  }
