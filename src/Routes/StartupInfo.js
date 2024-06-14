@@ -1,7 +1,7 @@
 import './css/App.css';
 import React, {useEffect} from 'react';
 
-import U16_9 from "./image/Mock/Uphasia16_9.png"
+import U16_9 from "./image/logo/Uphasia.png"
 
 import Revert from "./image/svg/Revert.png"
 import { useNavigate} from "react-router-dom";

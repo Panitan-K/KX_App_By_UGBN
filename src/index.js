@@ -6,9 +6,8 @@ import {
 } from "react-router-dom";
 
 import './index.css';
-import InvestorMain from './Routes/InvesetorMain';
 
-
+import InvestorMain from './Routes/InvestorMain';
 import Err from './Routes/Err';
 import Welcome from './Routes/Welcome';
 import Register from './Routes/Register';

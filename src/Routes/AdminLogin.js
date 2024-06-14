@@ -1,10 +1,10 @@
 import './css/App.css';
 import React, { useState } from 'react';
-import { useLocation,useNavigate } from "react-router-dom";
+import { Link,useLocation,useNavigate } from "react-router-dom";
 //import { auth } from './Firebase';
 //import { signInWithEmailAndPassword } from 'firebase/auth';
 
-function Login() {
+function Admin() {
   const location = useLocation();
   const { role } = location.state || { role: "Guest" }; // Default to "Guest" if role is not passed
   const [email, setEmail] = useState('');
@@ -14,19 +14,12 @@ function Login() {
   //console.log("Role passed from Welcome page:", role); 
   const handleLogin = async (event) => {
     event.preventDefault();
-    if (role === "Startup") {
-      console.log(role)
-      navigate('/Startup')
-    }
-    else if (role === "Investor") {
-      console.log(role)
-      navigate('/InvestorMain')
-    }
-    //console.log('Submitted username:', email);
-    //console.log('Submitted password:', password);
-          //console.log(userCredential)
-      //console.log(_user.uid)
-/*
+
+    console.log('Submitted username:', email);
+    console.log('Submitted password:', password);
+    console.log(userCredential)
+    console.log(_user.uid)
+
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const _user = userCredential.user;
@@ -39,7 +32,7 @@ function Login() {
       const errorCode = error.code;
       const errorMessage = error.message;
       setErrMsg(errorCode + '  ' + errorMessage);
-    }*/
+    }
   };
 
   
@@ -83,9 +76,9 @@ function Login() {
             />
           </div>
     
-                
+          <Link to="/ForgotPassword" class="link2">Forgot Password? </Link>          
         <div>
-        <button type="submit"className="submit-button" >Login</button>
+        <button type="submit"class="submit-button" >Login MEEE</button>
         
         </div>
         </form>

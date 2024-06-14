@@ -343,7 +343,7 @@ input::placeholder {
 }
 
 .submit-button{
-  background-color: var(--MahidolBlue); 
+  background-color: var(--KXB); 
   color: rgb(255, 255, 255); 
   border: none; 
   margin-top: 20px;
@@ -578,7 +578,18 @@ input::placeholder {
   padding-right: 2vw;
   
 }
+.TicketBlocks.selected {
+  background-color: #e0e0e0; /* Change to desired color */
+  border: 2px solid #007BFF; /* Change to desired border style */
+}
 
+.ticket.investorName.Invested {
+  color: green;
+}
+.green-text {
+  color: green;
+  font-weight: bold;
+}
 .StartupsInfoBlocks{
   background-color: var(--KXB);
   
@@ -723,6 +734,7 @@ input::placeholder {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: left;
 }
 
 .volume-slider-container {
@@ -735,6 +747,21 @@ input::placeholder {
   width: 100%;
   height: auto;
   z-index: 0;
+}
+
+.TicketNameInput {
+  border: 0px solid;
+  background-color: #d9d9d9;
+  color: black;
+  width: 80vw;
+  height: 5vh;
+  font-size: 3vh;
+  padding-left: 6vw;
+}
+
+.TicketNameInput::placeholder {
+  color: #000000; /* Change this to your desired placeholder color */
+  opacity: 1; /* Ensure the opacity is 1 so the color is fully applied */
 }
 
 
