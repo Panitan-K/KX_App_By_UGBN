@@ -3,7 +3,8 @@ import React, { useState } from 'react';
 import { useLocation,useNavigate } from "react-router-dom";
 import { auth } from './Firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-
+import {  collection, getDocs, /*doc, getDoc*/ } from 'firebase/firestore';
+import { db } from './Firebase'; 
 function AdminLogin() {
   const location = useLocation();
   const { role } = location.state || { role: "Admin" }; // Default to "Guest" if role is not passed
@@ -17,14 +18,14 @@ function AdminLogin() {
 
     const fetchRole = async (xUID) => {
       try {
-        const RoleCollectionRef = collection(db, 'Investor'); // Reference to 'Startup' collection
-        const RolequerySnapshot = await getDocs(InvestorCollectionRef); // Query the collection and get snapshot
+        const RoleCollectionRef = collection(db, 'Role'); // Reference to 'Startup' collection
+        const RolequerySnapshot = await getDocs(RoleCollectionRef); // Query the collection and get snapshot
         
         if (!RolequerySnapshot.empty) {
-          const InvestorData = InvestorquerySnapshot.docs.find(doc => doc.id === xUID); // Find the document with ID 'S01'
+          const RoleData = RolequerySnapshot.docs.find(doc => doc.id === xUID); // Find the document with ID 'S01'
           
           if (RoleData) {
-            const Buffer = InvestorData.data();
+            const Buffer = RoleData.data();
   
             console.log(Buffer);
           } else {

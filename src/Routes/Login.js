@@ -2,8 +2,8 @@ import './css/App.css';
 
 import React, { useState } from 'react';
 import { useLocation,useNavigate } from "react-router-dom";
-//import { auth } from './Firebase';
-//import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from './Firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 function Login() {
   const location = useLocation();
@@ -12,45 +12,40 @@ function Login() {
   const [password, setPassword] = useState('');
   //const [errMsg, setErrMsg] = useState(null);
   const navigate = useNavigate();
+
+ 
   //console.log("Role passed from Welcome page:", role); 
   const handleLogin = async (event) => {
     event.preventDefault();
-    if (role === "Startup") {
-      console.log(role)
-      navigate('/Startup')
-    }
-    else if (role === "Investor") {
-      console.log(role)
-      navigate('/InvestorMain')
-    }
-    //console.log('Submitted username:', email);
-    //console.log('Submitted password:', password);
-          //console.log(userCredential)
-      //console.log(_user.uid)
-/*
+    
+
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const _user = userCredential.user;
 
-
-      setErrMsg(null);
+      console.log("Going to Protect JS with role =",role," and UID = ",_user.uid)
+      //setErrMsg(null);
       navigate('/Protected', { state: { userUID: _user.uid } });
 
     } catch (error) {
       const errorCode = error.code;
       const errorMessage = error.message;
-      setErrMsg(errorCode + '  ' + errorMessage);
-    }*/
+      console.log(errorCode + '  ' + errorMessage);
+    }
+
+   
   };
 
-  
+  /*const GoIndex = () => {
+    navigate("/")
+  }*/
   return (
     
     <div className="App">
      
-      <div className='static-bar'>
+      <div className='static-bar' >
      
-        <p>{role} Login  </p>
+        <p >{role} Login  </p>
       </div>
 
      <div className="App-header">
@@ -61,11 +56,11 @@ function Login() {
         <form onSubmit={handleLogin}>
 
           <div>
-            <h5 htmlFor="Email" class="input-placeholder">Email</h5>
+            <h5 htmlFor="Email" className="input-placeholder">Email</h5>
             <input
               type="text"
               id="Email"
-              class="form-style"
+              className="form-style"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -73,11 +68,11 @@ function Login() {
           </div>
           
           <div>
-            <h5 htmlFor="password" class="input-placeholder">Password</h5>
+            <h5 htmlFor="password" className="input-placeholder">Password</h5>
             <input
               type="password"
               id="password"
-              class="form-style"
+              className="form-style"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required

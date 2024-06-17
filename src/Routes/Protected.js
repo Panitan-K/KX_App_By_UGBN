@@ -7,10 +7,13 @@ function Protected({ children }) {
   const userUID = location.state.userUID;
 
   useEffect(() => {
-    if (userUID == null) {
-      navigate('/Login');
-    } else {
-      navigate('/Home', { state: { userUID } });
+    if (role === "Startup") {
+      console.log(role)
+      navigate('/Startup')
+    }
+    else if (role === "Investor") {
+      console.log(role)
+      navigate('/InvestorMain', { state: { investorID: 'IN01' } })
     }
   }, [navigate, userUID]);
 

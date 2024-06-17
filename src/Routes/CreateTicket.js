@@ -27,9 +27,9 @@ function CreateTicket() {
               const StartupData = StartupquerySnapshot.docs.find(doc => doc.id === 'S01'); // Find the document with ID 'S01'
               
               if (StartupData) {
-                const Buffer = StartupData.data();
-                setStartupInfo(Buffer)
-                setTicketCreated(Buffer.ticketOwned.length)
+                const BufferStartup = StartupData.data();
+                setStartupInfo(BufferStartup)
+                setTicketCreated(BufferStartup.ticketOwned.length)
           
               } else {
                 console.error("Startup document with ID 'S01' not found.");
@@ -47,7 +47,7 @@ function CreateTicket() {
       }, []);
 
     const increaseStake = () => {
-        if (stake < 20) {
+        if (stake < startupInfo.stakeRemain) {
             setStake(prevStake => prevStake + 1);
         }
     };
@@ -71,6 +71,13 @@ function CreateTicket() {
     };
 
     const executeStartupUpdate = async (ticketID, stake) => {
+      if (stake > startupInfo.stakeRemain ) {
+        alert("No more stake left")
+      }
+
+      else {
+
+      
         try {
           const StartupCollectionRef = collection(db, 'Startup'); // Reference to 'Startup' collection
           const StartupquerySnapshot = await getDocs(StartupCollectionRef); // Query the collection and get snapshot
@@ -103,6 +110,7 @@ function CreateTicket() {
         } catch (error) {
           console.error('Error updating startup data:', error);
         }
+      }
       };
 
 
@@ -115,6 +123,12 @@ function CreateTicket() {
             stake: stake,
             capital: capital,
         };
+        if (stake > startupInfo.stakeRemain ) {
+          alert("No more stake left")
+        }
+        else {
+
+       
         console.log(newTicket);
         try {
             // Get the reference to the "tickets" collection
@@ -147,6 +161,7 @@ function CreateTicket() {
             setLoading(false); // Set loading to false to hide the overlay
             
         }
+      }
     };
     
     return (
