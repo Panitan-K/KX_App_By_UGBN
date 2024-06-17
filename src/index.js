@@ -20,12 +20,18 @@ import Testcontent from './Routes/Testcontent';
 import Dashboard from './Routes/Dashboard';
 import CreateTicket from './Routes/CreateTicket';
 import AdminLogin from './Routes/AdminLogin'
+import Protected from './Routes/Protected';
 const router = createBrowserRouter([
 
   {
     path: "/",
     errorElement: <Err />,
     element:  <Welcome/>,
+  },
+  {
+    path: "/Protected",
+    errorElement: <Err />,
+    element:  <Protected/>,
   },
   {
     path: "/AdminLogin",

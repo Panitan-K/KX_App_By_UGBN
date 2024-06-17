@@ -1,6 +1,6 @@
 import './css/App.css';
 import React, { useEffect, useState } from 'react';
-import PersonIcon from "./image/Mock/KL_Placeholder.jpeg";
+//import PersonIcon from "./image/Mock/KL_Placeholder.jpeg";
 import { useNavigate, useLocation } from "react-router-dom";
 import { db } from './Firebase'; // Assuming 'db' and other Firestore methods are exported from './Firebase'
 import { collection, getDocs } from 'firebase/firestore';
@@ -11,21 +11,25 @@ function InvestorMain() {
   const [tickets, setTickets] = useState([]);
   const [investorInfo, setInvestorInfo] = useState({});
   const [ticketAmount, setTicketAmount] = useState(0);
-
+  const [xinvestorID,setInvestorID] = useState("");
   useEffect(() => {
+    
     const state = location.state || {};
+    console.log("this is state",state)
+    setInvestorID(location.state.ID)
+    console.log("xInvestorID ",xinvestorID)
 
     // Check if investorID exists in the state
-    if (!state.investorID) {
+
+    /*if (xinvestorID === null) {
       // If investorID is null or undefined, navigate to the login page
       navigate('/login');
       return; // Exit the effect early
-    }
+    }*/
 
-    const { investorID } = state;
-
+   
     window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
-    console.log("Given Investor ID,", investorID);
+    console.log("Given Investor ID,", xinvestorID);
 
     const fetchTickets = async () => {
       try {
@@ -49,7 +53,7 @@ function InvestorMain() {
         const InvestorquerySnapshot = await getDocs(InvestorCollectionRef); // Query the collection and get snapshot
 
         if (!InvestorquerySnapshot.empty) {
-          const InvestorData = InvestorquerySnapshot.docs.find(doc => doc.id === investorID); // Find the document with the given ID
+          const InvestorData = InvestorquerySnapshot.docs.find(doc => doc.id === xinvestorID); // Find the document with the given ID
 
           if (InvestorData) {
             const Buffer = InvestorData.data();
@@ -57,7 +61,7 @@ function InvestorMain() {
             setTicketAmount(Buffer.ticketOwned.length);
             console.log(Buffer);
           } else {
-            console.error(`Investor document with ID '${investorID}' not found.`);
+            console.error(`Investor document with ID '${xinvestorID}' not found.`);
           }
         } else {
           console.log("No documents found in 'Investor' collection.");
@@ -69,9 +73,9 @@ function InvestorMain() {
 
     fetchTickets(); // Call the fetchTickets function when component mounts
     fetchInvestor();
-  }, [location.state, navigate]); // Dependency array with location.state and navigate to ensure navigation happens correctly
+  }, [location.state, navigate,xinvestorID]); // Dependency array with location.state and navigate to ensure navigation happens correctly
 
-  console.log(tickets);
+  //console.log(tickets);
 
   // Filter tickets where investorName matches the investor's name
   const filteredTickets = tickets.filter(ticket => ticket.investorName === investorInfo.firstName);
@@ -79,7 +83,7 @@ function InvestorMain() {
   return (
     <div className="App">
       <div className='InvestorProfile'>
-        <img src={PersonIcon} alt="Welcome" className='InvestorIcon' />
+        <img src={investorInfo.imgSrc} alt="Welcome" className='InvestorIcon' />
         <div className='InvestorNameBox'>
           <h2 style={{ lineHeight: "0.5vh" }}>{investorInfo.firstName}</h2>
           <h2>{investorInfo.lastName}</h2>
@@ -98,7 +102,7 @@ function InvestorMain() {
         </span>
       </div>
 
-      <button className='InvestButton' onClick={() => navigate('/InvestList')}>INVEST NOW</button>
+      <button className='InvestButton' onClick={() => navigate('/InvestList',{ state : { ID : xinvestorID}})}>INVEST NOW</button>
 
       <div className="PortfolioBox">
         <h1>Portfolio</h1>

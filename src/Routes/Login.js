@@ -25,7 +25,7 @@ function Login() {
 
       console.log("Going to Protect JS with role =",role," and UID = ",_user.uid)
       //setErrMsg(null);
-      navigate('/Protected', { state: { userUID: _user.uid } });
+      navigate('/Protected', { state: { userUID: _user.uid ,role:role} });
 
     } catch (error) {
       const errorCode = error.code;

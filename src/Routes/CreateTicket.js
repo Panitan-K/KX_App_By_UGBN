@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation  } from "react-router-dom";
 import plus from "./image/svg/plusicon.png";
 import minus from "./image/svg/minusicon.png";
 import Revert from "./image/svg/Revert.png";
@@ -14,17 +14,19 @@ function CreateTicket() {
     const [loading, setLoading] = useState(false);
     const [startupInfo,setStartupInfo] = useState({});
     const [ticketCreated,setTicketCreated] = useState(0)
+    const location = useLocation();
+  
     useEffect(() => {
         window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
-       
-    
+        console.log("This is Location State : ", location.state)
+        
         const fetchStartup = async () => {
           try {
             const StartupCollectionRef = collection(db, 'Startup'); // Reference to 'Startup' collection
             const StartupquerySnapshot = await getDocs(StartupCollectionRef); // Query the collection and get snapshot
             
             if (!StartupquerySnapshot.empty) {
-              const StartupData = StartupquerySnapshot.docs.find(doc => doc.id === 'S01'); // Find the document with ID 'S01'
+              const StartupData = StartupquerySnapshot.docs.find(doc => doc.id === location.state.StartupID); // Find the document with ID 'S01'
               
               if (StartupData) {
                 const BufferStartup = StartupData.data();
@@ -83,7 +85,7 @@ function CreateTicket() {
           const StartupquerySnapshot = await getDocs(StartupCollectionRef); // Query the collection and get snapshot
           
           if (!StartupquerySnapshot.empty) {
-            const StartupData = StartupquerySnapshot.docs.find(doc => doc.id === 'S01'); // Find the document with ID 'S01'
+            const StartupData = StartupquerySnapshot.docs.find(doc => doc.id === location.state.StartupID); // Find the document with ID 'S01'
             
             if (StartupData) {
               const currentData = StartupData.data();
@@ -117,7 +119,7 @@ function CreateTicket() {
     const handleInvest = async () => {
         setLoading(true); // Set loading to true to show the overlay
         const newTicket = {
-            startupName: "Uphasia",
+            startupName: location.state.StartupName,
             investorName: null,
             ticketName: ticketName, // Use the ticketName state here
             stake: stake,
@@ -153,7 +155,7 @@ function CreateTicket() {
             executeStartupUpdate(newTicketId, newTicket.stake)
 
             // Redirect to another page after creating the ticket
-            navigate('/Startup');
+            navigate('/Startup', { state: { ID: location.state.StartupID } });
             
         } catch (error) {
             console.error("Error adding document: ", error);
@@ -168,7 +170,7 @@ function CreateTicket() {
         <div className="App">
             {loading && <div className="loading-overlay">Processing...</div>}
             <div className='static-bar'>
-                <img src={Revert} alt="Welcome" className='Revertbutton' onClick={() => navigate('/Startup')} />
+                <img src={Revert} alt="Welcome" className='Revertbutton' onClick={() => navigate('/Startup', { state: { ID: location.state.StartupID } })} />
                 <p style={{ fontSize: "7vw" }}>Create Ticket</p>
             </div>
 

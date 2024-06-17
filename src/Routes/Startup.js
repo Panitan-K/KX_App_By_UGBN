@@ -1,7 +1,6 @@
 import './css/App.css';
 import React, { useEffect, useState, useCallback } from 'react';
-import { useNavigate } from "react-router-dom";
-import U16_9 from "./image/logo/Uphasia.png";
+import { useNavigate, useLocation } from "react-router-dom";
 import { db } from './Firebase';
 import { collection, getDocs, getDoc, doc, updateDoc } from 'firebase/firestore';
 
@@ -11,51 +10,48 @@ function Startup() {
   const [startupInfo, setStartupInfo] = useState({});
   const [ticketAmount, setTicketAmount] = useState(0);
   const [Fund, setFund] = useState(0);
+  const [StartupID, setStartupID] = useState("");
+  const location = useLocation();
 
+  const CreateTicketNavigate = () =>{
+    console.log("CreateTicketNavigate",startupInfo)
+    navigate('/CreateTicket', {state : { StakeRemain: startupInfo.stakeRemain, StartupName : startupInfo.startupName, StartupID: StartupID }})
+  }
   const checkupFundRaised = useCallback((tickets, startupInfo) => {
-    console.log("Checking Startup tickets", tickets, startupInfo);
     if (startupInfo.fundRaised !== undefined) {
       let ticketBalance = 0;
       let startupFundraised = startupInfo.fundRaised;
       tickets.forEach((ticket, index) => {
-        console.log(`Ticket ${index}: Capital = ${ticket.capital}, Investor Name = ${ticket.investorName}`);
         if (ticket.investorName !== null) {
           ticketBalance += ticket.capital;
-          console.log("Appending Capital")
         }
 
-        console.log("Comparing Balance to Tickets")
         if (ticketBalance === startupFundraised) {
           setFund(ticketBalance);
         } else {
-          console.log("ticket balance is not equal to store");
-          console.log("ticket Balance", ticketBalance, "Store in DB", startupFundraised);
           executeFundupdate(ticketBalance);
           setFund(ticketBalance);
         }
-
-        console.log("I have this amount sold: ", ticketBalance);
       });
-    } else {
-      console.log("Failed to get ticket data");
     }
   }, []);
-  
-  const executeFundupdate = async (UpdateFund) => {
-    console.log("I will update this with ", UpdateFund, "K");
 
-    const startupDocRef = doc(db, 'Startup', 'S01');
+  const executeFundupdate = async (UpdateFund) => {
+    const startupDocRef = doc(db, 'Startup', StartupID);
     const startupDocSnapshot = await getDoc(startupDocRef);
     if (startupDocSnapshot.exists()) {
       const Buffer = startupDocSnapshot.data();
       Buffer.fundRaised = UpdateFund;
       await updateDoc(startupDocRef, { fundRaised: Buffer.fundRaised });
     } else {
-      console.error("Startup document with ID 'S01' not found.");
+      console.error("Startup document not found.");
     }
-  }
+  };
 
   useEffect(() => {
+    console.log("Return or first time in" , location.state)
+    setStartupID(location.state.ID);
+    
     const fetchData = async () => {
       try {
         // Fetch tickets
@@ -65,29 +61,24 @@ function Startup() {
         if (!ticketsQuerySnapshot.empty) {
           ticketData = ticketsQuerySnapshot.docs.map(doc => doc.data());
           setTickets(ticketData);
-        } else {
-          console.log("No documents found in 'tickets' collection.");
         }
 
         // Fetch startup info
         const startupCollectionRef = collection(db, 'Startup');
-        let StartupBuffer = {};
         const startupQuerySnapshot = await getDocs(startupCollectionRef);
+        console.log("This is StartupID: " ,StartupID)
         if (!startupQuerySnapshot.empty) {
-          const startupData = startupQuerySnapshot.docs.find(doc => doc.id === 'S01');
+          const startupData = startupQuerySnapshot.docs.find(doc => doc.id === location.state.ID);
           if (startupData) {
-            StartupBuffer = startupData.data();
+            const StartupBuffer = startupData.data();
             setStartupInfo(StartupBuffer);
             setTicketAmount(StartupBuffer.ticketOwned.length);
           } else {
-            console.error("Startup document with ID 'S01' not found.");
+            console.error("Startup document not found.");
           }
-        } else {
-          console.log("No documents found in 'Startup' collection.");
         }
 
-        // Call checkupFundRaised after both fetches are complete
-        checkupFundRaised(ticketData, StartupBuffer);
+        checkupFundRaised(ticketData, startupInfo);
 
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -95,9 +86,9 @@ function Startup() {
     };
 
     fetchData();
-  }, [checkupFundRaised]);
+  }, [checkupFundRaised, location.state,]);
 
-  
+  const filteredTickets = tickets.filter(ticket => ticket.startupName === startupInfo.startupName);
 
   return (
     <div className="App">
@@ -106,7 +97,7 @@ function Startup() {
       </div>
       <div className='AppWithHeaderContent'>
         <div className='StartupsInfoBlocks3'>
-          <img src={U16_9} alt="Welcome" />
+          <img src={startupInfo.imgSrc} alt="Welcome" />
         </div>
         <div className='BalanceBox'>
           <p style={{ lineHeight: "1vh", fontSize: "10vw", marginBlockStart: "8vh", marginBlockEnd: "3vh" }}>Stake Remain</p>
@@ -129,11 +120,11 @@ function Startup() {
             <span style={{ color: '#079F16', fontWeight: "bold" }}>K</span>
           </div>
         </div>
-        <button className='InvestButton' onClick={() => navigate('/CreateTicket', { StakeRemain: startupInfo.stakeRemain })}>Create Ticket</button>
+        <button className='InvestButton' onClick={() => CreateTicketNavigate()}>Create Ticket</button>
         <div className="PortfolioBox">
           <h1>Tickets</h1>
-          {tickets.length > 0 ? (
-            tickets.map(ticket => (
+          {filteredTickets.length > 0 ? (
+            filteredTickets.map(ticket => (
               <div key={ticket.ticketName} className='TicketBlocks'>
                 <p>Ticket Name: {ticket.ticketName}</p>
                 <p>Capital: {ticket.capital}</p>

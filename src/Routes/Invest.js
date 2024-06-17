@@ -1,9 +1,9 @@
 import './css/App.css';
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import U16_9 from "./image/logo/Uphasia.png";
 import Revert from "./image/svg/Revert.png";
-import { db } from './Firebase'; // Assuming 'db' and other Firestore methods are exported from './Firebase'
+import { db } from './Firebase'; 
 import { collection, doc, updateDoc, getDocs, arrayUnion } from 'firebase/firestore';
 
 function Invest() {
@@ -13,12 +13,20 @@ function Invest() {
     const [content, setContent] = useState("");
     const [investorInfo,setInvestorInfo] = useState({});
     const [ticketAmount,setTicketAmount] = useState(0);
-
+    const [xinvestorID,setInvestorID] = useState("")
+    const [xStartup,setStartup] = useState("")
+    const location = useLocation();
     const handleContent = (e) => {
         setContent(e.target.value);
     }
 
     useEffect(() => {
+
+        window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
+        console.log("This is what is sent",location.state.Startup.image)
+        setInvestorID(location.state.ID)
+        setStartup(location.state.Startup)
+        //console.log(xinvestorID)
         window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
 
         const fetchTickets = async () => {
@@ -41,7 +49,7 @@ function Invest() {
               const InvestorquerySnapshot = await getDocs(InvestorCollectionRef); // Query the collection and get snapshot
               
               if (!InvestorquerySnapshot.empty) {
-                const InvestorData = InvestorquerySnapshot.docs.find(doc => doc.id === 'IN01'); // Find the document with ID 'S01'
+                const InvestorData = InvestorquerySnapshot.docs.find(doc => doc.id === xinvestorID); // Find the document with ID 'S01'
                 
                 if (InvestorData) {
                   const Buffer = InvestorData.data();
@@ -63,7 +71,7 @@ function Invest() {
         fetchTickets(); // Call the fetchTickets function when component mounts
         fetchInvestor();
 
-    }, []);
+    }, [xinvestorID,location.state.ID,location.state.Startup]);
 
     const handleTicketClick = (ticket) => {
         if (selectedTicket === ticket) {
@@ -87,7 +95,7 @@ function Invest() {
                     investorName: investorInfo.firstName, // Update with the desired investor name
                 });
 
-                const InvestorDocRef = doc(db, "Investor", "IN01");
+                const InvestorDocRef = doc(db, "Investor", xinvestorID);
             
                 await updateDoc(InvestorDocRef, {
                     balance: investorInfo.balance - selectedTicket.capital,
@@ -97,7 +105,7 @@ function Invest() {
                 
 
                 console.log("Investment successful!");
-                navigate("/InvestorMain")
+                navigate("/InvestorMain",{ state : { ID : xinvestorID}})
                 // Proceed with other investment logic if needed...
     
             } catch (error) {
@@ -109,19 +117,20 @@ function Invest() {
     }
 
     console.log(tickets)
-    
+    const filteredTickets = tickets.filter(ticket => ticket.startupName === location.state.Startup.name);
+
     return (
         <div className="App">
             <div className='static-bar'>
-                <img src={Revert} alt="Welcome" className='Revertbutton' onClick={() => navigate('/StartupInfo')} />
-                <p style={{ fontSize: "7vw" }}> Invest in Uphasia</p>
+                <img src={Revert} alt="Welcome" className='Revertbutton' onClick={() => navigate('/StartupInfo',{ state : { ID : xinvestorID, startup : xStartup}})} />
+                <p style={{ fontSize: "7vw" }}> Invest in {location.state.Startup.name}</p>
             </div>
 
             <div className='AppWithHeaderContent2'>
                 <div className='StartupsInfoBlocks3'>
-                    <img src={U16_9} alt="Welcome" />
+                    <img src={location.state.Startup.image} alt="Welcome" />
                     <h1>You are investing in</h1>
-                    <h1> Uphasia</h1>
+                    <h1> {location.state.Startup.name}</h1>
                     <div className='Divisor'>
                         <h1>Balance</h1>
                     </div>
@@ -140,21 +149,21 @@ function Invest() {
                         <h1>Available Tickets</h1>
                     </div>
                     <div className="PortfolioBox">
-                        {tickets.map((ticket, index) => (
+                        {filteredTickets.map((ticket, index) => (
                             ticket.investorName === null && (
-                                <ul
-                                    key={index}
-                                    className={`TicketBlocks ${selectedTicket === ticket ? 'selected' : ''}`}
-                                    onClick={() => handleTicketClick(ticket)}
-                                    style={{ display: selectedTicket && selectedTicket !== ticket ? 'none' : 'block' }}
-                                >
-                                    <p>Ticket Name: {ticket.ticketName}</p>
-                                    <p>Capital: {ticket.capital}</p>
-                                    <p>Stake: {ticket.stake}</p>
-                                </ul>
+                            <ul
+                                key={index}
+                                className={`TicketBlocks ${selectedTicket === ticket ? 'selected' : ''}`}
+                                onClick={() => handleTicketClick(ticket)}
+                                style={{ display: selectedTicket && selectedTicket !== ticket ? 'none' : 'block' }}
+                            >
+                                <p>Ticket Name: {ticket.ticketName}</p>
+                                <p>Capital: {ticket.capital}</p>
+                                <p>Stake: {ticket.stake}</p>
+                            </ul>
                             )
                         ))}
-                    </div>
+                        </div>
 
                     {selectedTicket && (
                         <div className='OfferBox'>
