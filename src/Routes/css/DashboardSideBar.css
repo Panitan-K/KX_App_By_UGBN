@@ -1,0 +1,67 @@
+:root {
+  --KXB : #545658;
+  --KXB2 : #31393B;
+  --MahidolBlue: #0080ff;
+  --BGC :   #F9F6EE;
+  --UphasiaGreen : #17AA7C;
+  --KXOrange : #E16236;
+}
+.DashboardSideBar {
+    width: 14vw;
+    height: 100vh;
+    background-color:var(--KXB2) ;
+    color: #ecf0f1;
+    text-align: left;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+.DashboardSideBar ul {
+    list-style-type: none;
+    padding: 0;
+    padding-top: 0;
+    margin-top: 0;
+  }
+  
+.DashboardSideBar ul li {
+    padding: 1.5vh 0;
+    padding-left: 2vw;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+.DashboardSideBar ul li:hover {
+    background-color: var(--KXOrange);
+    padding-left: 0vw;
+    transition: 0.3s;
+  }
+.KX_Sidebar_Logo {
+    background-color: var(--KXB2);
+    width: 14vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+   
+
+  }
+
+.DashboardSideBar li.selected {
+    background-color: var(--KXOrange);
+    color: rgb(255, 255, 255); /* Optional: to change the text color as well */
+  }
+
+.Dashboard-App {
+    
+    text-align: center;
+    background-color: var(--BGC);
+    min-height: 100vh;
+    box-sizing: border-box; 
+    overflow-x: hidden;
+    display: flex;
+    
+  }
+
+.Dashboard-Content {
+  width: 85vw;
+  height: 96vh;
+  border: 2vh solid rgba(255, 255, 255, 0);
+  overflow-y: auto;
+}

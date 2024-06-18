@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useLocation,useNavigate } from "react-router-dom";
 import { auth } from './Firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import {  collection, getDocs, /*doc, getDoc*/ } from 'firebase/firestore';
+import {  collection, getDocs, doc, getDoc } from 'firebase/firestore';
 import { db } from './Firebase'; 
 function AdminLogin() {
   const location = useLocation();
@@ -51,6 +51,23 @@ function AdminLogin() {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       console.log(userCredential.user.uid)
+      const roleDocRef = doc(collection(db, 'Roles'), userCredential.user.uid); // Reference to the document with ID 'userUID'
+      const roleDoc = await getDoc(roleDocRef); // Get the document
+      if (roleDoc.exists()) {
+        //console.log("I GOT ", roleDoc.data().role);
+        const userRole = roleDoc.data().AdminRole; // Get the role attribute
+        console.log(userRole)
+        if (userRole === 'admin') {
+          navigate('/Dashboard' );
+        } else {
+          console.error('Role not recognized');
+      
+        }
+      } else {
+        console.error('No Admin');
+
+      }
+  
 
       setErrMsg(null);
 

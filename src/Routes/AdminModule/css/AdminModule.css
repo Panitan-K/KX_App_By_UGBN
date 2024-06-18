@@ -1,0 +1,108 @@
+:root {
+    --KXB: #545658;
+    --MahidolBlue: #0080ff;
+    --BGC: #F9F6EE;
+    --UphasiaGreen: #17AA7C;
+    --KXOrange: #E16236;
+    --columns: 4; /* Default number of columns */
+  }
+  
+  .AdminStartupBlock {
+    background-color: var(--KXB);
+    color: #FFFFFF;
+    width: 75vw;
+    height: auto;
+    display: flex;
+    flex-direction: column; /* Ensure content stacks vertically */
+    border: 3px solid black;
+    margin-top: 1vh;
+    border: 1px solid #ccc; /* Additional border styling */
+    border-radius: 3vw; /* Rounded corners */
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding-left: 5%;
+    overflow-y: auto; /* Enable vertical scrolling */
+    max-height: 60vh; /* Adjust as needed to control the maximum height */
+  }
+  
+  .AdminStartupBlock img {
+    width: 16vw;
+    height: 9vw;
+    padding: 1vh;
+  }
+  
+  .AdminStartupBlockHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .AdminStartupBlockContent {
+    display: none;
+    padding-top: 10px;
+  }
+  
+  .AdminStartupBlock.unfolded .AdminStartupBlockContent {
+    display: block;
+  }
+  
+  /* Apple-like scrollbar */
+  ::-webkit-scrollbar {
+    width: 2px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 1px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 20px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--KXB);
+  }
+  
+  /* Button styling */
+.AddButtonsAppleStyle {
+    width: 10vw;
+    background-color: var(--KXB);
+    color: white;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+  }
+  
+  .AddButtonsAppleStyle:hover {
+    background-color: var(--KXOrange); /* Fallback color */
+  }
+  
+  .AddButtonsAppleStyle:focus {
+    outline: none;
+
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    gap: 10px;
+   
+  }
+
+  .TicketGridblock{
+    padding: 2vw;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    max-width: 40vw;
+    
+  }

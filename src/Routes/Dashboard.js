@@ -1,13 +1,32 @@
 import './css/App.css';
-import Testcontent from './Testcontent';
-import axios from 'axios';
-import React, { useState, useEffect, useRef } from "react";
-
+import StartupAdministration from './AdminModule/StartupAdministration.js';
+import React, { useState } from "react";
+import DashboardSideBar from './DashboardSidebar.js';
+import InvestorAdministration from './AdminModule/InvestorAdministration.js';
+import TicketAdministration from './AdminModule/TicketAdministration.js';
+import DisplayAdministration from './AdminModule/DisplayAdministration.js';
 function Dashboard() {
-  const [data, setData] = useState([]);
-  const colorMap = useRef(new Map());
 
-  const fetchData = async () => {
+  const [selectedOption, setSelectedOption] = useState('');
+  const renderContent = () => {
+    console.log(selectedOption)
+    switch (selectedOption) {
+      case 'Display':
+        return <DisplayAdministration/>;
+      case 'Startup':
+        return <StartupAdministration/> ;
+      case 'Investor':
+        return <InvestorAdministration/> ;;
+      case 'Tickets':
+        return <TicketAdministration/> ;
+      case 'Placeholder':
+        return ;
+      default:
+        setSelectedOption('Display')
+        return ;
+    }
+  };
+  /*const fetchData = async () => {
     try {
       const response = await axios.get('http://127.0.0.1:5000/api/investment-data');
       const fetchedData = response.data;
@@ -42,21 +61,22 @@ function Dashboard() {
     } catch (error) {
       console.error("Error fetching data", error);
     }
-  };
+  };*/
 
-  useEffect(() => {
-    fetchData();
-  }, []);
 
   return (
-    <div className="App">
-      <Testcontent data={data} />
+      <div className="Dashboard-App">
+        <DashboardSideBar selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
+        <div className="Dashboard-Content">
+          {renderContent()}
+
+        </div>
     </div>
   );
 }
 
 // Optional: A function to generate random colors
-const getRandomColor = () => {
+/*const getRandomColor = () => {
   const hue = Math.floor(Math.random() * 360); // Random hue between 0 and 360
   const saturation = Math.floor(Math.random() * 50) + 50; // Saturation between 50% and 100%
   const lightness = Math.floor(Math.random() * 20) + 50; // Lightness between 50% and 70%
@@ -73,5 +93,5 @@ const hslToHex = (h, s, l) => {
     return Math.round(255 * color).toString(16).padStart(2, '0'); // Convert to Hex and pad with leading zero
   };
   return `#${f(0)}${f(8)}${f(4)}`;
-};
+};*/
 export default Dashboard;

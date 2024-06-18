@@ -1,7 +1,7 @@
 import './css/App.css';
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
-import U16_9 from "./image/logo/Uphasia.png";
+//import U16_9 from "./image/logo/Uphasia.png";
 import Revert from "./image/svg/Revert.png";
 import { db } from './Firebase'; 
 import { collection, doc, updateDoc, getDocs, arrayUnion } from 'firebase/firestore';
@@ -22,12 +22,15 @@ function Invest() {
 
     useEffect(() => {
 
-        window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
+        const balanceBox = document.querySelector('.BalanceBox');
+        if (balanceBox) {
+        balanceBox.scrollIntoView({  block: 'start' });
+        }
         console.log("This is what is sent",location.state.Startup.image)
         setInvestorID(location.state.ID)
         setStartup(location.state.Startup)
         //console.log(xinvestorID)
-        window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
+        window.scrollTo(0, 1000); // Scrolls to the top of the page when component mounts
 
         const fetchTickets = async () => {
             try {
@@ -55,7 +58,7 @@ function Invest() {
                   const Buffer = InvestorData.data();
                   setInvestorInfo(Buffer)
                   setTicketAmount(Buffer.ticketOwned.length)
-                  console.log(Buffer)
+                  console.log("This is Buffer : " ,Buffer)
                 } else {
                   console.error("Startup document with ID 'S01' not found.");
                 }
@@ -74,12 +77,17 @@ function Invest() {
     }, [xinvestorID,location.state.ID,location.state.Startup]);
 
     const handleTicketClick = (ticket) => {
+        console.log(ticket)
         if (selectedTicket === ticket) {
             // Deselect the ticket if it's already selected
             setSelectedTicket(null);
         } else {
             // Select the clicked ticket
             setSelectedTicket(ticket);
+            if (ticket.capital > investorInfo.balance) {
+                alert("insufficient capital")
+                setSelectedTicket(null)
+            }
         }
     }
 

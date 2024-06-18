@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import { db } from './Firebase'; // Assuming 'db' and other Firestore methods are exported from './Firebase'
 import { collection, getDocs } from 'firebase/firestore';
+import Startup from './Startup';
 
 function InvestorMain() {
   const navigate = useNavigate();
@@ -39,6 +40,7 @@ function InvestorMain() {
         if (!querySnapshot.empty) {
           const ticketData = querySnapshot.docs.map(doc => doc.data()); // Map document data to array
           setTickets(ticketData); // Set state with ticket data
+          
         } else {
           console.log("No documents found in 'tickets' collection.");
         }
@@ -58,8 +60,8 @@ function InvestorMain() {
           if (InvestorData) {
             const Buffer = InvestorData.data();
             setInvestorInfo(Buffer);
-            setTicketAmount(Buffer.ticketOwned.length);
-            console.log(Buffer);
+            
+            console.log("This is Buffer : " ,Buffer);
           } else {
             console.error(`Investor document with ID '${xinvestorID}' not found.`);
           }
@@ -79,7 +81,18 @@ function InvestorMain() {
 
   // Filter tickets where investorName matches the investor's name
   const filteredTickets = tickets.filter(ticket => ticket.investorName === investorInfo.firstName);
+  useEffect(() => {
+    console.log(filteredTickets)
+    const uniqueStartupNames = new Set(filteredTickets.map(ticket => ticket.startupName));
+    setTicketAmount(uniqueStartupNames.size);
+    console.log(ticketAmount);
 
+  })
+  
+
+// Get the count of unique startup names
+  
+  
   return (
     <div className="App">
       <div className='InvestorProfile'>

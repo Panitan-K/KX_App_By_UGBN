@@ -17,6 +17,19 @@ function Startup() {
     console.log("CreateTicketNavigate",startupInfo)
     navigate('/CreateTicket', {state : { StakeRemain: startupInfo.stakeRemain, StartupName : startupInfo.startupName, StartupID: StartupID }})
   }
+  const executeFundupdate = useCallback(async (UpdateFund) => {
+    const startupDocRef = doc(db, 'Startup', StartupID);
+    const startupDocSnapshot = await getDoc(startupDocRef);
+    if (startupDocSnapshot.exists()) {
+      const Buffer = startupDocSnapshot.data();
+      Buffer.fundRaised = UpdateFund;
+      await updateDoc(startupDocRef, { fundRaised: Buffer.fundRaised });
+    } else {
+      console.error("Startup document not found.");
+    }
+  }, [StartupID]);
+
+
   const checkupFundRaised = useCallback((tickets, startupInfo) => {
     if (startupInfo.fundRaised !== undefined) {
       let ticketBalance = 0;
@@ -34,22 +47,10 @@ function Startup() {
         }
       });
     }
-  }, []);
+  }, [executeFundupdate]);
 
-  const executeFundupdate = async (UpdateFund) => {
-    const startupDocRef = doc(db, 'Startup', StartupID);
-    const startupDocSnapshot = await getDoc(startupDocRef);
-    if (startupDocSnapshot.exists()) {
-      const Buffer = startupDocSnapshot.data();
-      Buffer.fundRaised = UpdateFund;
-      await updateDoc(startupDocRef, { fundRaised: Buffer.fundRaised });
-    } else {
-      console.error("Startup document not found.");
-    }
-  };
-
+  
   useEffect(() => {
-    console.log("Return or first time in" , location.state)
     setStartupID(location.state.ID);
     
     const fetchData = async () => {
@@ -72,7 +73,7 @@ function Startup() {
           if (startupData) {
             const StartupBuffer = startupData.data();
             setStartupInfo(StartupBuffer);
-            setTicketAmount(StartupBuffer.ticketOwned.length);
+            //setTicketAmount(StartupBuffer.ticketOwned.length);
           } else {
             console.error("Startup document not found.");
           }
@@ -86,10 +87,17 @@ function Startup() {
     };
 
     fetchData();
-  }, [checkupFundRaised, location.state,]);
+  }, [checkupFundRaised, location.state,StartupID,startupInfo]);
 
   const filteredTickets = tickets.filter(ticket => ticket.startupName === startupInfo.startupName);
 
+  useEffect(() => {
+    console.log(filteredTickets)
+    const uniqueStartupNames = new Set(filteredTickets.map(ticket => ticket.investorName));
+    setTicketAmount(uniqueStartupNames.size-1);
+    console.log(ticketAmount);
+
+  },[filteredTickets, ticketAmount])
   return (
     <div className="App">
       <div className='static-bar'>
