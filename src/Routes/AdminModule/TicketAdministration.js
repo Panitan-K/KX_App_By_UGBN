@@ -56,17 +56,18 @@ function TicketAdministration() {
         </div>
         <div className="grid-container" style={{ '--columns': columns }}>
           {tickets.map(ticket => (
-            <div key={ticket.id} className="TicketGridblock" /*{` ${unfolded[ticket.id] ? 'unfolded' : ''}`}*/>
-              <div className="" onClick={() => toggleFold(ticket.id)}>
-                <p>Ticket ID: {ticket.id} <br /> Ticket Name: {ticket.startupName}</p>
-              </div>
-              {unfolded[ticket.id] && (
-                <div className="TicketBoxExtension">
-                  <p>Startup : {ticket.startupName}</p>
-                  <p>Investor : {ticket.investorName}</p>
+            <div key={ticket.id} className="" /*{` ${unfolded[ticket.id] ? 'unfolded' : ''}`}*/>
+              <div className="TicketGridblock" onClick={() => toggleFold(ticket.id)}>
+                <p>Ticket ID: {ticket.id} <br /> Ticket Name: {ticket.ticketName}</p>
+                {unfolded[ticket.id] && (
+                <div className="TicketGridblock-EXT">
+           
+                  <p>Startup : {ticket.startupName} <br /> Investor : {ticket.investorName}<br />Stake : {ticket.stake}<br />Capital : {ticket.capital} </p>
                   {/* Add more fields as needed */}
                 </div>
               )}
+              </div>
+              
             </div>
           ))}
         </div>

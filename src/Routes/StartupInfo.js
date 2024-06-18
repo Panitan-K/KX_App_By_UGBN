@@ -30,18 +30,18 @@ function StartupInfo() {
           className='Revertbutton' 
           onClick={() => navigate('/InvestList', { state: { ID: xinvestorID } })} 
         />
-        <p> {startup.name}</p>
+        <p> {startup.startupName}</p>
       </div>
       
       <div className='AppWithHeaderContent'>
         <div className='StartupsInfoBlocks2'>
-          <img src={startup.image} alt="Welcome"/>
+          <img src={startup.imgSrc} alt="Welcome"/>
           <table className='StartupTable2'>
             <tbody>
               <tr>
                 <td>Startup</td>
                 <td>:</td>
-                <td>{startup.name}</td>
+                <td>{startup.startupName}</td>
               </tr>
               <tr>
                 <td>Industry</td>
@@ -73,7 +73,7 @@ function StartupInfo() {
             className='InvestButton' 
             onClick={() => navigate('/Invest', { state: { ID: xinvestorID,Startup :startup } })}
           >
-            INVEST IN {startup.name.toUpperCase()}
+            INVEST IN {startup.startupName}
           </button>
         </div>
       </div>

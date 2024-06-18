@@ -488,9 +488,19 @@ input::placeholder {
   margin-left: 10vw;
   text-align: left;
   justify-content:first baseline;
-  font-size: 6vw;
+  
+  width: 50vw;
+}
+.InvestorNameBox h2 {
+  font-size: 3vh; /* default font size */
+
+
+  text-overflow: ellipsis;
 }
 
+.InvestorNameBox h2.long-text {
+  font-size: 1.5vh; /* smaller font size for long text */
+}
 .InvestorIcon {
   height:14vh;
 

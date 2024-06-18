@@ -31,7 +31,7 @@
   
 .DashboardSideBar ul li:hover {
     background-color: var(--KXOrange);
-    padding-left: 0vw;
+    padding-left:1vw;
     transition: 0.3s;
   }
 .KX_Sidebar_Logo {

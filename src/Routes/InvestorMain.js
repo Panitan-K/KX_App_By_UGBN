@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import { db } from './Firebase'; // Assuming 'db' and other Firestore methods are exported from './Firebase'
 import { collection, getDocs } from 'firebase/firestore';
-import Startup from './Startup';
+
 
 function InvestorMain() {
   const navigate = useNavigate();
@@ -87,19 +87,24 @@ function InvestorMain() {
     setTicketAmount(uniqueStartupNames.size);
     console.log(ticketAmount);
 
-  })
+  },[filteredTickets, ticketAmount])
   
 
 // Get the count of unique startup names
-  
+if (!investorInfo.firstName || !investorInfo.lastName) {
+  return <div>Loading ... </div>;
+}
+
+const formattedLastName = investorInfo.lastName.length > 15 ? `${investorInfo.lastName.charAt(0)}.` : <h2 style={{ lineHeight: "0.5vh" }}>{investorInfo.lastName}</h2>;
+
   
   return (
     <div className="App">
       <div className='InvestorProfile'>
         <img src={investorInfo.imgSrc} alt="Welcome" className='InvestorIcon' />
         <div className='InvestorNameBox'>
-          <h2 style={{ lineHeight: "0.5vh" }}>{investorInfo.firstName}</h2>
-          <h2>{investorInfo.lastName}</h2>
+          <h2 >{investorInfo.firstName}    {formattedLastName}</h2>
+       
         </div>
       </div>
 

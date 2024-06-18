@@ -1,12 +1,14 @@
 import './css/AdminModule.css';
 import React, { useEffect, useState } from 'react';
 import { db } from '../Firebase';
-import { collection, getDocs } from 'firebase/firestore';
-
+import { collection, getDocs, setDoc, doc } from 'firebase/firestore';
+import StartupFormModal from './Forms/StartupFormModal';
 function StartupAdministration() {
   const [startups, setStartups] = useState([]);
   const [unfolded, setUnfolded] = useState({});
-
+  const [StartupCount,setStartupCount] = useState(0)
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -19,6 +21,7 @@ function StartupAdministration() {
             ...doc.data()
           }));
           setStartups(startupsData);
+          setStartupCount(startupsData.length)
         } else {
           console.error("No startup documents found.");
         }
@@ -29,6 +32,26 @@ function StartupAdministration() {
 
     fetchData();
   }, []);
+
+  const handleAddStartup = async (newStartup) => {
+    try {
+      // Generate the new ID
+      const newIdNumber = StartupCount + 1;
+      const newId = `S${newIdNumber.toString().padStart(2, '0')}`;
+
+      // Create a document reference with the custom ID
+      const docRef = doc(collection(db, 'Startup'), newId);
+
+      // Set the new document with the provided data
+      await setDoc(docRef, newStartup);
+
+      // Update the local state
+      setStartups([...startups, { id: newId, ...newStartup }]);
+      setStartupCount(StartupCount + 1); // Increment the count
+    } catch (error) {
+      console.error("Error adding investor:", error);
+    }
+  };
 
   const toggleFold = (id) => {
     setUnfolded(prevState => ({
@@ -56,11 +79,13 @@ function StartupAdministration() {
                 </div>
               )}
             </div>
+            
           ))}
-          <button className='AddButtonsAppleStyle'>Add Startups</button>
+          <button className='AddButtonsAppleStyle' onClick={() => setIsModalOpen(true)}>Add a Startup</button>
+          <StartupFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onAddStartup={handleAddStartup} />
+     
         </ul>
-        
-      </div>
+       </div>
     </div>
   );
 }

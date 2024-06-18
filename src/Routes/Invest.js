@@ -125,20 +125,19 @@ function Invest() {
     }
 
     console.log(tickets)
-    const filteredTickets = tickets.filter(ticket => ticket.startupName === location.state.Startup.name);
+    const filteredTickets = tickets.filter(ticket => ticket.startupName === location.state.Startup.startupName);
 
     return (
         <div className="App">
             <div className='static-bar'>
                 <img src={Revert} alt="Welcome" className='Revertbutton' onClick={() => navigate('/StartupInfo',{ state : { ID : xinvestorID, startup : xStartup}})} />
-                <p style={{ fontSize: "7vw" }}> Invest in {location.state.Startup.name}</p>
+                <p style={{ fontSize: "7vw" }}> Invest in {location.state.Startup.startupName}</p>
             </div>
 
             <div className='AppWithHeaderContent2'>
                 <div className='StartupsInfoBlocks3'>
-                    <img src={location.state.Startup.image} alt="Welcome" />
-                    <h1>You are investing in</h1>
-                    <h1> {location.state.Startup.name}</h1>
+                    <img src={location.state.Startup.imgSrc} alt="Welcome" />
+        
                     <div className='Divisor'>
                         <h1>Balance</h1>
                     </div>
