@@ -12,6 +12,7 @@ function InvestorFormModal({ isOpen, onClose, onAddInvestor }) {
     e.preventDefault();
     const newInvestor = {
       email,
+      organization,
       firstName,
       lastName,
       balance: Number(balance),

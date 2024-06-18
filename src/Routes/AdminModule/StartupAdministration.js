@@ -66,6 +66,7 @@ function StartupAdministration() {
         
         <ul>
         <h1>Startups</h1>
+        <p>There are : {StartupCount} Startups</p>
           {startups.map(startup => (
             <div key={startup.id} className={`AdminStartupBlock ${unfolded[startup.id] ? 'unfolded' : ''}`}>
               <div className="AdminStartupBlockHeader" onClick={() => toggleFold(startup.id)}>

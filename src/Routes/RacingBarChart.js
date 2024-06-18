@@ -17,7 +17,7 @@ function RacingBarChart({ data }) {
     data.sort((a, b) => b.value - a.value);
 
     const yScale = scaleBand()
-      .paddingInner(0.1)
+      .paddingInner(0.05)
       .domain(data.map((value, index) => index)) // [0,1,2,3,4,5]
       .range([0, dimensions.height]); // [0, 200]
 

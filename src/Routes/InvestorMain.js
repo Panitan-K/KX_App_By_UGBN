@@ -95,7 +95,7 @@ if (!investorInfo.firstName || !investorInfo.lastName) {
   return <div>Loading ... </div>;
 }
 
-const formattedLastName = investorInfo.lastName.length > 15 ? `${investorInfo.lastName.charAt(0)}.` : <h2 style={{ lineHeight: "0.5vh" }}>{investorInfo.lastName}</h2>;
+const formattedLastName = investorInfo.lastName.length > 1 ? `${investorInfo.lastName.charAt(0,1)}.` : <h2 style={{ lineHeight: "0.5vh" }}>{investorInfo.lastName}</h2>;
 
   
   return (

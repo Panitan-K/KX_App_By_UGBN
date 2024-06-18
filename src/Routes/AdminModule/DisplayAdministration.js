@@ -6,15 +6,7 @@ import RacingBarChart from "../RacingBarChart";
 
 function DisplayAdministration() {
   const [startups, setStartups] = useState([]);
-  //const [unfolded, setUnfolded] = useState({});
-
-  const data = [
-    { name: "Company A", value: 40, color: "#FF5733" },
-    { name: "Company B", value: 55, color: "#33FF57" },
-    { name: "Company C", value: 70, color: "#3357FF" },
-    { name: "Company D", value: 50, color: "#FF33A1" },
-    { name: "Company E", value: 45, color: "#FF8333" },
-  ];
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,9 +17,12 @@ function DisplayAdministration() {
         if (!startupQuerySnapshot.empty) {
           const startupsData = startupQuerySnapshot.docs.map(doc => ({
             id: doc.id,
-            ...doc.data()
+            name: doc.data().startupName, // Use startupName as name for data
+            value: doc.data().fundRaised, // Use fundRaised as value
+            color: getRandomColor() // Optional: Generate a random color
           }));
           setStartups(startupsData);
+          setData(startupsData); // Set data for the RacingBarChart
         } else {
           console.error("No startup documents found.");
         }
@@ -38,32 +33,19 @@ function DisplayAdministration() {
 
     fetchData();
   }, []);
-  /*
-  const toggleFold = (id) => {
-    setUnfolded(prevState => ({
-      ...prevState,
-      [id]: !prevState[id]
-    }));
-  };*/
+
+  // Optional: Function to generate a random color
+  const getRandomColor = () => {
+    return '#' + Math.floor(Math.random() * 16777215).toString(16);
+  };
 
   return (
     <div className="Admin-Component">
 
-    <div>
-      <h1>Startup Evaluation</h1>
-      <RacingBarChart data={data} />
-    </div>
-      <div>
-        <ul>
+        <h2>Startup Evaluation</h2>
+        <RacingBarChart data={data} />
+     
 
-      
-          {startups.map(startup => (
-            <p>Startup ID: {startup.id}   FundRaised: {startup.fundRaised}</p>
-          ))}
-
-        </ul>
-        
-      </div>
     </div>
   );
 }

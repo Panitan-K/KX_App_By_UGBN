@@ -69,8 +69,9 @@ function Dashboard() {
         <DashboardSideBar selectedOption={selectedOption} setSelectedOption={setSelectedOption} />
         <div className="Dashboard-Content">
           {renderContent()}
-
+        
         </div>
+        
     </div>
   );
 }
