@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import { db } from './Firebase'; // Assuming 'db' and other Firestore methods are exported from './Firebase'
 import { collection, getDocs } from 'firebase/firestore';
-
+import Avatar from './Component/Avatar';
 
 function InvestorMain() {
   const navigate = useNavigate();
@@ -13,12 +13,12 @@ function InvestorMain() {
   const [investorInfo, setInvestorInfo] = useState({});
   const [ticketAmount, setTicketAmount] = useState(0);
   const [xinvestorID,setInvestorID] = useState("");
-  useEffect(() => {
+
+  useEffect(() => {  
     
-    const state = location.state || {};
-    console.log("this is state",state)
+    //console.log("this is state",state)
     setInvestorID(location.state.ID)
-    console.log("xInvestorID ",xinvestorID)
+    //console.log("xInvestorID ",xinvestorID)
 
     // Check if investorID exists in the state
 
@@ -75,16 +75,17 @@ function InvestorMain() {
 
     fetchTickets(); // Call the fetchTickets function when component mounts
     fetchInvestor();
-  }, [location.state, navigate,xinvestorID]); // Dependency array with location.state and navigate to ensure navigation happens correctly
+    
+  }, [location.state, navigate, xinvestorID]); // Dependency array with location.state and navigate to ensure navigation happens correctly
 
   //console.log(tickets);
 
   // Filter tickets where investorName matches the investor's name
-  const filteredTickets = tickets.filter(ticket => ticket.investorName === investorInfo.firstName);
+  const filteredTickets = tickets.filter(ticket => ticket.investorName === investorInfo.firstName + investorInfo.lastName);
   useEffect(() => {
     console.log(filteredTickets)
     const uniqueStartupNames = new Set(filteredTickets.map(ticket => ticket.startupName));
-    setTicketAmount(uniqueStartupNames.size);
+    setTicketAmount(uniqueStartupNames.length);
     console.log(ticketAmount);
 
   },[filteredTickets, ticketAmount])
@@ -94,40 +95,40 @@ function InvestorMain() {
 if (!investorInfo.firstName || !investorInfo.lastName) {
   return <div>Loading ... </div>;
 }
-
-const formattedLastName = investorInfo.lastName.length > 1 ? `${investorInfo.lastName.charAt(0,1)}.` : <h2 style={{ lineHeight: "0.5vh" }}>{investorInfo.lastName}</h2>;
+console.log(tickets)
+console.log(ticketAmount);
+//const formattedLastName = investorInfo.lastName.length > 1 ? `${investorInfo.lastName.charAt(0)}.` : <h2 style={{ lineHeight: "0.5vh" }}>{investorInfo.lastName}</h2>;
 
   
   return (
     <div className="App">
+      
       <div className='InvestorProfile'>
-        <img src={investorInfo.imgSrc} alt="Welcome" className='InvestorIcon' />
-        <div className='InvestorNameBox'>
-          <h2 >{investorInfo.firstName}    {formattedLastName}</h2>
-       
-        </div>
+    
+
+          <Avatar name={investorInfo.firstName + investorInfo.lastName} avatarUrl={investorInfo.imgSrc} company={investorInfo.organization} />
+    
       </div>
 
       <div className='BalanceBox'>
-        <p style={{ lineHeight: "1vh", fontSize: "10vw", marginBlockStart: "8vh", marginBlockEnd: "3vh" }}>Account Balance</p>
-        <p className='Cash' style={{ marginBlockStart: "0vh", marginBlockEnd: "2vh" }}>{investorInfo.balance} K</p>
+        <p style={{ lineHeight: "1vh", fontSize: "10vw", marginBlockStart: "8vh", marginBlockEnd: "3vh" }}>Token Remain</p>
+        <p className='Cash2' style={{ marginBlockStart: "0vh", marginBlockEnd: "2vh" }}>{investorInfo.balance}/5 </p>
         <span style={{ lineHeight: "0vh", marginBlockStart: "1vh", fontSize: "5vw" }}>
-          <span>Total </span>
-          <span style={{ color: '#079F16' }}> {150 - investorInfo.balance}K </span>
-          <span>invested in </span>
-          <span style={{ color: '#079F16', fontWeight: "bold" }}>{investorInfo ? ticketAmount : 'N/A'}</span>
+
+          <span>Invested in </span>
+          <span style={{ color: '#079F16', fontWeight: "bold" }}>{investorInfo ? tickets.length : 'N/A'}</span>
           <span> Startups</span>
         </span>
       </div>
 
-      <button className='InvestButton' onClick={() => navigate('/InvestList',{ state : { ID : xinvestorID}})}>INVEST NOW</button>
+      <button className='InvestButton' onClick={() => navigate('/InvestList',{ state : { ID : xinvestorID , InvestorInfo : investorInfo}})}>INVEST NOW</button>
 
       <div className="PortfolioBox">
         <h1>Portfolio</h1>
 
         {filteredTickets.length > 0 ? (
           filteredTickets.map(ticket => (
-            <div key={ticket.ticketName} className='TicketBlocks'>
+            <div key={ticket.id} className='TicketBlocks'>
               <p>
                 Startup Name: {ticket.startupName ? (
                   <span style={{ color: 'green', fontWeight: 'bold' }}>{ticket.startupName}</span>
@@ -135,14 +136,12 @@ const formattedLastName = investorInfo.lastName.length > 1 ? `${investorInfo.las
                   <span style={{ color: 'red', fontWeight: 'bold' }}>Not Acquired</span>
                 )}
               </p>
-              <p>Ticket Name: {ticket.ticketName}</p>
-              <p>Capital: {ticket.capital}</p>
-              <p>Stake: {ticket.stake}</p>
+
             </div>
           ))
         ) : (
           <div className='TicketBlocks'>
-            <p>No Tickets</p>
+            <p>No Startups Invested</p>
           </div>
         )}
       </div>

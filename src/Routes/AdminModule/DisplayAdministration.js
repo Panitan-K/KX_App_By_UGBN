@@ -5,7 +5,7 @@ import { collection, getDocs } from 'firebase/firestore';
 import RacingBarChart from "../RacingBarChart";
 
 function DisplayAdministration() {
-  const [startups, setStartups] = useState([]);
+  //const [startups, setStartups] = useState([]);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function DisplayAdministration() {
             value: doc.data().fundRaised, // Use fundRaised as value
             color: getRandomColor() // Optional: Generate a random color
           }));
-          setStartups(startupsData);
+     
           setData(startupsData); // Set data for the RacingBarChart
         } else {
           console.error("No startup documents found.");
@@ -42,7 +42,7 @@ function DisplayAdministration() {
   return (
     <div className="Admin-Component">
 
-        <h2>Startup Evaluation</h2>
+        <h2>Top 5 Startups by Tokens  </h2>
         <RacingBarChart data={data} />
      
 

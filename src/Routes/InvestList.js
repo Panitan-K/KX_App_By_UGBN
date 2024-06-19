@@ -10,8 +10,22 @@ function InvestList() {
   const [xinvestorID, setInvestorID] = useState("");
   const [startups, setStartups] = useState([]);
   const navigate = useNavigate();
+  const renderStartupCircle = (startup, index) => (
+    <div className='StartupIconList'>
+    <div 
+      key={index}
+      className='CircleStartup'
+      onClick={() => handleNavigate(startup)}
+    >
+      <img src={startup.imgSrc} alt="Welcome"/>
+      
+    </div>
+    <div className='Label'>{startup.startupName}</div>
+    </div>
+  );
 
   useEffect(() => {
+    console.log(location.state)
     if (location.state && location.state.ID) {
       setInvestorID(location.state.ID);
     }
@@ -41,7 +55,7 @@ function InvestList() {
   }, [location.state]);
 
   const handleNavigate = (startup) => {
-    navigate('/StartupInfo', { state: { ID: xinvestorID, startup } });
+    navigate('/StartupInfo', { state: { ID: xinvestorID, Startup :startup, InvestorInfo : location.state } })
   };
 
   return (
@@ -51,37 +65,17 @@ function InvestList() {
           src={Revert} 
           alt="Welcome" 
           className='Revertbutton' 
-          onClick={() => navigate('/InvestorMain', { state: { ID: xinvestorID } })} 
+          onClick={() => navigate('/InvestorMain', { state: { ID: xinvestorID, InvestorInfo : location.state} })} 
         />
         <p> Startups</p>
       </div>
 
       <div className='AppWithHeaderContent'>
+        <div className='GridContainerEX'>
         {startups.map((startup, index) => (
-          <div 
-            key={index}
-            className='StartupsInfoBlocks' 
-            onClick={() => handleNavigate(startup)}
-          >
-            <img src={startup.imgSrc} alt="Welcome"/>
-            <table className='StartupTable'>
-              <tbody>
-                <tr>
-                  <td>Startup</td>
-                  <td>: {startup.startupName}</td>
-                </tr>
-                <tr>
-                  <td>Industry</td>
-                  <td>: {startup.industry}</td>
-                </tr>
-                <tr>
-                  <td>Stage</td>
-                  <td>: {startup.stage}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        ))}
+            renderStartupCircle(startup, index)
+          ))}
+        </div>
       </div>
     </div>
   );

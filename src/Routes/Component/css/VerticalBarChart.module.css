@@ -1,0 +1,28 @@
+/* VerticalBarChart.module.css */
+
+.verticalBarChart {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .barLabel {
+    width: 100px; /* Adjust width as needed */
+  }
+  
+  .barFill {
+    flex-grow: 1;
+    height: 20px; /* Adjust height as needed */
+    background-color: blue; /* Example color */
+  }
+  
+  .barValue {
+    width: 50px; /* Adjust width as needed */
+  }
+  

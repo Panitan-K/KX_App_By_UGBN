@@ -134,3 +134,18 @@
   align-items: left ;
   color : white;
 }
+
+.TicketTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.TicketTable th, .TicketTable td {
+  border: 0.1vw solid black; /* Add border to each cell */
+  padding: 1vw;            /* Add some padding for better readability */
+  text-align: left;        /* Align text to the left */
+}
+
+.TicketTable th {
+  background-color: #f2f2f2; /* Add a background color to the header cells */
+}

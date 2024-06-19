@@ -1,0 +1,55 @@
+.user-detail {
+    display: flex;
+    align-items: center;
+    background-color: #F9F6EE;
+    border-radius: 10px;
+    padding: 15px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    box-shadow: 2 2px 5px rgba(0, 0, 0, 0.244);
+    border: 2px solid;
+    width: 80vw;
+    margin: 10px;
+    color: rgb(0, 0, 0);
+  }
+  
+  .avatar {
+    
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    border: 2px solid #ddd;
+  }
+  
+  .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .info {
+    flex: 1;
+    text-align: left;
+    line-height: 0.5; /* Adjusted line height */
+
+  }
+  
+  .info .name {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 0; /* Adjusted line height */
+    color: #333;
+    
+  }
+  
+  .info .email {
+    font-size: 14px;
+    margin: 0;
+    color: #666;
+  }
+  
