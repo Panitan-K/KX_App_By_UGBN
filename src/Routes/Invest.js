@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import { db } from './Firebase'; 
 import { doc, updateDoc } from 'firebase/firestore';
-import Slider from './Component/Slider';
 import Slider2 from './Component/Slider2';
 
 function Invest() {
@@ -40,7 +39,7 @@ function Invest() {
         }
 
         window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
-    }, [xinvestorID, location.state.ID, location.state.Startup]);
+    }, [xinvestorID, location.state]);
 
     const handleInvest = async () => {
         try {
