@@ -8,7 +8,7 @@ const Slider = ({label,lowLabel, highLabel, value, onChange }) => {
 
   const getColor = () => {
     const percentage = (value / 10) * 100;
-    return `linear-gradient(to right, green ${percentage}%, red ${percentage}%)`;
+    return `linear-gradient(to right, #1D5D3F ${percentage}%, #3DC384 ${percentage}%, #3DC384 ${percentage}%, transparent ${percentage}%, transparent 100%)`;
   };
 
   const sliderStyle = {

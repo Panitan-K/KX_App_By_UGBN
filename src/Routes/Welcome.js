@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './css/App.css';
-import Title from './image/logo/KX.png';
+import Title from './image/logo/Techbite_5_0.png';
+import TechbiteBG from './image/logo/TechbiteBG.png';
 import LoadingImg from './image/logo/TechbiteNoBG.png'; // Ensure the path is correct
 import { useNavigate } from 'react-router-dom';
 
@@ -18,11 +19,12 @@ function Welcome() {
   return (
     <>
       {isLoading ? (
+        
         <div className="loading-container">
           <img src={LoadingImg} alt="Loading..." className="loading-image" />
         </div>
       ) : (
-        <div className="AppMain fade-in">
+        <div className="AppMain fade-in" style={{ backgroundImage: `url(${TechbiteBG})` }}>
           <div className="welcome-container">
             <img src={Title} alt="Welcome" className="UphasiaMiddleLogo" />
             <div className="LogRegContainer">

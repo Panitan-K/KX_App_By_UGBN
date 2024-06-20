@@ -1,5 +1,5 @@
 import './css/App.css';
-
+import TechbiteBG from './image/logo/TechbiteBG.png';
 import React, { useState } from 'react';
 import { useLocation,useNavigate } from "react-router-dom";
 import { auth } from './Firebase';
@@ -39,20 +39,19 @@ function Login() {
   /*const GoIndex = () => {
     navigate("/")
   }*/
-  return (
+  return (  
     
-    <div className="App">
+    <div className="AppMain" style={{ backgroundImage: `url(${TechbiteBG})` }}>
      
-      <div className='static-bar' >
      
-        <p >{role} Login  </p>
-      </div>
 
      <div className="App-header">
       <div className="LoginBox" >
         <div className="section1 text-center">
-
-        
+        <div className='LoginRole'>
+          <h1 > Login {role}  </h1>
+          <h5>Hello, Welcome to TECHBITE 5.0 Demo Day</h5>
+        </div>
         <form onSubmit={handleLogin}>
 
           <div>
