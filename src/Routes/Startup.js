@@ -4,7 +4,7 @@ import { /*useNavigate,*/ useLocation } from "react-router-dom";
 import { db } from './Firebase';
 import { collection, getDocs/*, getDoc, doc, updateDoc*/ } from 'firebase/firestore';
 import Avatar from './Component/Avatar';
-import StartupBlockAvatar from './Component/StartupBlockAvatar';
+import InvestorBlockAvatar from './Component/InvestorBlockAvatar';
 import footer from "./image/Mock/Footer.png"
 function Startup() {
   //const navigate = useNavigate();
@@ -82,7 +82,7 @@ function Startup() {
             <div key={ticket.id} className='TicketBlocks'>
         
                {ticket.startupName ? (
-                  <StartupBlockAvatar
+                  <InvestorBlockAvatar
                   imgLink= {ticket.InRef}
                   StartupName={ticket.investorName}
                   Sector={ticket.investorCompany}
