@@ -24,11 +24,24 @@ p, a, span, div, li, ul, ol, input, textarea, button {
 
 .App {
   text-align: center;
-  background-color: var(--BGC);
+  background-color: #F2F2F2;
   min-height: 100vh;
   box-sizing: border-box; 
   overflow-x: hidden;
- 
+  padding-bottom: 20vh;
+}
+.FooterNavBar {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #ffffff; /* Set background color for the footer */
+  z-index: 9999; /* Ensure it appears on top of other content */
+}
+
+.FooterNavBar img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio of the image */
 }
 
 .AppMain {
@@ -73,30 +86,54 @@ p, a, span, div, li, ul, ol, input, textarea, button {
 .AppWithHeaderContent{
   padding-left: 5vw;
   padding-right: 5vw;
-  padding-top: 5vh;
+
   margin-top: 5vh;
   padding-bottom: 10vh;
 }
+.Spacer{
+  height: 14vh;
+}
 
+.Infoheader{
+  text-align: left;
+  line-height: 1.3vh;
+}
+.Infoheader h2{
+  font-size: 4vh;
+  font-weight: 400;
+}
+.Infoheader p{
+  font-size: 2vh;
+  font-weight: 400;
+}
+.Infoheader2{
+  padding-left: 5vw;
+  text-align: left;
+}
 .AppWithHeaderContent2{
+  padding-left: 5vw;
+  padding-right: 5vw;
 
-  padding-top: 3vh;
-  margin-top: 3vh;
+
   padding-bottom: 10vh;
 }
 /* App.css */
 
 .static-bar {
+
 position: fixed;
-width: 100vw;
-height: 10vh;
-background-color: var(--KXB);
+width: 95vw;
+height: 15vh;
+background-color: #F2F2F2;
+color: #000000;
 display: flex;
 align-items: center;
 z-index: 2;
 padding-left: 5vw;
+
 display: flex;
-text-align: center;
+text-align: left;
+line-height: 1.80vh;
 
 
 
@@ -111,19 +148,58 @@ text-align: center;
 
 }
 
-.static-bar p {
-  color: #FFFFFF;
-  font-size: 4vh;
-  font-weight: bold;
+.static-bar2{
+  padding-top: 10%;
+  position: fixed;
+  width: 100vw;
+  height: 5vh;
+  background-color: #FFFFFF;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  padding-left: 5vw;
+  display: flex;
+  text-align: left;
+  line-height: 1.2vh;
+  
+  
+  
+  /*
+  @media screen and (min-width: 1024px) {
+  
+  }
+  
+  @media screen and (max-height: 600px) {
+    height: 5vw; 
+  }*/
+  
+  }
 
-}
 
 .static-bar img {
   margin-right: 10vw;
 }
 
+.Static-Header-Container{
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
+.Static-Header-Container img{
+  width: 10vw;
+  height: 10vw;
 
+}
 
+.Static-Header-Container h1{
+  font-size: 4vh;
+}
+
+.Static-Header-Container p{
+  font-size: 2vh;
+}
 .ProfileBox {
 background-color: var(--MahidolBlue); /* Green color for the box */
 width: 20vw;
@@ -474,22 +550,39 @@ input::placeholder {
   color: #079F16;
 }
 .Cash2{
-  margin: 5vh;
+  margin: 2vh;
   line-height: 10vh;
-  font-size: 20vw;
-  font-weight:bolder;
-  color: #079F16;
+  font-size: 16vw;
+  font-weight:400;
+  color: #000000;
 }
 
-.InvestButton{
-  margin-top: 5vh;
-  width: 63.5vw; 
-  
-  font-size: 7vw;
-  font-weight: bold;
-  color: #079F16;
-  border: 10px solid #079F16;    
+.InvestButton {
+ 
+  width: 40vw; 
+  font-size: 4vw;
+  font-weight: 300;
+  color: #FFFFFF;
+  padding:  1.8vh 3vw;
   border-radius: 40px;
+  background: linear-gradient(90deg, #1B573B, #3BBD80); /* Add linear gradient background */
+  transition: background 0.3s ease; /* Optional: Smooth transition effect for hover */
+}
+
+.InvestButton:hover {
+  transform: scale(1.1);
+}
+
+.InvestButton2 {
+ 
+  width: 60vw; 
+  font-size: 3.2vw;
+  font-weight: 300;
+  color: #FFFFFF;
+  padding:  1.8vh 3vw;
+  border-radius: 40px;
+  background: linear-gradient(90deg, #1B573B, #3BBD80); /* Add linear gradient background */
+  transition: background 0.3s ease; /* Optional: Smooth transition effect for hover */
 }
 
 .PortfolioBox{
@@ -500,6 +593,30 @@ input::placeholder {
   justify-content: left;
   text-align: left;
   
+}
+
+.PortfolioHead {
+  
+  display: flex;
+  justify-content: space-between; /* Distributes items to the edges */
+  align-items: center; /* Centers items vertically */
+  width: 100%; /* Ensure it takes full width of its container */
+}
+
+.PortfolioHead button{
+  margin-right: 0px;
+  align-items: center;
+  text-align: center;
+  margin-top: 3%;
+  width: 25vw; 
+  font-size: 4vw;
+  font-weight: 300;
+  color: black;
+  height: 5vh;
+  border-radius: 40px;
+  border: 0px;
+  background: #F2F2F2;
+  transition: background 0.3s ease; /* Optional: Smooth transition effect for hover */
 }
 
 .InvestorProfile{
@@ -611,12 +728,11 @@ input::placeholder {
 }
 
 .TicketBlocks{
-  background-color: #c0c0c000;
-  margin-top: 4vh;
-  border: 1vw solid #079F16;      
+ 
+  margin-top: 0.25vh;
+    
   align-items: center;
-  padding-left: 2vw;
-  padding-right: 2vw;
+
   
 }
 .TicketBlocks.selected {
@@ -672,13 +788,13 @@ input::placeholder {
 }
 
 .StartupsInfoBlocks2 img {
-  width: 90vw;
+  width: 50vw;
  
   
 }
 
 .StartupsInfoBlocks3{
-  padding-top: 5vh;
+
   align-items: center;
   border-radius: 10vw;
  
@@ -703,7 +819,15 @@ input::placeholder {
 
 .appleInputContainer {
   display: flex;
+  text-align: left;
   flex-direction: column;
+
+}
+
+.appleInputContainer label {
+  font-size: 3.2vh;
+  font-weight: 500;
+
 
 }
 .appleInputContainer2 {
@@ -719,15 +843,15 @@ input::placeholder {
 }
 
 .appleInput {
-  padding: 3vw;
+  
   padding-top: 2vh;
   width: 100%;
-  height: 38vh;
-  color : white;
-  font-weight: lighter;
-  border: 1px solid #d1d1d6;
-  border-radius: 10px;
-  background-color: var(--KXB);
+  height: 25vh;
+  color : rgb(0, 0, 0);
+  font-weight: 100;
+  border: 0;
+
+  background-color: #F2F2F2;
   outline: none;
   transition: border-color 0.3s ease;
   padding-bottom: 10vh;
@@ -737,7 +861,7 @@ input::placeholder {
 .appleInput2 {
   padding: 3vw;
   padding-top: 2vh;
-  width: 80vw;
+  width: 50vw;
   font-size: 4vw;
   height: 5vh;
   color : rgb(0, 0, 0);
@@ -907,4 +1031,15 @@ input::placeholder {
 
 .Slider-Group {
   margin-top: 8vh;
+}
+
+.CommentSection {
+  padding: 3vw;
+  text-align: left;
+}
+
+.CommentSection textarea{
+  width: 100%;    
+  
+
 }

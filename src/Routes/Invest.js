@@ -4,6 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { db } from './Firebase'; 
 import { doc, updateDoc } from 'firebase/firestore';
 import Slider from './Component/Slider';
+import Slider2 from './Component/Slider2';
 
 function Invest() {
     const navigate = useNavigate();
@@ -59,26 +60,23 @@ function Invest() {
 
     return (
         <div className="App">
-            <div className='static-bar'>
-                <p style={{ fontSize: "7vw" }}> Invest in {location.state.Startup.startupName}</p>
+            <div class="Infoheader2"> 
+                <h2>Write something to startup</h2>
             </div>
-
             <div className='AppWithHeaderContent2'>
+                
                 <div className='StartupsInfoBlocks3'>
-                    <img src={location.state.Startup.imgSrc} alt="Welcome" />
+                  
 
-                    <div className='Divisor'>
-                        <h1>Feedback to Startup</h1>
-                    </div>
-
+             
                     <div className='Slider-Group'>
-                        <Slider label="Risk" lowLabel="High Risk" highLabel="Low Risk" value={rating.risk} onChange={(newValue) => handleSliderChange('risk', newValue)} />
-                        <Slider label="Market Size" lowLabel="Small Market Size" highLabel="Big Market Size" value={rating.marketSize} onChange={(newValue) => handleSliderChange('marketSize', newValue)} />
-                        <Slider label="Business Potential" lowLabel="Receding" highLabel="Growing" value={rating.businessPotential} onChange={(newValue) => handleSliderChange('businessPotential', newValue)} />
-                        <Slider label="Team Potential" lowLabel="Impotent" highLabel="Potent" value={rating.teamPotential} onChange={(newValue) => handleSliderChange('teamPotential', newValue)} />
-                        <Slider label="Technology & Innovation" lowLabel="Uninventive" highLabel="Innovative" value={rating.techInnovation} onChange={(newValue) => handleSliderChange('techInnovation', newValue)} />
-                    </div>
+                        <Slider2 label="TECHNOLOGY" sublabel="The innovativeness of this startup" lowLabel="Common" highLabel="Innovative" value={rating.techInnovation} onChange={(newValue) => handleSliderChange('techInnovation', newValue)} />
+                        <Slider2 label="MARKET SIZE" sublabel="Estimate market size" lowLabel="Small Market Size" highLabel="Big Market Size" value={rating.marketSize} onChange={(newValue) => handleSliderChange('marketSize', newValue)} />
+                        <Slider2 label="TEAM" sublabel="Team Potential" lowLabel="Impotent" highLabel="Potent" value={rating.teamPotential} onChange={(newValue) => handleSliderChange('teamPotential', newValue)} />
+                        <Slider2 label="SCALABILITY" sublabel="Is it Scalable?" lowLabel="Limiting" highLabel="Scalable" value={rating.businessPotential} onChange={(newValue) => handleSliderChange('businessPotential', newValue)} />
+                     </div>
                     <div className='CommentSection'>
+                        <p>Suggestion</p>
                         <textarea
                             value={rating.comment}
                             onChange={handleCommentChange}
@@ -88,7 +86,7 @@ function Invest() {
                         />
                     </div>
 
-                    <button className='InvestButton' onClick={handleInvest}>Confirm</button>
+                    <button className='InvestButton2' onClick={handleInvest}>Submit & Send Token</button>
                 </div>
             </div>
         </div>

@@ -5,7 +5,8 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { db } from './Firebase'; // Assuming 'db' and other Firestore methods are exported from './Firebase'
 import { collection, getDocs } from 'firebase/firestore';
 import Avatar from './Component/Avatar';
-
+import StartupBlockAvatar from './Component/StartupBlockAvatar';
+import footer from "./image/Mock/Footer.png"
 function InvestorMain() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -102,40 +103,42 @@ console.log(ticketAmount);
   
   return (
     <div className="App">
-      
-      <div className='InvestorProfile'>
-    
+       <h3>Pay & Send</h3>
+          <Avatar name={investorInfo.firstName + investorInfo.lastName} 
+          avatarUrl={investorInfo.imgSrc} 
+          company={investorInfo.organization} />
 
-          <Avatar name={investorInfo.firstName + investorInfo.lastName} avatarUrl={investorInfo.imgSrc} company={investorInfo.organization} />
-    
+      <div className='PortfolioBox'>
+      <h4>TOKEN BALANCE</h4>
       </div>
-
       <div className='BalanceBox'>
-        <p style={{ lineHeight: "1vh", fontSize: "10vw", marginBlockStart: "8vh", marginBlockEnd: "3vh" }}>Token Remain</p>
-        <p className='Cash2' style={{ marginBlockStart: "0vh", marginBlockEnd: "2vh" }}>{investorInfo.balance}/5 </p>
-        <span style={{ lineHeight: "0vh", marginBlockStart: "1vh", fontSize: "5vw" }}>
-
-          <span>Invested in </span>
-          <span style={{ color: '#079F16', fontWeight: "bold" }}>{investorInfo ? tickets.length : 'N/A'}</span>
-          <span> Startups</span>
-        </span>
+        <p className='Cash2' >{investorInfo.balance} </p>
       </div>
 
-      <button className='InvestButton' onClick={() => navigate('/InvestList',{ state : { ID : xinvestorID , InvestorInfo : investorInfo}})}>INVEST NOW</button>
+      <button className='InvestButton' onClick={() => navigate('/InvestList',{ state : { ID : xinvestorID , InvestorInfo : investorInfo}})}>Send Token</button>
 
       <div className="PortfolioBox">
-        <h1>Portfolio</h1>
+        <div className='PortfolioHead'>
+        <h4>COMPANY GOT YOUR TOKEN</h4>
+        <button>View all</button>
+        </div>
 
-        {filteredTickets.length > 0 ? (
+       
+      </div>
+      {filteredTickets.length > 0 ? (
           filteredTickets.map(ticket => (
             <div key={ticket.id} className='TicketBlocks'>
-              <p>
-                Startup Name: {ticket.startupName ? (
-                  <span style={{ color: 'green', fontWeight: 'bold' }}>{ticket.startupName}</span>
+        
+               {ticket.startupName ? (
+                  <StartupBlockAvatar
+                  imgLink= {ticket.StRef}
+                  StartupName={ticket.startupName}
+                  Sector={ticket.sector}
+                />
                 ) : (
                   <span style={{ color: 'red', fontWeight: 'bold' }}>Not Acquired</span>
                 )}
-              </p>
+         
 
             </div>
           ))
@@ -144,7 +147,9 @@ console.log(ticketAmount);
             <p>No Startups Invested</p>
           </div>
         )}
-      </div>
+      <footer className="FooterNavBar">
+        <img src={footer} alt="Footer" />
+      </footer>
     </div>
   );
 }

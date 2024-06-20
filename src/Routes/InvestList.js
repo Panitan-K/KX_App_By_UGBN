@@ -1,17 +1,20 @@
 import './css/App.css';
 import React, { useEffect, useState } from 'react';
-import Revert from "./image/svg/Revert.png";
+import Search from "./image/svg/Search_Icon.png"; 
 import { useNavigate, useLocation } from "react-router-dom";
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from './Firebase';
+import StartupBlockAvatar from './Component/StartupBlockAvatar';
 
 function InvestList() {
   const location = useLocation();
   const [xinvestorID, setInvestorID] = useState("");
   const [startups, setStartups] = useState([]);
   const navigate = useNavigate();
-  const renderStartupCircle = (startup, index) => (
+
+  /*const renderStartupCircle = (startup, index) => (
     <div className='StartupIconList'>
+      
     <div 
       key={index}
       className='CircleStartup'
@@ -21,6 +24,24 @@ function InvestList() {
       
     </div>
     <div className='Label'>{startup.startupName}</div>
+    </div>
+  );*/
+
+  const renderStartupBlock = (startup, index) => (
+    <div>
+      
+    <div 
+      key={index}
+      onClick={() => handleNavigate(startup)}
+    >
+      <StartupBlockAvatar
+                  imgLink= {startup.imgSrc}
+                  StartupName={startup.startupName}
+                  Sector={startup.industry}
+                />
+      
+    </div>
+ 
     </div>
   );
 
@@ -57,26 +78,33 @@ function InvestList() {
   const handleNavigate = (startup) => {
     navigate('/StartupInfo', { state: { ID: xinvestorID, Startup :startup, InvestorInfo : location.state } })
   };
-
-  return (
-    <div className="App">
-      <div className='static-bar'>
-        <img 
+  /* OLD HTML */
+  /*  <img 
           src={Revert} 
           alt="Welcome" 
           className='Revertbutton' 
           onClick={() => navigate('/InvestorMain', { state: { ID: xinvestorID, InvestorInfo : location.state} })} 
         />
-        <p> Startups</p>
+        <p> Startups</p>*/
+  return (
+    <div className="App" style={{backgroundColor:"white"}}>
+      <div className='static-bar'>
+        <div className='Static-Header-Container'>
+          <div>
+          <h1>Startup Profile</h1>
+          <p>from TECHBITE 5.0 Incubation program</p>
+          </div>
+        <img src={Search} alt="Welcome"/>
+        </div>
+        
+      </div>
+      <div className='Spacer'>
+         
       </div>
 
-      <div className='AppWithHeaderContent'>
-        <div className='GridContainerEX'>
-        {startups.map((startup, index) => (
-            renderStartupCircle(startup, index)
+      {startups.map((startup, index) => (
+            renderStartupBlock(startup, index)
           ))}
-        </div>
-      </div>
     </div>
   );
 }

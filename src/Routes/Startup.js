@@ -3,7 +3,9 @@ import React, { useEffect, useState/*, useCallback*/ } from 'react';
 import { /*useNavigate,*/ useLocation } from "react-router-dom";
 import { db } from './Firebase';
 import { collection, getDocs/*, getDoc, doc, updateDoc*/ } from 'firebase/firestore';
-
+import Avatar from './Component/Avatar';
+import StartupBlockAvatar from './Component/StartupBlockAvatar';
+import footer from "./image/Mock/Footer.png"
 function Startup() {
   //const navigate = useNavigate();
   const [tickets, setTickets] = useState([]);
@@ -34,7 +36,7 @@ function Startup() {
         const startupQuerySnapshot = await getDocs(startupCollectionRef);
         console.log("This is StartupID: ", StartupID);
         if (!startupQuerySnapshot.empty) {
-          const startupData = startupQuerySnapshot.docs.find(doc => doc.id === StartupID);
+          const startupData = startupQuerySnapshot.docs.find(doc => doc.id === /*StartupID*/ "S01");
           if (startupData) {
             const StartupBuffer = startupData.data();
             setStartupInfo(StartupBuffer);
@@ -55,45 +57,53 @@ function Startup() {
 
   return (
     <div className="App">
-      <div className='static-bar'>
-        <p style={{ fontSize: "7vw" }}>Startup: {startupInfo.startupName}</p>
-      </div>
-      <div className='AppWithHeaderContent'>
-        <div className='StartupsInfoBlocks3'>
-          <img src={startupInfo.imgSrc} alt="Welcome" />
-        </div>
       
-        <div className='BalanceBox'>
-        <p className='Cash' >{startupInfo.fundRaised}</p>
-          <p style={{ lineHeight: "1vh", fontSize: "10vw", marginBlockStart: "8vh", marginBlockEnd: "3vh" }}>Token Received</p>
-          
-          
     
-        </div>
-     
+        <h1>Profile</h1>
+      <Avatar name={startupInfo.startupName} 
+          avatarUrl={startupInfo.imgSrc} 
+        />
+      
+   
+        <div className='PortfolioBox'>
+          <h4>TOKEN BALANCE</h4>
+          </div>
+          <div className='BalanceBox'>
+            <p className='Cash2' >{startupInfo.fundRaised} </p>
+          </div>
         <div className="PortfolioBox">
-          <h1>Invested by</h1>
+          <div className='PortfolioHead'>
+            <h4>COMPANY GOT YOUR TOKEN</h4>
+            <button>View all</button>
+          </div>
+
           {filteredTickets.length > 0 ? (
-            filteredTickets.map(ticket => (
-              <div key={ticket.ticketName} className='TicketBlocks'>
-             
-            
-                <p>
-                  Investor Name: {ticket.investorName ? (
-                    <span style={{ color: 'green' }}>{ticket.investorName}</span>
-                  ) : (
-                    <span style={{ color: 'red', fontWeight: 'bold' }}>Not Acquired</span>
-                  )}
-                </p>
-              </div>
-            ))
-          ) : (
-            <div className='TicketBlocks'>
-              <p>No Tickets</p>
+          filteredTickets.map(ticket => (
+            <div key={ticket.id} className='TicketBlocks'>
+        
+               {ticket.startupName ? (
+                  <StartupBlockAvatar
+                  imgLink= {ticket.InRef}
+                  StartupName={ticket.investorName}
+                  Sector={ticket.investorCompany}
+                />
+                ) : (
+                  <span style={{ color: 'red', fontWeight: 'bold' }}>Not Acquired</span>
+                )}
+         
+
             </div>
-          )}
+          ))
+        ) : (
+          <div className='TicketBlocks'>
+            <p>No Startups Invested</p>
+          </div>
+        )}
+        <footer className="FooterNavBar">
+        <img src={footer} alt="Footer" />
+      </footer>
         </div>
-      </div>
+    
     </div>
   );
 }

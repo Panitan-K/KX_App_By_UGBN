@@ -1,14 +1,18 @@
 import React from 'react';
 import './css/avatar.css'; // Import CSS module
+
 const Avatar = ({ name, avatarUrl,company }) => (
   <div className="user-detail">
+   
     <div className="avatar">
+      
       <img src={avatarUrl} alt="User Avatar" />
     </div>
     <div className="info">
-      <p>{name}</p>
+      <h3>{name}</h3>
       <p>{company}</p>
     </div>
+    
   </div>
 );
 

@@ -1,29 +1,27 @@
 .user-detail {
-    display: flex;
-    align-items: center;
-    background-color: #F9F6EE;
-    border-radius: 10px;
-    padding: 15px;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    box-shadow: 2 2px 5px rgba(0, 0, 0, 0.244);
-    border: 2px solid;
-    width: 80vw;
-    margin: 10px;
-    color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ 
+
+  margin-top: 3vh;
   }
-  
+  .user-detail h3{
+    font-weight: 600;
+  }
   .avatar {
-    
-    width: 60px;
-    height: 60px;
+
+    width: 35vw;
+    height: 35vw;
     border-radius: 50%;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 15px;
-    border: 2px solid #ddd;
+
+    border: 2px solid #F6F8F9;
+    background-color: #F6F8F9;
   }
   
   .avatar img {
@@ -34,22 +32,57 @@
   
   .info {
     flex: 1;
-    text-align: left;
-    line-height: 0.5; /* Adjusted line height */
+    text-align: center;
+    line-height: 1.5vh; /* Adjusted line height */
 
   }
   
-  .info .name {
-    font-size: 16px;
-    font-weight: bold;
+  .info p {
+
+    font-weight: 200;
     line-height: 0; /* Adjusted line height */
     color: #333;
+  }
+
+  .startup-block-detail {
+    display: flex;
+    align-items: center;
     
+    padding: 2vw;
+    padding-left: 4vw;
+    background-color: #e1e1e118;
   }
   
-  .info .email {
-    font-size: 14px;
+  .startup-block-avatar {
+    margin-right: 15px;
+  }
+  
+  .startup-block-avatar img {
+    width: 8vh; /* Adjust size as needed */
+    height: 8vh; /* Adjust size as needed */
+    border: 1px solid black;
+    object-fit: cover;
+  }
+  
+  .startup-block-info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+  }
+  
+  .startup-block-info .startup-block-name {
+    font-weight: bold;
+    font-size: 3vh; /* Adjust size as needed */
     margin: 0;
-    color: #666;
   }
   
+  .startup-block-info .startup-block-sector {
+    font-weight: normal;
+    font-size: 2vh; /* Adjust size as needed */
+    margin: 0;
+  }
+  
+  .startup-block-arrow {
+    margin-left: auto; /* Move the arrow to the rightmost position */
+    margin-right: 5vw;
+  }

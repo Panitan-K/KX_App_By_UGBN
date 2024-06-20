@@ -1,7 +1,7 @@
 import './css/App.css';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
-import Revert from "./image/svg/Revert.png";
+//import Revert from "./image/svg/Revert.png";
 import { db } from './Firebase'; 
 import { collection, doc, setDoc, getDocs, arrayUnion, updateDoc, increment } from 'firebase/firestore';
 
@@ -30,10 +30,13 @@ function StartupInfo() {
 
   const handleTokenInvest = async () => {
     const newTicket = {
+      sector:startup.industry ,
       startupName: startup.startupName,
       investorName: location.state.InvestorInfo.InvestorInfo.firstName + location.state.InvestorInfo.InvestorInfo.lastName,
-
-  };
+      InRef : location.state.InvestorInfo.InvestorInfo.imgSrc,
+      StRef : startup.imgSrc,
+      investorCompany : location.state.InvestorInfo.InvestorInfo.organization
+    }
     
     try {
       // Get the reference to the "tickets" collection
@@ -93,24 +96,7 @@ function StartupInfo() {
     console.log(location.state)
     //navigate('/Invest', { state: { ID: xinvestorID, Startup: startup } })
   }
-
-  return (
-    <div className="App">
-      <div className='static-bar'>
-        <img 
-          src={Revert} 
-          alt="Welcome" 
-          className='Revertbutton' 
-          onClick={() => navigate('/InvestList', { state: { ID: xinvestorID, InvestorInfo : location.state } })} 
-        />
-        <p>{startup.startupName}</p>
-      </div>
-      
-      <div className='AppWithHeaderContent'>
-        <div className='StartupsInfoBlocks2'>
-          <img src={startup.imgSrc} alt="Welcome"/>
-          <table className='StartupTable2'>
-            <tbody>
+  /*
               <tr>
                 <td>Startup</td>
                 <td>:</td>
@@ -125,11 +111,22 @@ function StartupInfo() {
                 <td>Stage</td>
                 <td>:</td>
                 <td>{startup.stage}</td>
-              </tr>
-              <tr>
-                <td colSpan="3">
-                  <div className="appleInputContainer">
-                    <label className="appleInputLabel">Introduction</label>
+              </tr>*/
+  return (
+    <div className="App" style={{backgroundColor:"white"}}>
+   
+      
+      <div className='AppWithHeaderContent'>
+      <div class="Infoheader">
+          <h2>{startup.startupName}</h2>
+          <p>Stage : {startup.stage}</p>
+          <p>What we are looking for ..... </p>
+        </div>
+        <div className='StartupsInfoBlocks2'>
+          
+          <img src={startup.imgSrc} alt="Welcome"/>
+          <div className="appleInputContainer">
+                    <label className="appleInputLabel">Area/Sector</label>
                     <textarea
                       type="text"
                       className="appleInput"
@@ -137,16 +134,12 @@ function StartupInfo() {
                       readOnly
                     />
                   </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
           
           <button 
-            className='InvestButton' 
+            className='InvestButton2' 
             onClick={() => handleTokenInvest() }
           >
-            INVEST IN {startup.startupName}
+            Give Feedback & Send Token
           </button>
         </div>
       </div>
