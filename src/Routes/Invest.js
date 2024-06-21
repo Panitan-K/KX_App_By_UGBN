@@ -82,6 +82,7 @@ function Invest() {
                             placeholder="Add your comment here"
                             rows="4"
                             cols="50"
+                            className='appleInput2'
                         />
                     </div>
 

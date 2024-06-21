@@ -109,7 +109,9 @@ console.log(ticketAmount);
           company={investorInfo.organization} />
 
       <div className='PortfolioBox'>
-      <h4>TOKEN BALANCE</h4>
+        <div className='PortfolioHead'>
+        <h4>TOKEN BALANCE</h4>
+        </div>
       </div>
       <div className='BalanceBox'>
         <p className='Cash2' >{investorInfo.balance} </p>
