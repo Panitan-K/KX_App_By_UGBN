@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9824d4be.css",
+    "main.js": "/static/js/main.6658b3aa.js",
+    "static/media/TechbiteBG.png": "/static/media/TechbiteBG.47b613441c2e43c8bac8.png",
+    "static/media/Uphasia.png": "/static/media/Uphasia.6e1465207725329104e4.png",
+    "static/media/KX2.png": "/static/media/KX2.a58a887fce42ca910744.png",
+    "static/media/Techbite_5_0.png": "/static/media/Techbite_5_0.672988cbaf08ee6c0682.png",
+    "static/media/TechbiteNoBG.png": "/static/media/TechbiteNoBG.4e1e4e3d2e7d353646e4.png",
+    "index.html": "/index.html",
+    "main.9824d4be.css.map": "/static/css/main.9824d4be.css.map",
+    "main.6658b3aa.js.map": "/static/js/main.6658b3aa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9824d4be.css",
+    "static/js/main.6658b3aa.js"
+  ]
+}

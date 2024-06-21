@@ -6,7 +6,11 @@ import { db } from './Firebase'; // Assuming 'db' and other Firestore methods ar
 import { collection, getDocs } from 'firebase/firestore';
 import Avatar from './Component/Avatar';
 import StartupBlockAvatar from './Component/StartupBlockAvatar';
-import footer from "./image/Mock/Footer.png"
+//import footer from "./image/Mock/Footer.png"
+import FooterRocket from "./image/svg/rocket.png";
+import FooterHouse from "./image/svg/house.png";
+import FooterRevert from "./image/svg/Revert.png";
+
 function InvestorMain() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -150,7 +154,9 @@ console.log(ticketAmount);
           </div>
         )}
       <footer className="FooterNavBar">
-        <img src={footer} alt="Footer" />
+        <img src={FooterRocket} alt="Footer" onClick={() => navigate('/InvestList',{ state : { ID : xinvestorID , InvestorInfo : investorInfo}})}  />
+        <img src={FooterHouse} alt="Footer" onClick={() =>navigate('/InvestorMain', { state: { ID: xinvestorID } })}/>
+        <img src={FooterRevert} alt="Footer" />
       </footer>
     </div>
   );

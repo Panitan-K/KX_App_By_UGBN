@@ -5,7 +5,10 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from './Firebase';
 import StartupBlockAvatar from './Component/StartupBlockAvatar';
-
+//import footer from "./image/Mock/Footer.png"
+import FooterRocket from "./image/svg/rocket.png";
+import FooterHouse from "./image/svg/house.png";
+import FooterRevert from "./image/svg/Revert.png";
 function InvestList() {
   const location = useLocation();
   const [xinvestorID, setInvestorID] = useState("");
@@ -105,7 +108,13 @@ function InvestList() {
       {startups.map((startup, index) => (
             renderStartupBlock(startup, index)
           ))}
+      <footer className="FooterNavBar">
+        <img src={FooterRocket} alt="Footer" />
+        <img src={FooterHouse} alt="Footer" onClick={() =>navigate('/InvestorMain', { state: { ID: xinvestorID } })}/>
+        <img src={FooterRevert} alt="Footer" onClick={() =>navigate('/InvestorMain', { state: { ID: xinvestorID } })}/>
+      </footer>
     </div>
+    
   );
 }
 

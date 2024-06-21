@@ -35,12 +35,16 @@ p, a, span, div, li, ul, ol, input, textarea, button {
   left: 0;
   bottom: 0;
   width: 100%;
+  height: 6vh;
   background-color: #ffffff; /* Set background color for the footer */
   z-index: 9999; /* Ensure it appears on top of other content */
+  display: flex;
+  justify-content: space-evenly; /* Distribute space evenly between the items */
+  align-items: center; /* Align items vertically in the center */
 }
 
 .FooterNavBar img {
-  width: 100%;
+  width: 24px;
   height: auto; /* Maintain aspect ratio of the image */
 }
 
@@ -565,6 +569,7 @@ input::placeholder {
   color: #FFFFFF;
   padding:  1.8vh 3vw;
   border-radius: 40px;
+  border: 0px;
   background: linear-gradient(90deg, #1B573B, #3BBD80); /* Add linear gradient background */
   transition: background 0.3s ease; /* Optional: Smooth transition effect for hover */
 }
@@ -576,11 +581,12 @@ input::placeholder {
 .InvestButton2 {
  
   width: 60vw; 
-  font-size: 3.2vw;
-  font-weight: 300;
+  font-size: 3.6vw;
+  font-weight: 600;
   color: #FFFFFF;
   padding:  1.8vh 3vw;
   border-radius: 40px;
+  border: 0px;
   background: linear-gradient(90deg, #1B573B, #3BBD80); /* Add linear gradient background */
   transition: background 0.3s ease; /* Optional: Smooth transition effect for hover */
 }
@@ -791,7 +797,7 @@ input::placeholder {
 }
 
 .StartupsInfoBlocks2 img {
-  width: 50vw;
+  width: 80vw;
  
   
 }
@@ -824,6 +830,7 @@ input::placeholder {
   display: flex;
   text-align: left;
   flex-direction: column;
+  margin-bottom: 8vh;
 
 }
 
@@ -847,16 +854,16 @@ input::placeholder {
 
 .appleInput {
   
-  padding: 2vh 4vw;
+  padding: 2vh 6vw;
 
   margin-bottom: 1vh;
 
-  
-  height: 25vh;
+  text-align: justify;
+  height: 40vh;
   color : rgb(0, 0, 0);
-  font-weight: 100;
+  font-weight: 400;
   border: 0;
-
+  font-size: 3.6vw;
   background-color: #F2F2F2;
   outline: none;
   transition: border-color 0.3s ease;

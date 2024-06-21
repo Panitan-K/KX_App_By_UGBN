@@ -5,7 +5,10 @@ import { db } from './Firebase';
 import { collection, getDocs/*, getDoc, doc, updateDoc*/ } from 'firebase/firestore';
 import Avatar from './Component/Avatar';
 import InvestorBlockAvatar from './Component/InvestorBlockAvatar';
-import footer from "./image/Mock/Footer.png"
+//import footer from "./image/Mock/Footer.png"
+import FooterRocket from "./image/svg/rocket.png";
+import FooterHouse from "./image/svg/house.png";
+import FooterRevert from "./image/svg/Revert.png";
 function Startup() {
   //const navigate = useNavigate();
   const [tickets, setTickets] = useState([]);
@@ -100,8 +103,10 @@ function Startup() {
           </div>
         )}
         <footer className="FooterNavBar">
-        <img src={footer} alt="Footer" />
-      </footer>
+          <img src={FooterRocket} alt="Footer" />
+          <img src={FooterHouse} alt="Footer" />
+          <img src={FooterRevert} alt="Footer" />
+        </footer>
         </div>
     
     </div>

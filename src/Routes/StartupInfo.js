@@ -4,7 +4,10 @@ import { useNavigate, useLocation } from "react-router-dom";
 //import Revert from "./image/svg/Revert.png";
 import { db } from './Firebase'; 
 import { collection, doc, setDoc, getDocs, arrayUnion, updateDoc, increment } from 'firebase/firestore';
-
+//import footer from "./image/Mock/Footer.png"
+import FooterRocket from "./image/svg/rocket.png";
+import FooterHouse from "./image/svg/house.png";
+import FooterRevert from "./image/svg/Revert.png";
 function StartupInfo() {
   const navigate = useNavigate();
   const location = useLocation();
@@ -120,17 +123,17 @@ function StartupInfo() {
       <div class="Infoheader">
           <h2>{startup.startupName}</h2>
           <p>Stage : {startup.stage}</p>
-          <p>What we are looking for ..... </p>
+          <p>What we are looking for : 100,000 USD Investment </p>
         </div>
         <div className='StartupsInfoBlocks2'>
           
           <img src={startup.imgSrc} alt="Welcome"/>
           <div className="appleInputContainer">
-                    <label className="appleInputLabel">Area/Sector</label>
+                    <label className="appleInputLabel">Introduction</label>
                     <textarea
                       type="text"
                       className="appleInput"
-                      value={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"}
+                      value={"We are Uphasia—the solution for communication disorders in the Thai dialect. As we are aging , dementia becomes inevitable. Dementia or any damage to the brain cause a person to lose the ability to comprehend and produce speech, which degrades their well-being.The traditional solution is for Speech-Language Pathologists (SLPs) to provide rehabilitation to improve or delay the speech condition. However, the availability of SLPs in Thailand is limited to 200 SLPs for 600,000 patients, resulting in a ratio of 1 to 3,000.Uphasia digitalize the speech rehabilitation process through an online platform that would allow everyone using the Thai dialect to access rehabilitation utilizing  ASR technology, which we will further co-develop with the only SLP school in Thailand, Ramathibodi Hospital."}
                       readOnly
                     />
                   </div>
@@ -143,6 +146,11 @@ function StartupInfo() {
           </button>
         </div>
       </div>
+      <footer className="FooterNavBar">
+        <img src={FooterRocket} alt="Footer" onClick={() => navigate('/InvestList',{ state : { ID : xinvestorID , InvestorInfo : location.state.InvestorInfo.InvestorInfo}})}/>
+        <img src={FooterHouse} alt="Footer" onClick={() => navigate('/InvestorMain',{ state : { ID : xinvestorID}})}/>
+        <img src={FooterRevert} alt="Footer" onClick={() => navigate('/InvestList',{ state : { ID : xinvestorID , InvestorInfo : location.state.InvestorInfo.InvestorInfo}})}/>
+      </footer>
     </div>
   );
 }

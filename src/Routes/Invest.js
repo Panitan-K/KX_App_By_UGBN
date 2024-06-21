@@ -4,6 +4,9 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { db } from './Firebase'; 
 import { doc, updateDoc } from 'firebase/firestore';
 import Slider2 from './Component/Slider2';
+import FooterRocket from "./image/svg/rocket.png";
+import FooterHouse from "./image/svg/house.png";
+import FooterRevert from "./image/svg/Revert.png";
 
 function Invest() {
     const navigate = useNavigate();
@@ -89,6 +92,11 @@ function Invest() {
                     <button className='InvestButton2' onClick={handleInvest}>Submit & Send Token</button>
                 </div>
             </div>
+            <footer className="FooterNavBar">
+                <img src={FooterRocket} alt="Footer" />
+                <img src={FooterHouse} alt="Footer" />
+                <img src={FooterRevert} alt="Footer" />
+            </footer>
         </div>
     );
 }
