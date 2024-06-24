@@ -1,13 +1,15 @@
 import './css/AdminModule.css';
 import React, { useEffect, useState } from 'react';
 import { db } from '../Firebase';
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, deleteDoc ,doc } from 'firebase/firestore';
+import ConfirmationModal from './Forms/ConfirmationModal'; // Import the ConfirmationModal component
 //import BarChart from '../Component/BarChart';
 
 function TicketAdministration() {
   const [tickets, setTickets] = useState([]);
   const [unfolded, setUnfolded] = useState({});
   const [columns, setColumns] = useState(3); // Default to 3 columns
+  const [isConfirmationOpen, setIsConfirmationOpen] = useState(false); 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,6 +43,33 @@ function TicketAdministration() {
     }));
   };
 
+  const closeConfirmationModal = () => {
+    setIsConfirmationOpen(false);
+  };
+  const openConfirmationModal = () => {
+    setIsConfirmationOpen(true);
+  };
+const handleDelete = async () => {
+    try {
+        const ticketCollectionRef = collection(db, 'tickets');
+        const ticketQuerySnapshot = await getDocs(ticketCollectionRef);
+
+        // Iterate through each document in the snapshot and delete it
+        for (const docSnapshot of ticketQuerySnapshot.docs) {
+            const docRef = doc(db, 'tickets', docSnapshot.id);
+            await deleteDoc(docRef);
+        }
+
+        console.log('All ticket documents have been deleted.');
+
+        // Close the confirmation modal after reset
+        closeConfirmationModal(); 
+        window.location.reload()
+    } catch (error) {
+        console.error("Error deleting ticket documents:", error);
+    }
+};
+
   const changeColumns = (num) => {
     setColumns(num);
   };
@@ -49,6 +78,7 @@ function TicketAdministration() {
     <div className="Admin-Component">
       <div>
         <h1>Tickets</h1>
+        <button className='AddButtonsAppleStyle' onClick={openConfirmationModal}>Delete all Tickets</button>
         <div>
           <button onClick={() => changeColumns(1)}>1 Column</button>
           <button onClick={() => changeColumns(2)}>2 Columns</button>
@@ -99,8 +129,14 @@ function TicketAdministration() {
             </div>
           ))}
         </div>
-        <button className='AddButtonsAppleStyle'>Add Tickets</button>
+        
       </div>
+      <ConfirmationModal
+          isOpen={isConfirmationOpen}
+          onClose={closeConfirmationModal}
+          onConfirm={handleDelete}
+          message="Are you sure you want to reset all investor data?"
+        />
     </div>
   );
 }

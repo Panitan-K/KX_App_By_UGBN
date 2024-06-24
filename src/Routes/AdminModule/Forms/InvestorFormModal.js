@@ -29,7 +29,7 @@ function InvestorFormModal({ isOpen, onClose, onAddInvestor }) {
     <div className="modal">
       <div className="modal-content">
         <span className="close" onClick={onClose}>Close here</span>
-        <h2>Add Investor</h2>
+        <h2>Add Investor</h2> 
         <form onSubmit={handleSubmit} className='Admin-Form'>
           <table className="AdminInput-form-table">
             <tbody>

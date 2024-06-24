@@ -52,7 +52,7 @@ function RacingBarChart({ data }) {
             (entry, index) => yScale(index) + yScale.bandwidth() / 2 + 5
           )
       )
-      .text(entry => `Company :  ${entry.name} (${entry.value} M)`)
+      .text(entry => `Company :  ${entry.name} (${entry.value} Tokens)`)
       .attr("class", "label")
       .attr("x", 10)
       .transition()

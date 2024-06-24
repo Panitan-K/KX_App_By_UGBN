@@ -1,14 +1,16 @@
 import './css/AdminModule.css';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { db } from '../Firebase';
-import { collection, getDocs, setDoc, doc } from 'firebase/firestore';
+import { collection, getDocs, setDoc, doc, updateDoc } from 'firebase/firestore';
 import StartupFormModal from './Forms/StartupFormModal';
+import ConfirmationModal from './Forms/ConfirmationModal'; // Import the ConfirmationModal component
 function StartupAdministration() {
   const [startups, setStartups] = useState([]);
   const [unfolded, setUnfolded] = useState({});
   const [StartupCount,setStartupCount] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+  const [isConfirmationOpen, setIsConfirmationOpen] = useState(false); 
+  const modalRef = useRef(null);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -32,6 +34,33 @@ function StartupAdministration() {
 
     fetchData();
   }, []);
+  const closeConfirmationModal = () => {
+    setIsConfirmationOpen(false);
+  };
+  const openConfirmationModal = () => {
+    setIsConfirmationOpen(true);
+  };
+
+  const handleReset = async () => {
+    try {
+        const StartupCollectionRef = collection(db, 'Startup');
+        const StartupQuerySnapshot = await getDocs(StartupCollectionRef);
+
+        StartupQuerySnapshot.forEach(async (docSnapshot) => {
+            const docRef = doc(db, 'Startup', docSnapshot.id);
+            await updateDoc(docRef, { fundRaised: 0, ticketOwned: [] });
+        });
+
+        console.log('All Startup documents have been reset.');
+
+     
+
+        closeConfirmationModal(); // Close the confirmation modal after reset
+        //window.location.reload()
+    } catch (error) {
+        console.error("Error resetting Startup documents:", error);
+    }
+};
 
   const handleAddStartup = async (newStartup) => {
     try {
@@ -52,7 +81,14 @@ function StartupAdministration() {
       console.error("Error adding investor:", error);
     }
   };
-
+  const openModal = () => {
+    setIsModalOpen(true);
+    setTimeout(() => {
+      if (modalRef.current) {
+        modalRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 100); // Delay to ensure modal is rendered before scrolling
+  };
   const toggleFold = (id) => {
     setUnfolded(prevState => ({
       ...prevState,
@@ -66,11 +102,15 @@ function StartupAdministration() {
         
         <ul>
         <h1>Startups</h1>
+        
         <p>There are : {StartupCount} Startups</p>
+        <button className='AddButtonsAppleStyle' onClick={openModal}>Add a Startup</button>
+        <button className='AddButtonsAppleStyle' onClick={openConfirmationModal}>Reset</button>
           {startups.map(startup => (
             <div key={startup.id} className={`AdminStartupBlock ${unfolded[startup.id] ? 'unfolded' : ''}`}>
               <div className="AdminStartupBlockHeader" onClick={() => toggleFold(startup.id)}>
                 <p>Startup ID: {startup.id} <br />  Startup Name: {startup.startupName}</p>
+                
               </div>
               {unfolded[startup.id] && (
                 <div className="AdminStartupBlockContent">
@@ -83,10 +123,17 @@ function StartupAdministration() {
             
           ))}
           <button className='AddButtonsAppleStyle' onClick={() => setIsModalOpen(true)}>Add a Startup</button>
-          <StartupFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onAddStartup={handleAddStartup} />
-     
+          <div ref={modalRef}>
+            <StartupFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onAddStartup={handleAddStartup} />
+          </div>
         </ul>
        </div>
+       <ConfirmationModal
+          isOpen={isConfirmationOpen}
+          onClose={closeConfirmationModal}
+          onConfirm={handleReset}
+          message="Are you sure you want to reset all investor data?"
+        />
     </div>
   );
 }

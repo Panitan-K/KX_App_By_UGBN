@@ -60,7 +60,7 @@
   .startup-block-avatar img {
     width: 8vh; /* Adjust size as needed */
     height: 8vh; /* Adjust size as needed */
-    border: 1px solid black;
+    border-radius: 15%;
     object-fit: cover;
   }
   
