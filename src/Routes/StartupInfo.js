@@ -32,6 +32,12 @@ function StartupInfo() {
 
 
   const handleTokenInvest = async () => {
+    if (location.state.InvestorInfo.InvestorInfo.balance <= 0 ) {
+        alert("You have no token left")
+      } 
+    else {
+
+    
     const newTicket = {
       sector:startup.industry ,
       startupName: startup.startupName,
@@ -98,6 +104,7 @@ function StartupInfo() {
     console.log(startup)
     console.log(location.state)
     //navigate('/Invest', { state: { ID: xinvestorID, Startup: startup } })
+  }
   }
   /*
               <tr>
