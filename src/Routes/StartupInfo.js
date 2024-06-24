@@ -17,7 +17,8 @@ function StartupInfo() {
     imgSrc: '',
     industry: '',
     stage: '',
-    introduction: ''
+    introduction: '',
+    productSrc: '',
   });
 
   useEffect(() => {
@@ -134,7 +135,7 @@ function StartupInfo() {
         </div>
         <div className='StartupsInfoBlocks2'>
           
-          <img src={startup.imgSrc} alt="Welcome"/>
+          <img src={startup.productSrc} alt="Welcome"/>
           <div className="appleInputContainer">
                     <label className="appleInputLabel">Introduction</label>
                     <textarea

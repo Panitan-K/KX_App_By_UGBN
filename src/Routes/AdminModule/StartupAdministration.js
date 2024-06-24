@@ -114,8 +114,9 @@ function StartupAdministration() {
               </div>
               {unfolded[startup.id] && (
                 <div className="AdminStartupBlockContent">
-                  <img src={startup.imgSrc} alt="StartupIMGSRC" />
-                  <p>{startup.startupName}</p>
+                  <img src={startup.imgSrc} alt="StartupIMGSRC" className='StartupIMGSRC'/>
+                  <img src={startup.productSrc} alt="StartupIMGSRC2" className='StartupIMGSRC2' />
+              
                   {/* Add more fields as needed */}
                 </div>
               )}

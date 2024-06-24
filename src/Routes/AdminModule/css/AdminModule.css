@@ -47,10 +47,16 @@
     display: block;
   }
 
-  .AdminStartupBlockContent img{
+  .AdminStartupBlockContent .StartupIMGSRC{
     width: 10vw;
     height: 10vw;
   }
+  .AdminStartupBlockContent .StartupIMGSRC2{
+    width: 15vw;
+    height: 10vw;
+  }
+
+
   
   /* Apple-like scrollbar */
   ::-webkit-scrollbar {

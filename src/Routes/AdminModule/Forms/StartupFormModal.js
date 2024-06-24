@@ -6,14 +6,15 @@ function StartupFormModal({ isOpen, onClose, onAddStartup }) {
   const [Industry, setIndustry] = useState('');
   const [imgSrc, setImgSrc] = useState('');
   const [Stage, setStage] = useState('');
+  const [productSrc, setproductSrc] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newStartup = {
       fundRaised:0,
-      stakeRemain:20,
       startupName : StartupName ,
       imgSrc,
+      productSrc,
       ticketOwned: [],
       industry: Industry, 
       stage: Stage, 
@@ -48,6 +49,10 @@ function StartupFormModal({ isOpen, onClose, onAddStartup }) {
               <tr>
                 <td><label>Image URL</label></td>
                 <td><input type="text" value={imgSrc} onChange={(e) => setImgSrc(e.target.value)} required /></td>
+              </tr>
+              <tr>
+                <td><label>Product Image URL</label></td>
+                <td><input type="text" value={productSrc} onChange={(e) => setproductSrc(e.target.value)} required /></td>
               </tr>
               <tr>
                 <td><label></label></td>
