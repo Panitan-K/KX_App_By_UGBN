@@ -108,7 +108,7 @@ console.log(ticketAmount);
   return (
     <div className="App">
        <h3>Pay & Send</h3>
-          <Avatar name={investorInfo.firstName + investorInfo.lastName} 
+          <Avatar name={investorInfo.firstName +" "+ investorInfo.lastName} 
           avatarUrl={investorInfo.imgSrc} 
           company={investorInfo.organization} />
 

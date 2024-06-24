@@ -4,7 +4,7 @@ function InvestorFormModal({ isOpen, onClose, onAddInvestor }) {
   const [email, setEmail] = useState('');
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [balance, setBalance] = useState(150);
+  const [balance, setBalance] = useState(5);
   const [imgSrc, setImgSrc] = useState('');
   const [organization, setOrganization] = useState('');
 
