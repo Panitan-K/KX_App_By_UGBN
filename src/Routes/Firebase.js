@@ -5,13 +5,13 @@ import { getStorage, ref } from "firebase/storage";
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA_1IioycTvR59hp-kJhRHj1ZZzLNXfyBU",
-  authDomain: "kx-techbite-club.firebaseapp.com",
-  projectId: "kx-techbite-club",
-  storageBucket: "kx-techbite-club.appspot.com",
-  messagingSenderId: "167410350669",
-  appId: "1:167410350669:web:87fbb81fcb0bad2b12ba04",
-  measurementId: "G-BHL0R6GMHJ"
+  apiKey: "AIzaSyBrOmgOp2VFzT-hEY96N2M0yrIew7M0x0Y",
+  authDomain: "carboxylation-9d578.firebaseapp.com",
+  projectId: "carboxylation-9d578",
+  storageBucket: "carboxylation-9d578.appspot.com",
+  messagingSenderId: "84041114659",
+  appId: "1:84041114659:web:545808d16ad54334ca7d96",
+  measurementId: "G-8PH3RZYWE3"
 };
 
 
