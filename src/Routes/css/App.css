@@ -198,11 +198,11 @@ line-height: 1.80vh;
 }
 
 .Static-Header-Container h1{
-  font-size: 4vh;
+  font-size: 8.7vw;
 }
 
 .Static-Header-Container p{
-  font-size: 2vh;
+  font-size: 3.5vw;
 }
 .ProfileBox {
 background-color: var(--MahidolBlue); /* Green color for the box */

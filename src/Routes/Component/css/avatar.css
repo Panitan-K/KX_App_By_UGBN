@@ -5,7 +5,7 @@
   justify-content: center;
  
 
-  margin-top: 3vh;
+  margin-top: 6.5vw;
   }
   .user-detail h3{
     font-weight: 600;
@@ -33,7 +33,7 @@
   .info {
     flex: 1;
     text-align: center;
-    line-height: 1.5vh; /* Adjusted line height */
+    line-height: 3.25vw; /* Adjusted line height */
 
   }
   
@@ -58,8 +58,8 @@
   }
   
   .startup-block-avatar img {
-    width: 8vh; /* Adjust size as needed */
-    height: 8vh; /* Adjust size as needed */
+    width: 17.5vw; /* Adjust size as needed */
+    height: 17.5vw; /* Adjust size as needed */
     border-radius: 15%;
     object-fit: cover;
   }
@@ -72,13 +72,13 @@
   
   .startup-block-info .startup-block-name {
     font-weight: bold;
-    font-size: 3vh; /* Adjust size as needed */
+    font-size: 6.5vw; /* Adjust size as needed */
     margin: 0;
   }
   
   .startup-block-info .startup-block-sector {
     font-weight: normal;
-    font-size: 2vh; /* Adjust size as needed */
+    font-size: 4.3vw; /* Adjust size as needed */
     margin: 0;
   }
   
