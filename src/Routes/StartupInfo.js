@@ -22,6 +22,7 @@ function StartupInfo() {
   });
 
   const textAreaRef = useRef(null);
+  const [isSubmitting, setIsSubmitting] = useState(false); // State to manage button disable
 
   useEffect(() => {
     if (location.state) {
@@ -43,45 +44,55 @@ function StartupInfo() {
   };
 
   const handleTokenInvest = async () => {
-    if (location.state.InvestorInfo.InvestorInfo.balance <= 0 ) {
-      alert("You have no token left")
-    } else {
-      const newTicket = {
-        sector: startup.industry,
-        startupName: startup.startupName,
-        investorName: location.state.InvestorInfo.InvestorInfo.firstName + location.state.InvestorInfo.InvestorInfo.lastName,
-        InRef: location.state.InvestorInfo.InvestorInfo.imgSrc,
-        StRef: startup.imgSrc,
-        investorCompany: location.state.InvestorInfo.InvestorInfo.organization
-      }
-
-      try {
-        const ticketsCollectionRef = collection(db, "tickets");
-        const ticketsSnapshot = await getDocs(ticketsCollectionRef);
-        const ticketCount = ticketsSnapshot.size;
-        const newTicketId = `Ticket_No${ticketCount + 1}`;
-        const ticketDocRef = doc(db, "tickets", newTicketId);
-        await setDoc(ticketDocRef, newTicket);
-
-        const InvestorDocRef = doc(db, "Investor", xinvestorID);
-        await updateDoc(InvestorDocRef, {
-          ticketOwned: arrayUnion(newTicketId),
-          balance: increment(-1)
-        });
-
-        const StartupDocRef = doc(db, "Startup", location.state.Startup.id);
-        await updateDoc(StartupDocRef, {
-          ticketOwned: arrayUnion(newTicketId),
-          fundRaised: increment(1)
-        });
-
-        navigate('/Invest', { state: { ...location.state, newTicketId } });
-
-      } catch (error) {
-        console.error("Error adding document: ", error);
-      }
+    if (isSubmitting) {
+      return; // Prevent double submission
     }
-  }
+
+    setIsSubmitting(true); // Disable button to prevent double click
+
+    if (location.state.InvestorInfo.InvestorInfo.balance <= 0) {
+      alert("You have no token left");
+      setIsSubmitting(false); // Re-enable button
+      return;
+    }
+
+    const newTicket = {
+      sector: startup.industry,
+      startupName: startup.startupName,
+      investorName: location.state.InvestorInfo.InvestorInfo.firstName + " " + location.state.InvestorInfo.InvestorInfo.lastName,
+      InRef: location.state.InvestorInfo.InvestorInfo.imgSrc,
+      StRef: startup.imgSrc,
+      investorCompany: location.state.InvestorInfo.InvestorInfo.organization
+    };
+
+    try {
+      const ticketsCollectionRef = collection(db, "tickets");
+      const ticketsSnapshot = await getDocs(ticketsCollectionRef);
+      const ticketCount = ticketsSnapshot.size;
+      const newTicketId = `Ticket_No${ticketCount + 1}`;
+      const ticketDocRef = doc(db, "tickets", newTicketId);
+      await setDoc(ticketDocRef, newTicket);
+
+      const InvestorDocRef = doc(db, "Investor", xinvestorID);
+      await updateDoc(InvestorDocRef, {
+        ticketOwned: arrayUnion(newTicketId),
+        balance: increment(-1)
+      });
+
+      const StartupDocRef = doc(db, "Startup", location.state.Startup.id);
+      await updateDoc(StartupDocRef, {
+        ticketOwned: arrayUnion(newTicketId),
+        fundRaised: increment(1)
+      });
+
+      navigate('/Invest', { state: { ...location.state, newTicketId } });
+
+    } catch (error) {
+      console.error("Error adding document: ", error);
+    } finally {
+      setIsSubmitting(false); // Re-enable button in case of error
+    }
+  };
 
   return (
     <div className="App" style={{ backgroundColor: "white" }}>
@@ -107,8 +118,9 @@ function StartupInfo() {
           <button 
             className='InvestButton2' 
             onClick={() => handleTokenInvest()}
+            disabled={isSubmitting} // Disable button when submitting
           >
-            Give Feedback & Send Token
+            {isSubmitting ? 'Submitting...' : 'Give Feedback & Send Token'}
           </button>
         </div>
       </div>

@@ -86,7 +86,7 @@ function InvestorMain() {
   //console.log(tickets);
 
   // Filter tickets where investorName matches the investor's name
-  const filteredTickets = tickets.filter(ticket => ticket.investorName === investorInfo.firstName + investorInfo.lastName);
+  const filteredTickets = tickets.filter(ticket => ticket.investorName === investorInfo.firstName +" "+ investorInfo.lastName);
   useEffect(() => {
     console.log(filteredTickets)
     const uniqueStartupNames = new Set(filteredTickets.map(ticket => ticket.startupName));

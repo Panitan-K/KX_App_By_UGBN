@@ -13,7 +13,6 @@ function Invest() {
     const [xinvestorID, setInvestorID] = useState("");
     const location = useLocation();
     const [rating, setRating] = useState({
-        risk: 5,
         marketSize: 5,
         businessPotential: 5,
         teamPotential: 5,
@@ -24,7 +23,7 @@ function Invest() {
     const handleSliderChange = (name, newValue) => {
         setRating((prevState) => ({
             ...prevState,
-            [name]: newValue,
+            [name]:  parseFloat(newValue),
         }));
     };
 

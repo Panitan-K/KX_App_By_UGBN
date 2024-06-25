@@ -395,6 +395,8 @@ background-color: #ffffff;
 
 .LogRegbox1:hover {
   background-color: var(--UphasiaGreen);
+  color: #FFFFFF;
+  font-weight: 800;
  
 }
 
@@ -493,7 +495,7 @@ input::placeholder {
   letter-spacing: 0.5px;
   color: var(--MahidolBlue);
   background-color: #cfcfcf;
-  border: 1px solid rgb(124, 124, 124);
+  border: 1px solid rgb(41, 219, 47);
   border-radius: 3px;
   outline: none;
   -webkit-transition: all 200ms linear;
@@ -873,7 +875,7 @@ input::placeholder {
   padding-bottom: 5vw;
   padding-left: 3vw;
   padding-right: 3vw;
-  width: 77vw;
+  width: 100%;
   height: auto; /* Adjust height dynamically */
   min-height: 18vh; /* Ensure a minimum height */
   font-size: 4vw;

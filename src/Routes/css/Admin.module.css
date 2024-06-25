@@ -3,6 +3,7 @@
     --MahidolBlue: #0080ff;
     --BGC :   #F9F6EE;
     --UphasiaGreen : #17AA7C;
+    --KXOrange : #E16236;
   }
   
  
@@ -29,3 +30,80 @@
     overflow-x: hidden;
    
   }
+
+
+
+.App-Login-Button{
+    margin-right: 0px;
+    align-items: center;
+    text-align: center;
+    margin-top: 3%;
+    width: 10vw; 
+    font-size: 12px;
+    font-weight: 800;
+    color: white;
+    height: 5vh;
+    border-radius: 40px;
+    border: 0px;
+    background: var(--KXOrange);
+    transition: background 0.3s ease; /* Optional: Smooth transition effect for hover */
+  
+  }
+  .App-Login-Button:hover{
+  
+    box-shadow: 0 8px 24px 0 rgba(26, 16, 112, 0.2);
+  }
+  
+.App-Admin h5 {
+    color: black;
+    font-size: 16px;
+}
+
+.App-Static-Bar {
+
+    position: fixed;
+    width: 95vw;
+    height: 15vh;
+    background-color: var(--KXOrange);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+    padding-left: 5vw;
+    font-size: 24px;
+    font-weight: 800;
+    display: flex;
+    text-align: left;
+    line-height: 1.80vh;
+    
+    
+    
+    /*
+    @media screen and (min-width: 1024px) {
+    
+    }
+    
+    @media screen and (max-height: 600px) {
+      height: 5vw; 
+    }*/
+    
+    }
+
+    .form-style {
+        position: relative;
+      
+        padding-left: 2vw;
+        height: 7vh;
+        width: 414px;
+        max-width: 80vw;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
+        letter-spacing: 0.5px;
+        color: black;
+        border: 1px solid #ccc; /* Add a light border */
+        border-radius: 10vw; /* Adjust this value to get the desired roundness */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: add a subtle shadow for depth */
+        outline: none; /* Remove default outline */
+      
+      }

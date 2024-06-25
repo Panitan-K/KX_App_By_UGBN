@@ -35,9 +35,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+  }
+  .AdminStartupBlockHeader p {
+
     cursor: pointer;
   }
-  
   .AdminStartupBlockContent {
     display: none;
     padding-top: 10px;
@@ -56,12 +59,27 @@
     height: 10vw;
   }
 
-
-  
+  .AdminStartupBlockContent .Investor{
+    width: 10vw;
+    height: 10vw;
+  }
+  .AdminStartupBlockHeader .BarIconTopRight{
+    width: 2vw;
+    height: 2vw;
+    cursor: pointer;
+  }
+  .AdminStartupBlockHeader .BarIconTopRight:hover{
+    width: 3vw;
+    height: 3vw;
+  }
+  .AdminStartupBlockHeader .EditBox{
+    padding-right: 4vw;
+  }
   /* Apple-like scrollbar */
   ::-webkit-scrollbar {
     width: 2px;
   }
+  
   
   ::-webkit-scrollbar-track {
     background: #f1f1f1;

@@ -38,7 +38,7 @@ function DisplayAdministration() {
               color = '#CD7F32'; // Bronze
               break;
             default:
-              color = '#0000FF'; // Blue for 4th and 5th
+              color = '#65f76d'; // Blue for 4th and 5th
               break;
           }
           return { ...startup, color };

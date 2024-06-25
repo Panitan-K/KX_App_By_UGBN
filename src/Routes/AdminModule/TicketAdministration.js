@@ -98,10 +98,7 @@ const handleDelete = async () => {
                   
                   <table className='TicketTable'>
                     <tbody>
-                      <tr>
-                        <th>Risk</th>
-                        <td>{ticket.rating.risk}</td>
-                      </tr>
+                  
                       <tr>
                         <th>Market Size</th>
                         <td>{ticket.rating.marketSize}</td>

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useLocation,useNavigate } from "react-router-dom";
 import { auth } from './Firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import {  collection, getDocs, doc, getDoc } from 'firebase/firestore';
+import {  collection, doc, getDoc } from 'firebase/firestore';
 import { db } from './Firebase'; 
 function AdminLogin() {
   const location = useLocation();
@@ -16,7 +16,7 @@ function AdminLogin() {
 
     window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
 
-    const fetchRole = async (xUID) => {
+    /*const fetchRole = async (xUID) => {
       try {
         const RoleCollectionRef = collection(db, 'Role'); // Reference to 'Startup' collection
         const RolequerySnapshot = await getDocs(RoleCollectionRef); // Query the collection and get snapshot
@@ -37,7 +37,7 @@ function AdminLogin() {
       } catch (error) {
         console.error('Error updating Role data:', error);
       }
-    };
+    };*/
   
 
   const handleLogin = async (event) => {
@@ -58,7 +58,7 @@ function AdminLogin() {
         const userRole = roleDoc.data().AdminRole; // Get the role attribute
         console.log(userRole)
         if (userRole === 'admin') {
-          navigate('/Dashboard' );
+          navigate('/Dashboard', {state : {role : userRole} });
         } else {
           console.error('Role not recognized');
       
@@ -84,7 +84,7 @@ function AdminLogin() {
     
     <div className={styles['App-Admin']}>
      
-      <div className='static-bar'>
+      <div className={styles['App-Static-Bar']}>
      
         <p>{role} Login  </p>
       </div>
@@ -96,12 +96,13 @@ function AdminLogin() {
         
         <form onSubmit={handleLogin}>
 
-          <div>
-            <h5 htmlFor="Email" class="input-placeholder">Email</h5>
+          <div className={styles['App-Admin']}>
+            
+            <h5 htmlFor="Email">Email</h5>
             <input
               type="text"
               id="Email"
-              class="form-style"
+              class={styles['form-style']}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -109,11 +110,11 @@ function AdminLogin() {
           </div>
           
           <div>
-            <h5 htmlFor="password" class="input-placeholder">Password</h5>
+            <h5 htmlFor="password">Password</h5>
             <input
               type="password"
               id="password"
-              class="form-style"
+              class={styles['form-style']}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -122,7 +123,7 @@ function AdminLogin() {
     
           
         <div>
-        <button type="submit"className={styles} >Admin Login</button>
+        <button type="submit" className={styles['App-Login-Button']} >Admin Login</button>
         
         </div>
         </form>

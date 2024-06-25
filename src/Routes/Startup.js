@@ -87,7 +87,7 @@ function Startup() {
                {ticket.startupName ? (
                   <InvestorBlockAvatar
                   imgLink= {ticket.InRef}
-                  StartupName={ticket.investorName}
+                  InvestorName={ticket.investorName}
                   Sector={ticket.investorCompany}
                 />
                 ) : (
