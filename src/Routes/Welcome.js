@@ -30,7 +30,7 @@ function Welcome() {
             <div className="LogRegContainer">
               <button className="LogRegbox1" onClick={() => navigate('/Login',{state : {role:"Investor"}}) }>INVESTORS</button>
               <button className="LogRegbox1" onClick={() => navigate('/Login',{state : {role:"Startup"}})}>STARTUPS</button>
-              <button className="LogRegbox1" onClick={() => navigate('/Login',{state : {role:"Guest"}})}>GUEST</button>
+              <button className="LogRegbox1" onClick={() => navigate('/Guest')}>GUEST</button>
             </div>
           </div>
         </div>

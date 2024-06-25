@@ -33,13 +33,16 @@ function Protected() {
             navigate('/Startup' , { state: { ID: userRole } });
           } else if (selectedRole === 'Investor') {
             navigate('/InvestorMain', { state: { ID: userRole } });
-          } else {
+          } 
+          else if (selectedRole === 'Guest') {
+            navigate('/Guest', { state: { ID: userRole } });
+          }else {
             console.error('Role not recognized');
-            navigate('/login');
+            navigate('/');
           }
         } else {
           console.error('No such document!');
-          navigate('/login');
+          navigate('/');
         }
       } catch (error) {
         console.error('Error fetching role:', error);

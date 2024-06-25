@@ -21,6 +21,9 @@ import Dashboard from './Routes/Dashboard';
 import CreateTicket from './Routes/CreateTicket';
 import AdminLogin from './Routes/AdminLogin'
 import Protected from './Routes/Protected';
+import Guest from './Routes/Guest';
+import GuestViewList from './Routes/GuestViewLists';
+import GuestViewStartup from './Routes/GuestViewStartup';
 const router = createBrowserRouter([
 
   {
@@ -32,6 +35,21 @@ const router = createBrowserRouter([
     path: "/Protected",
     errorElement: <Err />,
     element:  <Protected/>,
+  },
+  {
+    path: "/Guest",
+    errorElement: <Err />,
+    element:  <Guest/>,
+  },
+  {
+    path: "/GuestViewList",
+    errorElement: <Err />,
+    element:  <GuestViewList/>,
+  },
+  {
+    path: "/GuestViewStartup",
+    errorElement: <Err />,
+    element:  <GuestViewStartup/>,
   },
   {
     path: "/AdminLogin",
