@@ -828,67 +828,65 @@ input::placeholder {
 
 .appleInputContainer {
   display: flex;
-  text-align: left;
   flex-direction: column;
-  margin-bottom: 8vh;
-
+  text-align: left;
+  margin-bottom: 8vh; /* Adjust as needed */
 }
 
 .appleInputContainer label {
-  font-size: 3.2vh;
+  font-size: 3.2vh; /* Using relative units for consistency */
   font-weight: 500;
-
-
 }
+
 .appleInputContainer2 {
   display: flex;
   flex-direction: column;
-
 }
 
 .appleInputLabel {
- 
   color: #000000;
-  margin-bottom: 5px;
+  margin-bottom: 5px; /* Space between label and textarea */
 }
 
 .appleInput {
-  
-  padding: 2vh 6vw;
-
+  padding: 8vw 6vw;
   margin-bottom: 1vh;
-
+  resize: none; /* Prevent manual resizing */
   text-align: justify;
-  height: 40vh;
-  color : rgb(0, 0, 0);
+  height: auto; /* Dynamic height based on content */
+  color: rgb(0, 0, 0);
   font-weight: 400;
-  border: 0;
-  font-size: 3.6vw;
+  border: 0; /* No border */
+  font-size: 3.6vw; /* Responsive font size */
   background-color: #F2F2F2;
   outline: none;
+  overflow: hidden; /* Hide scrollbars */
   transition: border-color 0.3s ease;
-  padding-bottom: 10vh;
-  
-  overflow: hidden;
+  box-sizing: border-box; /* Include padding in width/height calculations */
+  line-height: 1.5; /* Adjust for better readability */
+  border-radius: 4px; /* Optional: Add some rounding for aesthetics */
 }
+
 .appleInput2 {
-  padding-top: 1vh;
+  padding-top: 5vw;
+  padding-bottom: 5vw;
   padding-left: 3vw;
   padding-right: 3vw;
   width: 77vw;
+  height: auto; /* Adjust height dynamically */
+  min-height: 18vh; /* Ensure a minimum height */
   font-size: 4vw;
-  height: 15vh;
-  color : rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
   font-weight: bold;
   border: 0.5vw solid #d1d1d6;
   border-radius: 10px;
   background-color: white;
   outline: none;
   transition: border-color 0.3s ease;
-
-
-
+  box-sizing: border-box; /* Ensure padding is included in dimensions */
 }
+
+/* Add any additional specific styles for .appleInputContainer2 or .appleInput2 here */
 
 .ValueSpan {
   display: flex;

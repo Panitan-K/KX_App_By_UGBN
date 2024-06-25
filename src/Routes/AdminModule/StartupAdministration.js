@@ -109,14 +109,22 @@ function StartupAdministration() {
           {startups.map(startup => (
             <div key={startup.id} className={`AdminStartupBlock ${unfolded[startup.id] ? 'unfolded' : ''}`}>
               <div className="AdminStartupBlockHeader" onClick={() => toggleFold(startup.id)}>
-                <p>Startup ID: {startup.id} <br />  Startup Name: {startup.startupName}</p>
+                <p>Startup ID: {startup.id} 
+                  <br />  
+                Startup Name: {startup.startupName}
+                  <br /> 
+                Industry : {startup.industry}
+                  <br /> 
+                
+                </p>
+                
                 
               </div>
               {unfolded[startup.id] && (
                 <div className="AdminStartupBlockContent">
                   <img src={startup.imgSrc} alt="StartupIMGSRC" className='StartupIMGSRC'/>
                   <img src={startup.productSrc} alt="StartupIMGSRC2" className='StartupIMGSRC2' />
-              
+                  <p>Description <br /> {startup.des} </p>
                   {/* Add more fields as needed */}
                 </div>
               )}
