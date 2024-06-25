@@ -100,7 +100,7 @@ p, a, span, div, li, ul, ol, input, textarea, button {
 
 .Infoheader{
   text-align: left;
-  line-height: 1.3vh;
+ 
 }
 .Infoheader h2{
   font-size: 4vh;
@@ -827,6 +827,7 @@ input::placeholder {
 }
 
 .appleInputContainer {
+  margin-top: 5vw;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -849,7 +850,7 @@ input::placeholder {
 }
 
 .appleInput {
-  padding: 8vw 6vw;
+  padding: 4vw 6vw;
   margin-bottom: 1vh;
   resize: none; /* Prevent manual resizing */
   text-align: justify;
@@ -1050,3 +1051,24 @@ input::placeholder {
   text-align: left;
 }
 
+.StartupAskButton {
+  margin-right: 0px;
+  align-items: center;
+  text-align: center;
+  margin-top: 3%;
+  width: 25vw; 
+  font-size: 4vw;
+  font-weight: 300;
+  color: black;
+  height: 5vh;
+  border-radius: 40px;
+  border: 0px;
+  background: #F2F2F2;
+  transition: background 0.3s ease; /* Optional: Smooth transition effect for hover */
+}
+
+.StartupReq {
+  width: 100%; /* Adjust the width as needed */
+  overflow-wrap: break-word; /* Allow words to break onto the next line */
+  line-height: normal;
+}

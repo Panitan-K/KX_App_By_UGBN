@@ -43,8 +43,13 @@ function GuestViewStartup() {
       <div className='AppWithHeaderContent'>
         <div className="Infoheader">
           <h2>{startup.startupName}</h2>
-          <p>Stage: {startup.stage}</p>
-          <p>We are looking for .....................</p>
+          
+            <div className='StartupReq'>
+       
+            <p>Stage : {startup.stage} <br/> We are looking for : {startup.req}</p>
+       
+          </div>
+          
         </div>
         <div className='StartupsInfoBlocks2'>
           <img src={startup.productSrc} alt="Welcome" />
