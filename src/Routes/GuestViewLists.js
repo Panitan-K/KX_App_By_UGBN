@@ -91,8 +91,8 @@ function GuestViewList() {
       <div className='static-bar'>
         <div className='Static-Header-Container'>
           <div>
-          <h1>Startup Profile</h1>
-          <p>from TECHBITE 5.0 Incubation program</p>
+            <h1>Startup Profile</h1>
+            <p>from TECHBITE 5.0 Incubation program</p>
           </div>
         <img src={Search} alt="Welcome"/>
         </div>
