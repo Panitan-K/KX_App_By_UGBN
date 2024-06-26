@@ -8,11 +8,11 @@ const Slider2 = ({label,sublabel,lowLabel, highLabel, value, onChange }) => {
 
   const getColor = () => {
     const percentage = (value / 10) * 100;
-    return `linear-gradient(to right, #1D5D3F 0%, #3DC384 ${percentage}%, #F2F2F2 ${percentage}%)`;
+    return `linear-gradient(to right, #1D5D3F 0%, #3DC384 ${percentage+0.2}%, #F2F2F2 ${percentage}%)`;
   };
 
   const sliderStyle = {
-    background: getColor(),
+    /*background: /*getColor()*/
   };
 
   return (
@@ -27,12 +27,14 @@ const Slider2 = ({label,sublabel,lowLabel, highLabel, value, onChange }) => {
         max={10.0}
         value={value}
         onChange={handleChange}
-        className="slider"
-        style={sliderStyle}
+        className=""
+        
         step={1}
       />
       <div className="label low-risk">{highLabel}</div>
-    
+
+        <input type="range" value="0"/>
+        <div id="h4-container"><div id="h4-subcontainer"><h4>0<span></span></h4></div></div>
     </div>
   );
 };
