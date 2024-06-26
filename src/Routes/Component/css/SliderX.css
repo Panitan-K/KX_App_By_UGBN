@@ -30,7 +30,7 @@ input[type="range"] {
         -webkit-appearance: none;
         cursor: ew-resize;
    
-        box-shadow: -340px 0 0 320px #3dc38500, inset 0 0 0 40px #3DC384;
+        box-shadow: -340px 0 0 320px #3dc38500, inset 0 0 0 40px #39B77C;
         border-radius: 50%;
         
         transition: box-shadow 0.2s ease-in-out;
