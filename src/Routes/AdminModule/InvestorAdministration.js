@@ -147,8 +147,9 @@ function InvestorAdministration() {
               <div className="AdminStartupBlockHeader" >
                 <div>
                   <p onClick={() => toggleFold(investor.id)}>Investor ID: {investor.id} <br/>
-                  Investor Name: {investor.firstName} {investor.lastName} <br/>
-                  Organization: {investor.organization}
+                  Name: {investor.firstName} {investor.lastName} <br/>
+                  Organization: {investor.organization}<br/>
+                  Email: {investor.email}
                   </p>
                 </div>
                 <div className='EditBox'>

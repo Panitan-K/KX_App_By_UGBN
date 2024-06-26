@@ -100,7 +100,7 @@ function Startup() {
           ))
         ) : (
           <div className='TicketBlocks'>
-            <p>No Startups Invested</p>
+            <p>No Investor </p>
           </div>
         )}
         <footer className="FooterNavBar">

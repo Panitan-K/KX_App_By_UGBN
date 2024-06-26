@@ -7,7 +7,6 @@ import Slider2 from './Component/Slider2';
 import FooterRocket from "./image/svg/rocket.png";
 import FooterHouse from "./image/svg/house.png";
 import FooterRevert from "./image/svg/Revert.png";
-import Slider3 from './Component/Slider2';
 function Invest() {
     const navigate = useNavigate();
     const [xinvestorID, setInvestorID] = useState("");
@@ -75,8 +74,7 @@ function Invest() {
                         <Slider2 label="MARKET SIZE" sublabel="Estimate market size" lowLabel="Small Market Size" highLabel="Big Market Size" value={rating.marketSize} onChange={(newValue) => handleSliderChange('marketSize', newValue)} />
                         <Slider2 label="TEAM" sublabel="Team Potential" lowLabel="Impotent" highLabel="Potent" value={rating.teamPotential} onChange={(newValue) => handleSliderChange('teamPotential', newValue)} />
                         <Slider2 label="SCALABILITY" sublabel="Is it Scalable?" lowLabel="Limiting" highLabel="Scalable" value={rating.businessPotential} onChange={(newValue) => handleSliderChange('businessPotential', newValue)} />
-                        <Slider3 label="SCALABILITY" sublabel="Is it Scalable?" lowLabel="Limiting" highLabel="Scalable" value={rating.businessPotential} onChange={(newValue) => handleSliderChange('businessPotential', newValue)} />
-                     
+                        
                      </div>
                     <div className='CommentSection'>
                         <p>Suggestion</p>
