@@ -39,7 +39,7 @@ function Startup() {
         const startupQuerySnapshot = await getDocs(startupCollectionRef);
         console.log("This is StartupID: ", StartupID);
         if (!startupQuerySnapshot.empty) {
-          const startupData = startupQuerySnapshot.docs.find(doc => doc.id === /*StartupID*/ "S01");
+          const startupData = startupQuerySnapshot.docs.find(doc => doc.id === StartupID);
           if (startupData) {
             const StartupBuffer = startupData.data();
             setStartupInfo(StartupBuffer);

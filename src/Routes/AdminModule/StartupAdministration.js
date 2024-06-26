@@ -15,6 +15,9 @@ function StartupAdministration() {
   const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
   const [deleteId, setDeleteId] = useState(null); // State to store the ID of the startup to delete
   const [isDeleteConfirmationOpen, setIsDeleteConfirmationOpen] = useState(false); // State to control delete confirmation modal
+  const [editingId, setEditingId] = useState(null); // State to store the ID of the startup being edited
+  const [updatedName, setUpdatedName] = useState(''); // State to store updated startup name
+  const [updatedIndustry, setUpdatedIndustry] = useState(''); // State to store updated industry
   const modalRef = useRef(null);
 
   useEffect(() => {
@@ -120,6 +123,34 @@ function StartupAdministration() {
     }
   };
 
+  const handleUpdateStartup = async () => {
+    try {
+      const docRef = doc(db, 'Startup', editingId);
+      await updateDoc(docRef, {
+        startupName: updatedName,
+        industry: updatedIndustry
+        // Add more fields to update as needed
+      });
+
+      const updatedStartups = startups.map(startup => {
+        if (startup.id === editingId) {
+          return {
+            ...startup,
+            startupName: updatedName,
+            industry: updatedIndustry
+            // Add more fields to update as needed
+          };
+        }
+        return startup;
+      });
+
+      setStartups(updatedStartups);
+      setEditingId(null); // Exit edit mode
+    } catch (error) {
+      console.error("Error updating startup:", error);
+    }
+  };
+
   return (
     <div className="Admin-Component">
       <div>
@@ -132,14 +163,32 @@ function StartupAdministration() {
           {startups.map(startup => (
             <div key={startup.id} className={`AdminStartupBlock ${unfolded[startup.id] ? 'unfolded' : ''}`}>
               <div className="AdminStartupBlockHeader">
-                <p onClick={() => toggleFold(startup.id)}>
-                  Startup ID: {startup.id} <br />
-                  Startup Name: {startup.startupName} <br />
-                  Industry: {startup.industry} <br />
-                </p>
+                {editingId === startup.id ? (
+                  <div>
+                    <input
+                      type="text"
+                      value={updatedName}
+                      onChange={(e) => setUpdatedName(e.target.value)}
+                    />
+                    <input
+                      type="text"
+                      value={updatedIndustry}
+                      onChange={(e) => setUpdatedIndustry(e.target.value)}
+                    />
+                    {/* Add more input fields for other editable fields */}
+                    <button onClick={handleUpdateStartup}>Save</button>
+                    <button onClick={() => setEditingId(null)}>Cancel</button>
+                  </div>
+                ) : (
+                  <p onClick={() => toggleFold(startup.id)}>
+                    Startup ID: {startup.id} <br />
+                    Startup Name: {startup.startupName} <br />
+                    Industry: {startup.industry} <br />
+                  </p>
+                )}
                 <div className='EditBox'>
                   <img src={Trash} alt="Delete" className='BarIconTopRight' onClick={() => handleDelete(startup.id)} />
-                  <img src={Setting} alt="Settings" className='BarIconTopRight' />
+                  <img src={Setting} alt="Settings" className='BarIconTopRight' onClick={() => setEditingId(startup.id)} />
                 </div>
               </div>
               {unfolded[startup.id] && (
