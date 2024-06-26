@@ -29,16 +29,16 @@ input[type="range"] {
         height: 40px;
         -webkit-appearance: none;
         cursor: ew-resize;
-        background: #fff;
+   
         box-shadow: -340px 0 0 320px #3dc38500, inset 0 0 0 40px #3DC384;
         border-radius: 50%;
-        background-image: linear-gradient(to right, #1D5D3F 0%, #3DC384 50%, #3DC384 50%);
+        
         transition: box-shadow 0.2s ease-in-out;
         position: relative;
     }
     input[type="range"]:active::-webkit-slider-thumb {
-        background: #fff;
-        box-shadow: -340px 0 0 320px #3DC384, inset 0 0 0 3px #1596ff00;
+        background: #3DC384;
+        box-shadow: #3DC384;
     }
 }
 
@@ -70,14 +70,14 @@ input[type="range"]::-ms-fill-upper {
     background-color: white;
     text-align: left;
     line-height: 10px;
-    height: 130px;
+    height: 140px;
     border-radius: 10px;
   }
   
 
   .label {
     position: absolute;
-    top: 125px; /* Adjust the top position as needed */
+    top: 140px; /* Adjust the top position as needed */
     font-size: 12px;
     font-weight: bold;
   }

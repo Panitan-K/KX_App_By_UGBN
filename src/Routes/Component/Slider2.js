@@ -8,7 +8,39 @@ const Slider2 = ({label,sublabel,lowLabel, highLabel, value, onChange }) => {
 
   const getColor = () => {
     const percentage = (value / 10) * 100;
+    console.log(percentage)
+    if (percentage === 100) {
+      return `linear-gradient(to right, #1D5D3F 0%, #3DC384 ${percentage}%, #F2F2F2 ${percentage}%)`;
+    }
+    else if (percentage === 90) {
+      return `linear-gradient(to right, #1D5D3F 0%, #3DC384 85%, #F2F2F2 12%)`;
+    }
+    else if (percentage === 80) {
+      return `linear-gradient(to right, #1D5D3F 0%, #3DC384 75%, #F2F2F2 25%)`;
+    }
+    else if (percentage === 70) {
+      return `linear-gradient(to right, #1D5D3F 0%, #3DC384 68%, #F2F2F2 32%)`;
+    }
+    else if (percentage === 60) {
+      return `linear-gradient(to right, #1D5D3F 0%, #3DC384 60%, #F2F2F2 40%)`;
+    }
+    else if (percentage === 50) {
+      return `linear-gradient(to right, #1D5D3F 0%, #3DC384 50%, #F2F2F2 50%)`;
+    }
+    else if (percentage === 40) {
+      return `linear-gradient(to right, #1D5D3F 0%, #3DC384 40%, #F2F2F2 40%)`;
+    }
+    else if (percentage === 30) {
+      return `linear-gradient(to right, #1D5D3F 0%, #3DC384 33%, #F2F2F2 33%)`;
+    }
+    else if (percentage === 20) {
+      return `linear-gradient(to right, #1D5D3F 0%, #3DC384 22%, #F2F2F2 22%)`;
+    }
+    else if (percentage === 10) {
+      return `linear-gradient(to right, #1D5D3F 0%, #3DC384 15%, #F2F2F2 15%)`;
+    }
     return `linear-gradient(to right, #1D5D3F 0%, #3DC384 ${percentage}%, #F2F2F2 ${percentage}%)`;
+
   };
 
   const sliderStyle = {
@@ -27,7 +59,7 @@ const Slider2 = ({label,sublabel,lowLabel, highLabel, value, onChange }) => {
         max={10.0}
         value={value}
         onChange={handleChange}
-        className="slider"
+        className=""
         style={sliderStyle}
         step={1}
       />
