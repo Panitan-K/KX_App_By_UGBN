@@ -79,7 +79,7 @@ function InvestList() {
   }, [location.state]);
 
   const handleNavigate = (startup) => {
-    navigate('/StartupInfo', { state: { ID: xinvestorID, Startup :startup, InvestorInfo : location.state } })
+    navigate('/StartupInfo', { state: { ID: xinvestorID, Startup :startup, InvestorInfo : location.state, startuplist : location.state.startuplist } })
   };
   /* OLD HTML */
   /*  <img 

@@ -6,6 +6,7 @@ import { collection, getDocs/*, getDoc, doc, updateDoc*/ } from 'firebase/firest
 import Avatar from './Component/Avatar';
 import InvestorBlockAvatar from './Component/InvestorBlockAvatar';
 //import footer from "./image/Mock/Footer.png"
+import { useNavigate } from "react-router-dom";
 import FooterRocket from "./image/svg/rocket.png";
 import FooterHouse from "./image/svg/house.png";
 import FooterRevert from "./image/svg/Revert.png";
@@ -14,7 +15,7 @@ function Startup() {
   const [tickets, setTickets] = useState([]);
   const [startupInfo, setStartupInfo] = useState({});
   //const [ticketAmount, setTicketAmount] = useState(0);
-
+  const navigate = useNavigate();
   const [StartupID, setStartupID] = useState("");
   const location = useLocation();
 
@@ -105,7 +106,7 @@ function Startup() {
         <footer className="FooterNavBar">
           <img src={FooterRocket} alt="Footer" />
           <img src={FooterHouse} alt="Footer" />
-          <img src={FooterRevert} alt="Footer" />
+          <img src={FooterRevert} alt="Footer" onClick={() =>navigate('/')} />
         </footer>
         </div>
     

@@ -16,7 +16,7 @@ function InvestorMain() {
   const location = useLocation();
   const [tickets, setTickets] = useState([]);
   const [investorInfo, setInvestorInfo] = useState({});
-  const [ticketAmount, setTicketAmount] = useState(0);
+  const [startuplist, setStartuplist] = useState([]);
   const [xinvestorID,setInvestorID] = useState("");
 
   useEffect(() => {  
@@ -88,20 +88,37 @@ function InvestorMain() {
   // Filter tickets where investorName matches the investor's name
   const filteredTickets = tickets.filter(ticket => ticket.investorName === investorInfo.firstName +" "+ investorInfo.lastName);
   useEffect(() => {
-    console.log(filteredTickets)
-    const uniqueStartupNames = new Set(filteredTickets.map(ticket => ticket.startupName));
-    setTicketAmount(uniqueStartupNames.length);
-    console.log(ticketAmount);
+    // Check if tickets and investorInfo are available
+    if (tickets && investorInfo) {
+      // Perform filtering only if tickets and investorInfo are valid
+      const filteredTickets = tickets.filter(ticket => 
+        ticket.investorName === `${investorInfo.firstName} ${investorInfo.lastName}`
+      );
 
-  },[filteredTickets, ticketAmount])
-  
+      // Map to startup names
+      const startupNames = filteredTickets.map(ticket => ({ name: ticket.startupName }));
+
+      // Only update the state if startupNames has changed
+      setStartuplist(prevList => {
+        // Compare the previous list with the new list
+        const prevNames = prevList.map(item => item.name);
+        const newNames = startupNames.map(item => item.name);
+
+        if (JSON.stringify(prevNames) !== JSON.stringify(newNames)) {
+          return startupNames;
+        }
+        return prevList; // No changes, return the previous state
+      });
+
+    }
+  }, [tickets, investorInfo]);
 
 // Get the count of unique startup names
 if (!investorInfo.firstName || !investorInfo.lastName) {
   return <div>Loading ... </div>;
 }
 console.log(tickets)
-console.log(ticketAmount);
+
 //const formattedLastName = investorInfo.lastName.length > 1 ? `${investorInfo.lastName.charAt(0)}.` : <h2 style={{ lineHeight: "0.5vh" }}>{investorInfo.lastName}</h2>;
 
   
@@ -121,7 +138,7 @@ console.log(ticketAmount);
         <p className='Cash2' >{investorInfo.balance} </p>
       </div>
 
-      <button className='InvestButton' onClick={() => navigate('/InvestList',{ state : { ID : xinvestorID , InvestorInfo : investorInfo}})}>Send Token</button>
+      <button className='InvestButton' onClick={() => navigate('/InvestList',{ state : { ID : xinvestorID , InvestorInfo : investorInfo, startuplist:startuplist}})}>Send Token</button>
 
       <div className="PortfolioBox">
         <div className='PortfolioHead'>
@@ -154,9 +171,9 @@ console.log(ticketAmount);
           </div>
         )}
       <footer className="FooterNavBar">
-        <img src={FooterRocket} alt="Footer" onClick={() => navigate('/InvestList',{ state : { ID : xinvestorID , InvestorInfo : investorInfo}})}  />
+        <img src={FooterRocket} alt="Footer" onClick={() => navigate('/InvestList',{ state : { ID : xinvestorID , InvestorInfo : investorInfo, startuplist:startuplist}})}  />
         <img src={FooterHouse} alt="Footer" onClick={() =>navigate('/InvestorMain', { state: { ID: xinvestorID } })}/>
-        <img src={FooterRevert} alt="Footer" />
+        <img src={FooterRevert} alt="Footer" onClick={() =>navigate('/')} />
       </footer>
     </div>
   );

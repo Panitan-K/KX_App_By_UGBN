@@ -4,6 +4,9 @@ import React, { useState } from 'react';
 import { useLocation,useNavigate } from "react-router-dom";
 import { auth } from './Firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth';
+import FooterRocket from "./image/svg/rocket.png";
+import FooterHouse from "./image/svg/house.png";
+import FooterRevert from "./image/svg/Revert.png";
 
 function Login() {
   const location = useLocation();
@@ -88,6 +91,11 @@ function Login() {
       </div>
     </div>
     </div>
+    <footer className="FooterNavBar">
+          <img src={FooterRocket} alt="Footer" />
+          <img src={FooterHouse} alt="Footer" />
+          <img src={FooterRevert} alt="Footer" onClick={() =>navigate('/')} />
+        </footer>
     </div>
 
   

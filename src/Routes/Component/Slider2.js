@@ -23,13 +23,13 @@ const Slider2 = ({label,sublabel,lowLabel, highLabel, value, onChange }) => {
       <div className="label high-risk">{lowLabel}</div>
       <input
         type="range"
-        min={0.0}
-        max={10.0}
+        min={0}
+        max={10}
         value={value}
         onChange={handleChange}
         className="slider"
         style={sliderStyle}
-        step={0.1}
+        step={1}
       />
       <div className="label low-risk">{highLabel}</div>
     

@@ -46,7 +46,7 @@ function Guest() {
       <footer className="FooterNavBar">
         <img src={FooterRocket} alt="Footer" onClick={() => navigate('/GuestViewList')}  />
         <img src={FooterHouse} alt="Footer" />
-        <img src={FooterRevert} alt="Footer" />
+        <img src={FooterRevert} alt="Footer" onClick={() =>navigate('/')} />
       </footer>
     </div>
   );

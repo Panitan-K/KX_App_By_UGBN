@@ -28,6 +28,7 @@ function StartupInfo() {
     if (location.state) {
       setInvestorID(location.state.ID);
       setStartup(location.state.Startup);
+      console.log(location.state)
     }
     window.scrollTo(0, 0); // Scrolls to the top of the page when component mounts
   }, [location.state]);
@@ -56,6 +57,14 @@ function StartupInfo() {
       return;
     }
 
+    const startupNameToCheck = startup.startupName;
+    const isInStartupList = location.state.startuplist.some(item => item.name === startupNameToCheck)
+    console.log(isInStartupList)
+    if (isInStartupList) {
+      alert("You have voted to this startup already ");
+      setIsSubmitting(false); // Re-enable button
+      return;
+    }
     const newTicket = {
       sector: startup.industry,
       startupName: startup.startupName,
@@ -125,9 +134,9 @@ function StartupInfo() {
         </div>
       </div>
       <footer className="FooterNavBar">
-        <img src={FooterRocket} alt="Footer" onClick={() => navigate('/InvestList', { state: { ID: xinvestorID, InvestorInfo: location.state.InvestorInfo.InvestorInfo } })} />
+        <img src={FooterRocket} alt="Footer" onClick={() => navigate('/InvestList', { state: { ID: xinvestorID, InvestorInfo: location.state.InvestorInfo.InvestorInfo, startuplist: location.state.startuplist } })} />
         <img src={FooterHouse} alt="Footer" onClick={() => navigate('/InvestorMain', { state: { ID: xinvestorID } })} />
-        <img src={FooterRevert} alt="Footer" onClick={() => navigate('/InvestList', { state: { ID: xinvestorID, InvestorInfo: location.state.InvestorInfo.InvestorInfo } })} />
+        <img src={FooterRevert} alt="Footer" onClick={() => navigate('/InvestList', { state: { ID: xinvestorID, InvestorInfo: location.state.InvestorInfo.InvestorInfo, startuplist: location.state.startuplist} })} />
       </footer>
     </div>
   );
