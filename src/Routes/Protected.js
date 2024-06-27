@@ -1,11 +1,14 @@
-import  { useEffect } from 'react';
+import  { useEffect/*,useState*/ } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { db } from './Firebase'; // Ensure you have this Firebase configuration
 import { collection, getDoc, doc } from 'firebase/firestore';
-
+//import AlertBox from './Component/AlertBox'; // Import the AlertBox component
 function Protected() {
   const navigate = useNavigate();
   const location = useLocation();
+  //const [alertVisible, setAlertVisible] = useState(false); // State to manage alert visibility
+  //const [alertTopic, setAlertTopic] = useState(''); // State to manage alert topic
+  //const [alertContent, setAlertContent] = useState(''); // State to manage alert content
 
   useEffect(() => {
     const searchRole = async () => {
@@ -37,7 +40,11 @@ function Protected() {
           else if (selectedRole === 'Guest') {
             navigate('/Guest', { state: { ID: userRole } });
           }else {
+
+  
+
             console.error('Role not recognized');
+            
             navigate('/');
           }
         } else {
@@ -54,7 +61,8 @@ function Protected() {
   }, [navigate, location.state]);
 
   // User is not signed in, already navigated
-  return null;
+  return null
+  ;
 }
 
 export default Protected;

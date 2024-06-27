@@ -7,6 +7,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import FooterRocket from "./image/svg/rocket.png";
 import FooterHouse from "./image/svg/house.png";
 import FooterRevert from "./image/svg/Revert.png";
+import AlertBox from './Component/AlertBox'; // Import the AlertBox component
 
 function Login() {
   const location = useLocation();
@@ -15,7 +16,9 @@ function Login() {
   const [password, setPassword] = useState('');
   //const [errMsg, setErrMsg] = useState(null);
   const navigate = useNavigate();
-
+  const [alertVisible, setAlertVisible] = useState(false); // State to manage alert visibility
+  const [alertTopic, setAlertTopic] = useState(''); // State to manage alert topic
+  const [alertContent, setAlertContent] = useState(''); // State to manage alert content
  
   //console.log("Role passed from Welcome page:", role); 
   const handleLogin = async (event) => {
@@ -31,9 +34,9 @@ function Login() {
       navigate('/Protected', { state: { userUID: _user.uid ,role:role} });
 
     } catch (error) {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode + '  ' + errorMessage);
+      setAlertTopic('Error');
+      setAlertContent('Incorrect Email or Password');
+      setAlertVisible(true); // Show the alert
     }
 
    
@@ -91,11 +94,18 @@ function Login() {
       </div>
     </div>
     </div>
-    <footer className="FooterNavBar">
+      <footer className="FooterNavBar">
           <img src={FooterRocket} alt="Footer" />
           <img src={FooterHouse} alt="Footer" />
           <img src={FooterRevert} alt="Footer" onClick={() =>navigate('/')} />
-        </footer>
+      </footer>
+        {alertVisible && (
+        <AlertBox
+          alertTopic={alertTopic}
+          alertContent={alertContent}
+          onClose={() => setAlertVisible(false)} // Close the alert
+        />
+      )}
     </div>
 
   

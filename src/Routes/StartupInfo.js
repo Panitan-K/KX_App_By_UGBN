@@ -6,6 +6,7 @@ import { collection, doc, setDoc, getDocs, arrayUnion, updateDoc, increment } fr
 import FooterRocket from "./image/svg/rocket.png";
 import FooterHouse from "./image/svg/house.png";
 import FooterRevert from "./image/svg/Revert.png";
+import AlertBox from './Component/AlertBox'; // Import the AlertBox component
 
 function StartupInfo() {
   const navigate = useNavigate();
@@ -23,6 +24,10 @@ function StartupInfo() {
 
   const textAreaRef = useRef(null);
   const [isSubmitting, setIsSubmitting] = useState(false); // State to manage button disable
+
+  const [alertVisible, setAlertVisible] = useState(false); // State to manage alert visibility
+  const [alertTopic, setAlertTopic] = useState(''); // State to manage alert topic
+  const [alertContent, setAlertContent] = useState(''); // State to manage alert content
 
   useEffect(() => {
     if (location.state) {
@@ -52,7 +57,9 @@ function StartupInfo() {
     setIsSubmitting(true); // Disable button to prevent double click
 
     if (location.state.InvestorInfo.InvestorInfo.balance <= 0) {
-      alert("You have no token left");
+      setAlertTopic('Insufficient Token');
+      setAlertContent('You have no token remaining');
+      setAlertVisible(true); // Show the alert
       setIsSubmitting(false); // Re-enable button
       return;
     }
@@ -61,7 +68,10 @@ function StartupInfo() {
     const isInStartupList = location.state.startuplist.some(item => item.name === startupNameToCheck)
     console.log(isInStartupList)
     if (isInStartupList) {
-      alert("You have voted to this startup already ");
+      
+      setAlertTopic('Already Voted');
+      setAlertContent('You have voted for '+startupNameToCheck+ ' already');
+      setAlertVisible(true); // Show the alert
       setIsSubmitting(false); // Re-enable button
       return;
     }
@@ -138,6 +148,13 @@ function StartupInfo() {
         <img src={FooterHouse} alt="Footer" onClick={() => navigate('/InvestorMain', { state: { ID: xinvestorID } })} />
         <img src={FooterRevert} alt="Footer" onClick={() => navigate('/InvestList', { state: { ID: xinvestorID, InvestorInfo: location.state.InvestorInfo.InvestorInfo, startuplist: location.state.startuplist} })} />
       </footer>
+      {alertVisible && (
+        <AlertBox
+          alertTopic={alertTopic}
+          alertContent={alertContent}
+          onClose={() => setAlertVisible(false)} // Close the alert
+        />
+      )}
     </div>
   );
 }
