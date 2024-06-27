@@ -19,6 +19,9 @@ function InvestorMain() {
   const [startuplist, setStartuplist] = useState([]);
   const [xinvestorID,setInvestorID] = useState("");
 
+  const refreshPage = () => {
+    window.location.reload();
+  };
   useEffect(() => {  
     
     //console.log("this is state",state)
@@ -143,7 +146,7 @@ console.log(tickets)
       <div className="PortfolioBox">
         <div className='PortfolioHead'>
         <h4>COMPANY GOT YOUR TOKEN</h4>
-        <button>View all</button>
+        <button onClick={refreshPage}>Refresh</button>
         </div>
 
        

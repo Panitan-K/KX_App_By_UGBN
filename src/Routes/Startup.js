@@ -19,7 +19,10 @@ function Startup() {
   const [StartupID, setStartupID] = useState("");
   const location = useLocation();
 
-  
+  const refreshPage = () => {
+    window.location.reload();
+  };
+
   useEffect(() => {
     setStartupID(location.state.ID);
   }, [location.state.ID]); // This effect runs only when location.state.ID changes
@@ -77,8 +80,8 @@ function Startup() {
           </div>
         <div className="PortfolioBox">
           <div className='PortfolioHead'>
-            <h4>COMPANY GOT YOUR TOKEN</h4>
-            <button>View all</button>
+            <h4>TOKENS FROM INVESTORS </h4>
+            <button onClick={refreshPage} >Refresh</button>
           </div>
 
           {filteredTickets.length > 0 ? (
