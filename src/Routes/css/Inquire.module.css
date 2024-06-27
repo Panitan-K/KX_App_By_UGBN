@@ -1,0 +1,164 @@
+:root {
+  --KXB: #545658;
+  --MahidolBlue: #0080ff;
+  --BGC: #F2F2F2;
+  --UphasiaGreen: #17AA7C;
+  --KXOrange : #E16236;
+}
+
+/* Importing Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700&display=swap');
+
+/* Apply the font to the entire website */
+body {
+  font-family: 'Gothic A1', sans-serif;
+}
+
+/* Ensure consistency across common elements */
+h1, h2, h3, h4, h5, h6 {
+  font-family: inherit; /* Ensures heading tags also use the body font */
+}
+
+p, a, span, div, li, ul, ol, input, textarea, button {
+  font-family: inherit; /* Ensures other common elements also use the body font */
+}
+
+.App-Inquire {
+  padding-top: 5%;
+  text-align: center;
+  background-color: var(--BGC);
+  min-height: 100vh;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 60px; /* Adjusted to a more practical value */
+}
+
+.App-Inquire-Header h1 {
+  font-size: 140%;
+  
+}
+
+.App-Inquire-Header h4 {
+  font-size: 90%;
+  margin: 0;
+  margin-top: 2%;
+  color: var(--KXB);
+}
+
+.App-Inquire-Header img {
+  width: 25vh;
+  height: 25vh;
+}
+
+.Reg-Box {
+  margin: 1% 6%;
+  width: 70vw;
+}
+
+.Reg-Box h5 {
+  color: black;
+  font-size: 100%;
+  margin-bottom: 10px;
+}
+
+.Reg-Box form div {
+  color: rgb(203, 0, 0);
+  font-size: 100%;
+  text-align: center;
+}
+
+.form-style {
+  
+  height: 7vh;
+  width: 100%;
+  max-width: 80vw;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 10vw;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.form-style-box {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the left */
+  justify-content: flex-start; /* Align items to the top */
+  
+  text-align: left;
+
+
+}
+
+.form-style-box-img {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-style-box-img h5 {
+ margin-top: 0;
+}
+.Label-IMG-Container{
+  width: 70vw;
+}
+.Label-IMG-Container p {
+  color: var(--KXOrange);
+}
+
+.hidden-file-input {
+  display: none;
+}
+
+.custom-file-input-wrapper {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 2px solid var(--MahidolBlue); /* Use a variable for better consistency */
+  position: relative;
+  background-color: var(--BGC); /* Optional: background color */
+}
+
+.custom-file-input-img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+.submit-button{
+  background-color: white; 
+  color: black;
+  border: none; 
+  margin-top: 20px;
+
+  padding: 10px 20px; 
+  text-align: center; 
+  text-decoration: none; 
+  display: inline-block; 
+  font-size: 18px; 
+  border-radius: 20px; 
+  cursor: pointer; 
+
+}
+.submit-button:hover{
+
+  box-shadow: 0 8px 24px 0 rgba(26, 16, 112, 0.2);
+}
+

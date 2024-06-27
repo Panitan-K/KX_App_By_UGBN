@@ -24,12 +24,18 @@ import Protected from './Routes/Protected';
 import Guest from './Routes/Guest';
 import GuestViewList from './Routes/GuestViewLists';
 import GuestViewStartup from './Routes/GuestViewStartup';
+import Inquire from './Routes/Inquire';
 const router = createBrowserRouter([
 
   {
     path: "/",
     errorElement: <Err />,
     element:  <Welcome/>,
+  },
+  {
+    path: "/Inquire",
+    errorElement: <Err />,
+    element:  <Inquire/>,
   },
   {
     path: "/Protected",
