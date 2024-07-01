@@ -3,7 +3,7 @@
   --MahidolBlue: #0080ff;
   --BGC: #F2F2F2;
   --UphasiaGreen: #17AA7C;
-  --KXOrange : #E16236;
+  --KXOrange: #E16236;
 }
 
 /* Importing Google Font */
@@ -39,7 +39,6 @@ p, a, span, div, li, ul, ol, input, textarea, button {
 
 .App-Inquire-Header h1 {
   font-size: 140%;
-  
 }
 
 .App-Inquire-Header h4 {
@@ -50,8 +49,7 @@ p, a, span, div, li, ul, ol, input, textarea, button {
 }
 
 .App-Inquire-Header img {
-  width: 25vh;
-  height: 25vh;
+  width: 100vw;
 }
 
 .Reg-Box {
@@ -72,9 +70,8 @@ p, a, span, div, li, ul, ol, input, textarea, button {
 }
 
 .form-style {
-  
-  height: 7vh;
-  width: 100%;
+  height: 12vw;
+  width: 65vw;
   max-width: 80vw;
   font-weight: 500;
   font-size: 16px;
@@ -84,6 +81,7 @@ p, a, span, div, li, ul, ol, input, textarea, button {
   border-radius: 10vw;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   outline: none;
+  padding-left: 5vw;
 }
 
 .form-style-box {
@@ -92,10 +90,7 @@ p, a, span, div, li, ul, ol, input, textarea, button {
   flex-direction: column;
   align-items: flex-start; /* Align items to the left */
   justify-content: flex-start; /* Align items to the top */
-  
   text-align: left;
-
-
 }
 
 .form-style-box-img {
@@ -106,14 +101,17 @@ p, a, span, div, li, ul, ol, input, textarea, button {
   justify-content: center;
   margin-bottom: 20px;
   text-align: center;
+  overflow: hidden;
 }
 
 .form-style-box-img h5 {
- margin-top: 0;
+  margin-top: 0;
 }
-.Label-IMG-Container{
+
+.Label-IMG-Container {
   width: 70vw;
 }
+
 .Label-IMG-Container p {
   color: var(--KXOrange);
 }
@@ -131,34 +129,38 @@ p, a, span, div, li, ul, ol, input, textarea, button {
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  border: 2px solid var(--MahidolBlue); /* Use a variable for better consistency */
   position: relative;
-  background-color: var(--BGC); /* Optional: background color */
+  background-color: var(--BGC);
 }
 
 .custom-file-input-img {
-  width: 80%;
-  height: 80%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.submit-button{
-  background-color: white; 
+.upload-icon {
+  border: 2px dashed var(--MahidolBlue);
+}
+
+.uploaded-img {
+  border: 2px solid var(--MahidolBlue);
+}
+
+.submit-button {
+  background-color: white;
   color: black;
-  border: none; 
+  border: none;
   margin-top: 20px;
-
-  padding: 10px 20px; 
-  text-align: center; 
-  text-decoration: none; 
-  display: inline-block; 
-  font-size: 18px; 
-  border-radius: 20px; 
-  cursor: pointer; 
-
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 20px;
+  cursor: pointer;
 }
-.submit-button:hover{
 
+.submit-button:hover {
   box-shadow: 0 8px 24px 0 rgba(26, 16, 112, 0.2);
 }
-
