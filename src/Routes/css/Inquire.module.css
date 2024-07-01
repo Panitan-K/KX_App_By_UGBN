@@ -70,7 +70,7 @@ p, a, span, div, li, ul, ol, input, textarea, button {
 }
 
 .form-style {
-  height: 12vw;
+  height: 40px;
   width: 65vw;
   max-width: 80vw;
   font-weight: 500;
